@@ -24,7 +24,7 @@ sudo docker exec -it tei2json-api docker run shenukacj/cudl-xslt:0.0.5 && sudo d
 ## 2. Test the API
 
 
-1. Test the API using a ```post``` request to the endpoint, ```http://localhost:3001/api/v1/tei2json/cudl-xslt``` of a sample TEI file (make sure the post is with ```xml``` body):
+1. Test the API using a ```post``` request to the endpoint, ```http://localhost:3001/api/v1/tei2json/cudl-xslt``` with a sample TEI file (make sure the post is with ```xml``` body) such as the following:
 ```xml
 <?xml version="1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
