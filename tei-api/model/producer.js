@@ -17,7 +17,7 @@ async function sendToKafka(xmlData) {
     await producer.disconnect();
 }
 
-exports.processXml = async (xmlData) => {
+exports.produceXml = async (xmlData) => {
     try {
         const xmlString = xmlData.toString();
         await sendToKafka(xmlString);

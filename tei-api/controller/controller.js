@@ -1,6 +1,6 @@
 //you can double check in the kafka topic using:
 //docker exec -it kafka /opt/bitnami/kafka/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test-topic --from-beginning
-const { processXml } = require("../model/producer");
+const { produceXml } = require("../model/producer");
 
 exports.healthCheck = (req,res) => {
     res.status(200).send('Hello!')
@@ -18,7 +18,7 @@ exports.postTEI = async (req,res) => {
     req.on('end', async () => {
         try {
             // Process XML data
-            await processXml(xmlData);
+            await produceXml(xmlData);
             // Respond with the same XML data
             res.status(200).set('Content-Type', 'text/xml').send(xmlData);
         } catch (error) {
