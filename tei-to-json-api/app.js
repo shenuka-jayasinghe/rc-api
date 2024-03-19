@@ -15,9 +15,9 @@ app.use(bodyParser.text({ type: 'text/xml' }));
 
 // Define routes
 
-app.get('/api/v1/TEItoJSON/healthcheck', healthCheck);
+app.get('/api/v1/tei2json/healthcheck', healthCheck);
 
-app.post('/api/v1/TEItoJSON', postTEI);
+app.post('/api/v1/tei2json/cudl-xslt', postTEI);
 
 // Start the server
 app.listen(port, () => {

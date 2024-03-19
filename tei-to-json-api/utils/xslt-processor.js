@@ -12,7 +12,7 @@ exports.processDataWithDocker = async (
   isSudoDocker,
   xsltDirectory = ""
 ) => {
-  const sudoDockerString = isSudoDocker ? "sudo -S docker" : "docker";
+  const sudoDockerString = isSudoDocker ? "echo $SUDO_PASSWORD | sudo -S docker" : "docker";
 
   try {
     // Write the XML data to a temporary file
@@ -20,20 +20,19 @@ exports.processDataWithDocker = async (
     const xmlFilePath = path.join(`${__dirname}/data`, "data.xml");
     await fs.writeFile(xmlFilePath, xmlData, "utf8");
     console.log("XML data written to:", xmlFilePath);
+    await exec(`export SUDO_PASSWORD=${SUDO_PASSWORD}`);
 
     if (xsltDirectory === "") {
       //No XSLT directory specified
       // Run the ant build command inside the Docker container with local volume mount
-      await exec(`export SUDO_PASSWORD=${SUDO_PASSWORD}`);
-      const command = `echo $SUDO_PASSWORD | ${sudoDockerString} run --rm -v ${__dirname}/data:/opt/data -v ${__dirname}/json:/opt/json shenukacj/cudl-xslt:0.0.5 ant -buildfile ./bin/build.xml "json"`
+      const command = `${sudoDockerString} run --rm -v ${__dirname}/data:/opt/data -v ${__dirname}/json:/opt/json shenukacj/cudl-xslt:0.0.5 ant -buildfile ./bin/build.xml "json"`
       const { stdout: antOutput } = await exec(command);
       console.log("Ant command executed:", antOutput.trim());
 
     } else {
       // else volume mount to the xslt directory as well
-      const { stdout: antOutput } = await exec(
-        `${sudoDockerString} run --rm -v ${__dirname}:/opt/data -v ${__dirname}/json:/opt/json -v ${xsltDirectory}:/opt/xslt shenukacj/cudl-xslt:0.0.5 ant -buildfile ./bin/build.xml "json"`
-      );
+      const command = `${sudoDockerString} run --rm -v ${__dirname}:/opt/data -v ${__dirname}/json:/opt/json -v ${xsltDirectory}:/opt/xslt shenukacj/cudl-xslt:0.0.5 ant -buildfile ./bin/build.xml "json"`
+      const { stdout: antOutput } = await exec(command);
       console.log("Ant command executed:", antOutput.trim());
     }
 
@@ -82,18 +81,3 @@ async function readJsonFiles(filePath) {
   }
 }
 
-// Example usage
-const xmlData = `<?xml version="1.0" encoding="UTF-8"?>
-<message>
-    <TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="manuscript_1">
-        <!-- TEI content goes here -->
-    </TEI>
-</message>`;
-
-// processDataWithDocker(xmlData, true)
-//   .then((jsonData) => {
-//     console.log("JSON data:", jsonData);
-//   })
-//   .catch((err) => {
-//     console.error("Error:", err);
-//   });

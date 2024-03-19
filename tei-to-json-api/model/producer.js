@@ -4,7 +4,7 @@ const { processDataWithDocker } = require('../utils/xslt-processor');
 
 const kafka = new Kafka({
     clientId: 'my-app',
-    brokers: ['localhost:9092'] // Kafka broker addresses
+    brokers: ['kafka:9092'] // Kafka broker addresses
 });
 
 const producer = kafka.producer();
@@ -21,7 +21,7 @@ async function sendToKafka(xmlData) {
 exports.processXml = async (xmlData) => {
     try {
         const xmlString = xmlData.toString();
-        const processedData = await processDataWithDocker(xmlString, true);
+        const processedData = await processDataWithDocker(xmlString, false); //true for 'sudo docker'
         const dataJSONstring = JSON.stringify(processedData);
         console.log('JSON data successfully sent to Kafka')
         await sendToKafka(dataJSONstring);
