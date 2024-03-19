@@ -9,5 +9,6 @@ RUN apk add --no-cache nodejs npm && \
 EXPOSE 3001
 EXPOSE 9092
 
-# docker run exec -it --rm shenukacj/cudl-xslt:0.0.5
-# node app.js
+
+# after the container is open run the following:
+# sudo docker exec -it tei2json-api docker run shenukacj/cudl-xslt:0.0.5 && sudo docker exec -it tei2json-api node app.js
