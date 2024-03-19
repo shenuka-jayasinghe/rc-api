@@ -12,7 +12,7 @@ const producer = kafka.producer();
 async function sendToKafka(xmlData) {
     await producer.connect();
     await producer.send({
-        topic: 'xml-topic', // Kafka topic name
+        topic: 'cudl-json-topic', // Kafka topic name
         messages: [{ value: xmlData }]
     });
     await producer.disconnect();
@@ -22,10 +22,12 @@ exports.processXml = async (xmlData) => {
     try {
         const xmlString = xmlData.toString();
         const processedData = await processDataWithDocker(xmlString, true);
-        console.log('processed Data', processedData);
+        const dataJSONstring = JSON.stringify(processedData);
+        console.log('JSON data successfully sent to Kafka')
+        await sendToKafka(dataJSONstring);
         return processedData
     } catch (error) {
-        console.error('Error sending XML data to Kafka:', error);
+        console.error('Error sending JSON data to Kafka:', error);
         throw error;
     }
 }
