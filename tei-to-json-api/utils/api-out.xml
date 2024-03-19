@@ -1,0 +1,304 @@
+<tei>
+<$>
+    <xmlns>http://www.tei-c.org/ns/1.0</xmlns>
+    <xml:id>manuscript_1</xml:id>
+</$>
+<teiheader>
+    <filedesc>
+        <titlestmt>
+            <title>MS Doc. 829</title>
+        </titlestmt>
+        <publicationstmt>
+            <publisher>Cambridge University Library</publisher>
+            <pubplace>Cambridge</pubplace>
+            <availability>
+                <$>
+                    <xml:id>displayImageRights</xml:id>
+                    <status>restricted</status>
+                </$>
+                <p>Zooming image © Cambridge University Library, All rights reserved.</p>
+            </availability>
+            <availability>
+                <$>
+                    <xml:id>downloadImageRights</xml:id>
+                    <status>restricted</status>
+                </$>
+                <licence>
+                    <_>Images made available for download are licensed under a Creative Commons Attribution-NonCommercial 3.0 Unported License (CC BY-NC 3.0)</_>
+                    <$>
+                        <target>http://creativecommons.org/licenses/by-nc/3.0/</target>
+                    </$>
+                </licence>
+            </availability>
+            <availability>
+                <$>
+                    <xml:id>metadataRights</xml:id>
+                    <status>restricted</status>
+                </$>
+                <licence>
+                    <_>This metadata is licensed under a Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License.</_>
+                    <$>
+                        <target>http://creativecommons.org/licenses/by-nc-nd/3.0/</target>
+                    </$>
+                </licence>
+            </availability>
+            <availability>
+                <$>
+                    <xml:id>watermark</xml:id>
+                    <status>restricted</status>
+                </$>
+                <licence>Cambridge University Library (CC BY-NC 4.0)</licence>
+            </availability>
+        </publicationstmt>
+        <sourcedesc>
+            <msdesc>
+                <$>
+                    <xml:id>n1</xml:id>
+                    <xml:lang>eng</xml:lang>
+                </$>
+                <msidentifier>
+                    <country>United Kingdom</country>
+                    <region>
+                        <_>Cambridgeshire</_>
+                        <$>
+                            <type>county</type>
+                        </$>
+                    </region>
+                    <settlement>Cambridge</settlement>
+                    <institution>Cambridge University</institution>
+                    <repository>Cambridge University Library</repository>
+                    <idno>MS Doc. 829</idno>
+                </msidentifier>
+                <mscontents>
+                    <summary>
+                        <seg>
+                            <_>This diminutive clay tablet was written by a Sumerian scribe in an administrative office around 2200 BC.</_>
+                            <$>
+                                <type>para</type>
+                            </$>
+                        </seg>
+                        <seg>
+                            <_>&lt;iframe width="560" height="315" src="//www.youtube.com/embed/Mm4mXmivuZg?rel=0" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</_>
+                            <$>
+                                <type>para</type>
+                            </$>
+                        </seg>
+                        <seg>
+                            <_>The full translation of the laconic text runs as follows: 18 jars of pig fat – Balli. 4 jars of pig fat – Nimgir-ab-lah. Fat dispensed (at ?) the city of Zabala. Ab-kid-kid, the scribe. 4th year 10th month.</_>
+                            <$>
+                                <type>para</type>
+                            </$>
+                            <lb/>
+                            <lb/>
+                            <lb/>
+                            <lb/>
+                            <lb/>
+                            <lb/>
+                        </seg>
+                        <seg>
+                            <_>There are plenty of uncertainties about this translation. We cannot be sure that the personal names Balli, Ningir-ablah and Ab-kid-kid are correctly transcribed because of the multivalence of cuneiform signs at this date. Moreover, there are no verbs to tell us whether Balli and Nimgir-ablah were receiving pig fat or handing it out. The fat was either poured out at Zabala or for Zabala, an ancient city of central Sumer whose patron deity was the goddess Inana, identified with the mounds of Ibzeikh. The tablet may have been written at Zabala, but it is also possible it was written at, and was rediscovered in, the even more important city of Umma further to the east. To decide this we need to take account of other similar documents.</_>
+                            <$>
+                                <type>para</type>
+                            </$>
+                        </seg>
+                        <seg>
+                            <_>&lt;iframe width="600" height="480" src="https://sketchfab.com/models/225543039ef54b2590b4a46a38f945d5/embed" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" onmousewheel=""&gt;&lt;/iframe&gt;</_>
+                            <$>
+                                <type>para</type>
+                            </$>
+                            <ref>
+                                <_>Sumerian clay tablet (MS Doc. 829) 3D model</_>
+                                <$>
+                                    <target>https://sketchfab.com/models/225543039ef54b2590b4a46a38f945d5?utm_medium=embed&amp;utm_source=website&amp;utm_campain=share-popup</target>
+                                </$>
+                            </ref>
+                        </seg>
+                        <seg>
+                            <_>There are several clues in this short text which allow us to position it in an archival context, and comparison. Tablets dated by year and month (no day, and no ‘year-name’ which was the better attested practice) are known to belong late in the decades of the Dynasty of Akkad which ruled south Mesopotamia in the twenty-third and twenty-second centuries BC. While very few such ‘mu-iti’ (year-month) tablets have been recovered in archaeological excavations, plenty appeared on the antiquities market in the early decades of the twentieth century and are scattered among the museums of the western world, including the Louvre, the British Museum, Liverpool, Manchester, Edinburgh, St Petersburg, Yale and Chicago. A study of these texts was included in B. R. Foster’s work (Hamden CT, 1982), especially Chapter 4. He discusses numerous tablets which record the issue of food stuffs and other commodities. He writes “animal fats were an important part of human diet”, lard “was stored in jars, and issued by the sìla [ca. 1 litre]”. … “It may also have been an important commercial product, as stocks of it were kept in various cities outside of Umma itself and records kept at Umma as to what was on hand or disbursed in those cities” (pp. 116–70).</_>
+                            <$>
+                                <type>para</type>
+                            </$>
+                            <hi>
+                                <_>Umma in the Sargonic period</_>
+                                <$>
+                                    <rend>italic</rend>
+                                </$>
+                            </hi>
+                        </seg>
+                        <seg>
+                            <_>This reads very aptly for our tablet, and that it is relevant becomes apparent when we find that one of his texts mentions Balli, another records Zabala as the place where the pig fat was used, and a third tablet concerned with pig fat mentions an Ab-kid-kid. Here he is the scribe, and Balli and Nimgir-ab-lah must be receiving, issuing, or authorizing the issue of the pig fat. While Nimgir-ablah is new to us, Balli turns up regularly in the texts discussed by Foster, and he seems to be an official in charge of a wide range of oils, from pig fat and butter to sesame oil and almond oil. It is virtually certain that this little tablet was clandestinely excavated some time early in the twentieth century, and found its way to Europe along with many other tablets from an institutional archive—a palace or conceivably also a temple. As for its more precise date, this is still sub judice, but along with the rest of its archive it probably belongs to a time when Shar-kali-sharri, the last king of the Dynasty of Akkad, had lost control of parts of the south, and documents at Umma were no longer dated by his regnal years, but by another system. Unfortunately we don’t know what the starting point for the ‘4th year’ was.</_>
+                            <$>
+                                <type>para</type>
+                            </$>
+                        </seg>
+                        <seg>
+                            <_>Nicholas Postgate, Trinity College</_>
+                            <$>
+                                <type>para</type>
+                            </$>
+                        </seg>
+                    </summary>
+                    <msitem>
+                        <$>
+                            <n>1</n>
+                        </$>
+                        <title>Sumerian clay tablet</title>
+                        <textlang>
+                            <_>Sumerian</_>
+                            <$>
+                                <mainLang>sux</mainLang>
+                            </$>
+                        </textlang>
+                        <editor>
+                            <_>Gaselee, S. (Stephen), 1882-1943</_>
+                            <$>
+                                <role>dnr</role>
+                                <key>person_v54163116</key>
+                                <ref>http://viaf.org/viaf/54163116</ref>
+                            </$>
+                        </editor>
+                        <editor>
+                            <_>Fish, Thomas</_>
+                            <$>
+                                <role>oth</role>
+                                <key>person_v88946269</key>
+                                <ref>http://viaf.org/viaf/88946269</ref>
+                            </$>
+                        </editor>
+                    </msitem>
+                </mscontents>
+                <physdesc>
+                    <objectdesc>
+                        <supportdesc>
+                            <$>
+                                <material>clay</material>
+                            </$>
+                            <support>Clay</support>
+                            <extent/>
+                        </supportdesc>
+                    </objectdesc>
+                </physdesc>
+                <history>
+                    <origin>
+                        <origdate>
+                            <_>ca 2,200 BCE</_>
+                            <$>
+                                <calendar>Gregorian</calendar>
+                                <notBefore>-2200</notBefore>
+                                <notAfter>-2200</notAfter>
+                            </$>
+                        </origdate>
+                        <origplace>
+                            <_>Zabala, Southern Iraq</_>
+                            <$>
+                                <ref>1000118</ref>
+                                <key>place_g1000118</key>
+                            </$>
+                        </origplace>
+                    </origin>
+                    <provenance/>
+                </history>
+                <additional>
+                    <admininfo>
+                        <availability>
+                            <$>
+                                <status>restricted</status>
+                            </$>
+                            <p>
+                                <_>Entry to read in the Library is permitted only on presentation of a valid reader's card for admissions procedures contact ).</_>
+                                <ref>
+                                    <_>Cambridge University Library Admissions</_>
+                                    <$>
+                                        <target>http://www.lib.cam.ac.uk/cgi-bin/eligibility.cgi/</target>
+                                    </$>
+                                </ref>
+                            </p>
+                        </availability>
+                    </admininfo>
+                </additional>
+            </msdesc>
+        </sourcedesc>
+    </filedesc>
+    <encodingdesc>
+        <classdecl>
+            <taxonomy>
+                <$>
+                    <xml:id>LCSH</xml:id>
+                </$>
+                <bibl>
+                    <ref>
+                        <_>Library of Congress Subject Headings</_>
+                        <$>
+                            <target>http://id.loc.gov/authorities/about.html#lcsh</target>
+                        </$>
+                    </ref>
+                </bibl>
+            </taxonomy>
+        </classdecl>
+    </encodingdesc>
+    <profiledesc>
+        <textclass>
+            <keywords>
+                <$>
+                    <scheme>#LCSH</scheme>
+                </$>
+                <list>
+                    <item>
+                        <term>
+                            <_>Cuneiform inscriptions, Sumerian</_>
+                            <$>
+                                <key>subject_sh85034807</key>
+                            </$>
+                        </term>
+                    </item>
+                </list>
+            </keywords>
+        </textclass>
+    </profiledesc>
+    <revisiondesc>
+        <change>
+            <$>
+                <when>2016-02-17</when>
+            </$>
+            <persname>Professor Nicholas Postgate</persname>
+        </change>
+    </revisiondesc>
+</teiheader>
+<facsimile>
+    <graphic>
+        <$>
+            <decls>#document-thumbnail</decls>
+            <rend>portrait</rend>
+            <url>MS-TEST-ITEM-00002-000-00001</url>
+        </$>
+    </graphic>
+    <surface>
+        <$>
+            <n>1</n>
+            <xml:id>i1</xml:id>
+        </$>
+        <graphic>
+            <$>
+                <decls>#downloadImageRights #download</decls>
+                <height>8688px</height>
+                <width>5792px</width>
+                <rend>portrait</rend>
+                <url>MS-TEST-ITEM-00002-000-00001</url>
+            </$>
+        </graphic>
+    </surface>
+</facsimile>
+<text>
+    <body>
+        <div>
+            <pb>
+                <$>
+                    <xml:id>Lg-1</xml:id>
+                    <n>1</n>
+                    <facs>#i1</facs>
+                </$>
+            </pb>
+        </div>
+    </body>
+</text>
+</tei>
