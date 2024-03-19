@@ -5,7 +5,13 @@
 1. [Docker](https://www.docker.com/products/docker-desktop/)
 2. [Node](https://nodejs.org/en/download)
 
-## 1. Run the Containers
+## Steps
+
+1. [Run the Containers](#1-run-the-containers)
+2. [Test the API](#2-test-the-api)
+3. [Check the Kafka Topic](#3-check-the-kafka-topic)
+
+### 1. Run the Containers
 
 1. In the root directory run (sudo is optional)
 
@@ -21,7 +27,7 @@ sudo docker exec -it tei2json-api docker run shenukacj/cudl-xslt:0.0.5 && sudo d
 
 3. You can shut down the docker containers using ```sudo docker compose down``` in the root directory
 
-## 2. Test the API
+### 2. Test the API
 
 
 1. Test the API using a ```post``` request to the endpoint, ```http://localhost:3001/api/v1/tei2json/cudl-xslt``` with a sample TEI file (make sure the post is with ```xml``` body) such as the following:
@@ -312,4 +318,12 @@ sudo docker exec -it tei2json-api docker run shenukacj/cudl-xslt:0.0.5 && sudo d
         </body>
     </text>
 </TEI>
+```
+
+### 3. Check the Kafka Topic
+
+1. Check that the JSON data has also been posted to the Kafka Topic
+
+``` bash
+sudo docker exec -it kafka /opt/bitnami/kafka/bin/kafka-console-consumer.sh --bootstrap-server kafka:9092 --topic cudl-json-topic --from-beginning
 ```
