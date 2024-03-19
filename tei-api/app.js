@@ -1,5 +1,5 @@
 const express = require('express');
-const { healthCheck, postTEI } = require('./tei-controller.js/controller');
+const { healthCheck, postTEI } = require('./controller/controller');
 const xmlParser = require('express-xml-bodyparser');
 
 const app = express();

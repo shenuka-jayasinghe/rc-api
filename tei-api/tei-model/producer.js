@@ -22,7 +22,6 @@ const producer = kafka.producer();
 exports.produceMessage = async (messageJSON) => {
 // Stringify the XML message
 const message = xml.js2xml(messageJSON, { compact: true, spaces: 4 });
-
  
   await producer.connect();
   await producer.send({
