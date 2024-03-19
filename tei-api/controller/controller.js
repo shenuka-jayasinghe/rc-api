@@ -7,11 +7,23 @@ exports.healthCheck = (req,res) => {
 }
 
 exports.postTEI = async (req,res) => {
-    try {
-        await processXml(req.body);
-        res.status(200).send('XML data processed and sent to Kafka topic.');
-    } catch (error) {
-        console.error('Error processing XML data:', error);
-        res.status(500).send('Internal Server Error');
-    }
+    let xmlData = '';
+
+    // Accumulate data chunks
+    req.on('data', chunk => {
+        xmlData += chunk.toString(); // Convert buffer to string
+    });
+
+    // Once request data ends, respond with the received XML data
+    req.on('end', async () => {
+        try {
+            // Process XML data
+            await processXml(xmlData);
+            // Respond with the same XML data
+            res.status(200).set('Content-Type', 'text/xml').send(xmlData);
+        } catch (error) {
+            console.error('Error processing XML data:', error);
+            res.status(500).send('Internal Server Error');
+        }
+    });
 }
