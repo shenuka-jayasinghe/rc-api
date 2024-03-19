@@ -16,7 +16,7 @@ exports.processDataWithDocker = async (
 
   try {
     // Write the XML data to a temporary file
-    await exec(`mkdir data`)
+    await exec(`mkdir ${__dirname}/data`)
     const xmlFilePath = path.join(`${__dirname}/data`, "data.xml");
     await fs.writeFile(xmlFilePath, xmlData, "utf8");
     console.log("XML data written to:", xmlFilePath);
@@ -37,7 +37,7 @@ exports.processDataWithDocker = async (
       console.log("Ant command executed:", antOutput.trim());
     }
 
-    await exec(`rm -r data`)
+    await exec(`rm -r ${__dirname}/data`)
 
     // Read and parse JSON files
     const jsonDir = path.join(__dirname, "json");

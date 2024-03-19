@@ -3,22 +3,478 @@
             "descriptiveMetadata": 
                [
             
+         {
+            "thumbnailUrl": "PR-CHCR-00023-000-00001.jp2",
+            "thumbnailOrientation": "portrait",
+            "displayImageRights": "Zooming image © University of Manchester Library, All rights reserved.",
+            "downloadImageRights": "Images made available for download are licensed under a Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0).",
+            "imageReproPageURL": "https://www.library.manchester.ac.uk/search-resources/manchester-digital-collections/digitisation-services/copyright-and-licensing/",
+            "metadataRights": "Metadata made available for download is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0).",
+            "pdfRights": "",
+            "watermarkStatement": "",
+            "docAuthority": "",
+            "fundings": 
+               {
+               "display": true, 
+               "seq": 208, 
+                  "label": "Funding", 
+               "value": [
+            
+               {
+               "display": true, 
+                  "displayForm": "", 
+               "seq": 209
+               }
+               ]
+               },
+            "subjects": 
+               {
+               "display": true, 
+               "seq": 22, 
+                  "listDisplay": "inline", 
+                  "label": "Subject(s)", 
+               "value": [
+            
+         {
+               "display": true, 
+                  "displayForm": "Education", 
+               "seq": 23, 
+                  "linktype": "keyword search", 
+            "fullForm": "Education",
+            "authority": "Library of Congress Subject Headings",
+            "authorityURI": "http://id.loc.gov/authorities/about.html#lcsh",
+            "valueURI": "subject_sh85076240"
+         }
+               ]
+               },
+            "dataSources": 
+               {
+               "display": true, 
+               "seq": 210, 
+                  "label": "Data Source(s)", 
+               "value": [
+            
+               {
+               "display": true, 
+                  "displayForm": "Description based on Li Guoying 李国英, Zhou Xiaowen 周晓⽂, and Zhang Xianrong 张宪荣 (eds), <i>Yingguo Manchesite Daxue Yuahan Lailanzi tushuguan Zhongwen guji mulu 英國曼徹斯特⼤學約翰·賴闌茲圖書館中⽂古籍⽬錄 = Bibliography of Ancient Chinese Books Held by the John Rylands Library of the University of Manchester, United Kingdom</i>, 2 vols. (Beijing: Zhonghua shuju, 2018), revised and expanded by Gregory Adam Scott.", 
+               "seq": 211
+               }
+               ]
+               },
+            "ID": "DOCUMENT",
+            "abstract": 
+               {
+               "display": false, 
+                  "displayForm": "<p style='text-align: justify;'>Named 三字經 (Three Character Classic) because each line in the text is made up of a three-character phrase. A traditional primer for primary education, it teaches Literary Chinese reading as well as elements of history and philosophy. Likely first composed in the 13th century CE, and attributed to several authors but its original author remains unknown. The text was widely used right up to the mid twentieth century, and is still used today though no longer part of formal education. Virtually every educated person in early modern and modern China, and elsewhere in East Asia, would have memorised this text. Printings of this text were widely available in relatively cheap woodblock printed editions. A few lines were added in the early twentieth century to describe the history of the fall of the Qing and the founding of the Republic of China in 1912.</p>", 
+                  "label": "Abstract", 
+               "seq": 11
+               },
+            "associated": 
+               {
+               "display": true, 
+               "seq": 139, 
+                  "listDisplay": "unordered", 
+                  "label": "Associated Name(s)", 
+               "value": [
+            
+         {
+               "display": true, 
+                  "displayForm": "Crawford, James Ludovic Lindsay, Earl of, 1847-1913", 
+               "seq": 140, 
+                  "linktype": "keyword search", 
+            "fullForm": "Crawford, James Ludovic Lindsay, Earl of, 1847-1913",
+            "shortForm": "James Ludovic Lindsay, 26th Earl of Crawford.",
+            "type": "person"
+         }
+               ]
+               },
+            "creations": 
+               {
+               "display": true, 
+               "seq": 65, 
+               "value": [
+            
+         {
+            "type": "creation",
+            "places": 
+               {
+               "display": true, 
+               "seq": 70, 
+                  "label": "Origin Place", 
+               "value": [
+            
+         {
+               "display": true, 
+                  "displayForm": "文林堂藏版", 
+               "seq": 71, 
+                  "linktype": "keyword search", 
+            "shortForm": "文林堂藏版",
+            "fullForm": "文林堂藏版"
+         }
+               ]
+               },
+            "dateStart": "1801",
+            "dateEnd": "1801",
+            "dateDisplay": 
+               {
+               "display": true, 
+                  "displayForm": "19th century", 
+                  "linktype": "keyword search", 
+                  "label": "Date of Creation", 
+               "seq": 79
+               }
+         }
+               ]
+               },
+            "acquisitions": 
+               {
+               "display": true, 
+               "seq": 202, 
+               "value": [
+            
+         {
+            "type": "acquisition",
+            "dateStart": "1901",
+            "dateEnd": "1901",
+            "dateDisplay": 
+               {
+               "display": true, 
+                  "displayForm": "1901", 
+                  "label": "Date of Acquisition", 
+               "seq": 207
+               }
+         }
+               ]
+               },
+            "physicalLocation": 
+               {
+               "display": true, 
+                  "displayForm": "The John Rylands Library", 
+                  "label": "Physical Location", 
+               "seq": 4
+               },
+            "shelfLocator": 
+               {
+               "display": true, 
+                  "displayForm": "Chinese Crawford 23", 
+                  "label": "Classmark", 
+               "seq": 5
+               },
+            "form": 
+               {
+               "display": true, 
+                  "displayForm": "Codex", 
+                  "label": "Format", 
+               "seq": 178
+               },
+            "extent": 
+               {
+               "display": true, 
+                  "displayForm": "1冊1盒，共10葉. Leaf height: 175 mm, width: 95 mm.", 
+                  "label": "Extent", 
+               "seq": 173
+               },
+            "bindings": 
+               {
+               "display": true, 
+               "seq": 181, 
+                  "label": "Binding", 
+               "value": [
+            
+               {
+               "display": true, 
+                  "displayForm": "<p>Block printed red paper cover</p>", 
+               "seq": 182
+               }
+               ]
+               },
+            "acquisitionTexts": 
+               {
+               "display": true, 
+               "seq": 200, 
+                  "label": "Acquisition", 
+               "value": [
+            
+               {
+               "display": true, 
+                  "displayForm": "Purchased by Enriqueta Rylands in 1901 from James Ludovic Lindsay, 26th Earl of Crawford. Bequeathed by Rylands to the John Rylands Library in 1908.", 
+               "seq": 201
+               }
+               ]
+               },
+            "title": 
+               {
+               "display": false, 
+                  "displayForm": "San zi jing", 
+                  "label": "Title", 
+               "seq": 10
+               },
+            "alternativeTitles": 
+               {
+               "display": true, 
+               "seq": 16, 
+                  "label": "Alternative Title(s)", 
+               "value": [
+            
+               {
+               "display": true, 
+                  "displayForm": "三字經", 
+               "seq": 17
+               },
+               {
+               "display": true, 
+                  "displayForm": "Tu xiang san zi jing", 
+               "seq": 17
+               },
+               {
+               "display": true, 
+                  "displayForm": "圖像三字經", 
+               "seq": 17
+               },
+               {
+               "display": true, 
+                  "displayForm": "Translated title: The Three Character Classic", 
+               "seq": 17
+               }
+               ]
+               },
+            "languageCodes": 
+               [
+            "chi"
                ],
-            "numberOfPages": 1,
-            "embeddable": false,
+            "languageStrings": 
+               {
+               "display": true, 
+               "seq": 119, 
+                  "label": "Language(s)", 
+               "value": [
+            
+               {
+               "display": true, 
+                  "displayForm": "Classical Chinese", 
+               "seq": 120
+               }
+               ]
+               }
+         }
+               ],
+            "numberOfPages": 22,
+            "embeddable": true,
             "textDirection": "L",
-            "sourceData": "",
+            "sourceData": "/v1/metadata/tei/data/",
             "pages": 
                [
             
          {
-            "label": "cover",
+            "label": "Front_cover",
             "physID": "PHYS-1",
-            "sequence": 1
+            "sequence": 1,
+            "IIIFImageURL": "PR-CHCR-00023-000-00001.jp2",
+            "thumbnailImageOrientation": "portrait",
+            "imageWidth": 4569,
+            "imageHeight": 6500
+         },
+         {
+            "label": "Inner_Front_Cover",
+            "physID": "PHYS-2",
+            "sequence": 2,
+            "IIIFImageURL": "PR-CHCR-00023-000-00002.jp2",
+            "thumbnailImageOrientation": "portrait",
+            "imageWidth": 3154,
+            "imageHeight": 6500
+         },
+         {
+            "label": "1",
+            "physID": "PHYS-3",
+            "sequence": 3,
+            "IIIFImageURL": "PR-CHCR-00023-000-00003.jp2",
+            "thumbnailImageOrientation": "portrait",
+            "imageWidth": 3222,
+            "imageHeight": 6500
+         },
+         {
+            "label": "2",
+            "physID": "PHYS-4",
+            "sequence": 4,
+            "IIIFImageURL": "PR-CHCR-00023-000-00004.jp2",
+            "thumbnailImageOrientation": "portrait",
+            "imageWidth": 3240,
+            "imageHeight": 6500
+         },
+         {
+            "label": "3",
+            "physID": "PHYS-5",
+            "sequence": 5,
+            "IIIFImageURL": "PR-CHCR-00023-000-00005.jp2",
+            "thumbnailImageOrientation": "portrait",
+            "imageWidth": 3201,
+            "imageHeight": 6500
+         },
+         {
+            "label": "4",
+            "physID": "PHYS-6",
+            "sequence": 6,
+            "IIIFImageURL": "PR-CHCR-00023-000-00006.jp2",
+            "thumbnailImageOrientation": "portrait",
+            "imageWidth": 3200,
+            "imageHeight": 6500
+         },
+         {
+            "label": "5",
+            "physID": "PHYS-7",
+            "sequence": 7,
+            "IIIFImageURL": "PR-CHCR-00023-000-00007.jp2",
+            "thumbnailImageOrientation": "portrait",
+            "imageWidth": 3195,
+            "imageHeight": 6500
+         },
+         {
+            "label": "6",
+            "physID": "PHYS-8",
+            "sequence": 8,
+            "IIIFImageURL": "PR-CHCR-00023-000-00008.jp2",
+            "thumbnailImageOrientation": "portrait",
+            "imageWidth": 3200,
+            "imageHeight": 6500
+         },
+         {
+            "label": "7",
+            "physID": "PHYS-9",
+            "sequence": 9,
+            "IIIFImageURL": "PR-CHCR-00023-000-00009.jp2",
+            "thumbnailImageOrientation": "portrait",
+            "imageWidth": 3195,
+            "imageHeight": 6500
+         },
+         {
+            "label": "8",
+            "physID": "PHYS-10",
+            "sequence": 10,
+            "IIIFImageURL": "PR-CHCR-00023-000-00010.jp2",
+            "thumbnailImageOrientation": "portrait",
+            "imageWidth": 3200,
+            "imageHeight": 6500
+         },
+         {
+            "label": "9",
+            "physID": "PHYS-11",
+            "sequence": 11,
+            "IIIFImageURL": "PR-CHCR-00023-000-00011.jp2",
+            "thumbnailImageOrientation": "portrait",
+            "imageWidth": 3191,
+            "imageHeight": 6500
+         },
+         {
+            "label": "10",
+            "physID": "PHYS-12",
+            "sequence": 12,
+            "IIIFImageURL": "PR-CHCR-00023-000-00012.jp2",
+            "thumbnailImageOrientation": "portrait",
+            "imageWidth": 3200,
+            "imageHeight": 6500
+         },
+         {
+            "label": "11",
+            "physID": "PHYS-13",
+            "sequence": 13,
+            "IIIFImageURL": "PR-CHCR-00023-000-00013.jp2",
+            "thumbnailImageOrientation": "portrait",
+            "imageWidth": 3191,
+            "imageHeight": 6500
+         },
+         {
+            "label": "12",
+            "physID": "PHYS-14",
+            "sequence": 14,
+            "IIIFImageURL": "PR-CHCR-00023-000-00014.jp2",
+            "thumbnailImageOrientation": "portrait",
+            "imageWidth": 3202,
+            "imageHeight": 6500
+         },
+         {
+            "label": "13",
+            "physID": "PHYS-15",
+            "sequence": 15,
+            "IIIFImageURL": "PR-CHCR-00023-000-00015.jp2",
+            "thumbnailImageOrientation": "portrait",
+            "imageWidth": 3191,
+            "imageHeight": 6500
+         },
+         {
+            "label": "14",
+            "physID": "PHYS-16",
+            "sequence": 16,
+            "IIIFImageURL": "PR-CHCR-00023-000-00016.jp2",
+            "thumbnailImageOrientation": "portrait",
+            "imageWidth": 3202,
+            "imageHeight": 6500
+         },
+         {
+            "label": "15",
+            "physID": "PHYS-17",
+            "sequence": 17,
+            "IIIFImageURL": "PR-CHCR-00023-000-00017.jp2",
+            "thumbnailImageOrientation": "portrait",
+            "imageWidth": 3204,
+            "imageHeight": 6500
+         },
+         {
+            "label": "16",
+            "physID": "PHYS-18",
+            "sequence": 18,
+            "IIIFImageURL": "PR-CHCR-00023-000-00018.jp2",
+            "thumbnailImageOrientation": "portrait",
+            "imageWidth": 3203,
+            "imageHeight": 6500
+         },
+         {
+            "label": "17",
+            "physID": "PHYS-19",
+            "sequence": 19,
+            "IIIFImageURL": "PR-CHCR-00023-000-00019.jp2",
+            "thumbnailImageOrientation": "portrait",
+            "imageWidth": 3183,
+            "imageHeight": 6500
+         },
+         {
+            "label": "18",
+            "physID": "PHYS-20",
+            "sequence": 20,
+            "IIIFImageURL": "PR-CHCR-00023-000-00020.jp2",
+            "thumbnailImageOrientation": "portrait",
+            "imageWidth": 3203,
+            "imageHeight": 6500
+         },
+         {
+            "label": "19",
+            "physID": "PHYS-21",
+            "sequence": 21,
+            "IIIFImageURL": "PR-CHCR-00023-000-00021.jp2",
+            "thumbnailImageOrientation": "portrait",
+            "imageWidth": 3207,
+            "imageHeight": 6500
+         },
+         {
+            "label": "20",
+            "physID": "PHYS-22",
+            "sequence": 22,
+            "IIIFImageURL": "PR-CHCR-00023-000-00022.jp2",
+            "thumbnailImageOrientation": "portrait",
+            "imageWidth": 3807,
+            "imageHeight": 6500
          }
                ],
             "logicalStructures": 
                [
             
+         {
+            "descriptiveMetadataID": "DOCUMENT",
+            "label": "San zi jing",
+            "startPageLabel": "Front_cover",
+            "startPagePosition": 1,
+            "startPageID": "PHYS-1",
+            "endPageLabel": "20",
+            "endPagePosition": 22
+         }
                ]
          }

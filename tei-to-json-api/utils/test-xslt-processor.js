@@ -1,7 +1,7 @@
 const fs = require('fs');
 const { processDataWithDocker } = require('./xslt-processor');
 
-const xmlFilePath = `${__dirname}/data.xml`;
+const xmlFilePath = `${__dirname}/test.xml`;
 
 fs.readFile(xmlFilePath, 'utf8', (err, xmlData) => {
   if (err) {

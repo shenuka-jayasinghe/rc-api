@@ -1,6 +1,7 @@
 const express = require('express');
-const { healthCheck, postTEI } = require('./controller/controller');
+const { healthCheck, postTEI } = require('./controller/controller.js');
 const xmlParser = require('express-xml-bodyparser');
+const bodyParser = require('body-parser');
 
 const app = express();
 const port = 3001;
@@ -9,7 +10,7 @@ const port = 3001;
 app.use(express.json());
 
 // Use middleware to parse XML bodies
-app.use(xmlParser());
+app.use(bodyParser.text({ type: 'text/xml' }));
 
 
 // Define routes
