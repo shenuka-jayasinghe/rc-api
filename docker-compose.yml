@@ -29,3 +29,11 @@ services:
     depends_on:
       - 'kafka'
     privileged: true
+  
+  tei-api:
+    image: shenukacj/tei-api:0.0.1
+    container_name: 'tei-api'
+    ports:
+      - '3000:3000'
+    depends_on:
+      - 'kafka'
