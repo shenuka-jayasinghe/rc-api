@@ -29,7 +29,7 @@ sudo docker compose up -d
 sudo docker exec -it tei2json-api docker run shenukacj/cudl-xslt:0.0.5 && sudo docker exec -it tei2json-api node app.js
 ```
 
-3. You can shut down the docker containers using ```sudo docker compose down``` in the root directory
+3. When testing and use is complete, you can shut down the docker containers using ```sudo docker compose down``` in the root directory
 
 ### 2. Test the API
 
