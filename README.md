@@ -5,6 +5,10 @@
 1. [Docker](https://www.docker.com/products/docker-desktop/)
 2. [Node](https://nodejs.org/en/download)
 
+## Architecture
+
+![Untitled Diagram drawio (1)](https://github.com/shenuka-jayasinghe/rc-api/assets/137282472/1d7c98ae-51ac-4528-95dc-d60b00d97a12)
+
 ## Steps
 
 1. [Run the Containers](#1-run-the-containers)
