@@ -24,7 +24,25 @@ exports.newTei = async (xmlData, title) => {
     try {
         const xmlString = xmlData.toString();
         const payLoad = {
-            event: 'New TEI posted',
+            event: 'new-tei-posted',
+            title,
+            timestamp: Date.now(),
+            tei: xmlString
+        }
+        console.log('PAYLOAD==>',payLoad)
+        await sendToKafka(JSON.stringify(payLoad));
+        console.log('XML data sent to Kafka topic.');
+    } catch (error) {
+        console.error('Error sending XML data to Kafka:', error);
+        throw error;
+    }
+}
+
+exports.updateTeiModel = async (xmlData, title) => {
+    try {
+        const xmlString = xmlData.toString();
+        const payLoad = {
+            event: 'tei-updated',
             title,
             timestamp: Date.now(),
             tei: xmlString
@@ -38,3 +56,39 @@ exports.newTei = async (xmlData, title) => {
     }
 }
 
+exports.deleteTeiModel = async (title) => {
+    try {
+        const payLoad = {
+            event: 'deleted',
+            title,
+            timestamp: Date.now(),
+            tei: ''
+        }
+    }
+    catch (error) {
+        console.error('Error deleting TEI', error)
+        throw error;
+    }
+}
+
+exports.getTeiModel = async (title) => {
+    try {
+        await client.connect();
+
+        const query = `SELECT * FROM tei_stream WHERE title = '${title}';`;
+        const { data, status, error } = await client.query(query);
+
+        if (error) {
+            console.error('Error returned by KsqlDB:', error);
+            throw new Error(error);
+        }
+
+        console.log(data);
+        return data;
+    } catch (err) {
+        console.error('Error thrown while doing the query:', err);
+        throw err;
+    } finally {
+        await client.disconnect();
+    }
+};

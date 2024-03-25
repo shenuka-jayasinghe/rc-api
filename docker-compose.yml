@@ -20,31 +20,6 @@ services:
     depends_on:
       - zookeeper
 
-  ksqldb-server-dev:
-    image: confluentinc/ksqldb-server:0.29.0
-    hostname: ksqldb-server-dev
-    container_name: ksqldb-server-dev
-    depends_on:
-      - kafka-dev
-    ports:
-      - "8088:8088"
-    environment:
-      KSQL_LISTENERS: http://0.0.0.0:8088
-      KSQL_BOOTSTRAP_SERVERS: 127.0.0.1:9092
-      # KSQL_KSQL_SCHEMA_REGISTRY_URL: http://schema-registry:8081
-      KSQL_KSQL_LOGGING_PROCESSING_STREAM_AUTO_CREATE: "true"
-      KSQL_KSQL_LOGGING_PROCESSING_TOPIC_AUTO_CREATE: "true"
-
-  ksqldb-cli-dev:
-    image: confluentinc/ksqldb-cli:0.29.0
-    container_name: ksqldb-cli-dev
-    depends_on:
-      - ksqldb-server-dev
-    entrypoint: /bin/sh
-    tty: true
-
 # sudo docker exec -it kafka-dev kafka-topics.sh --list --bootstrap-server localhost:9092
 
 # sudo docker exec -it kafka-dev kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic new-topic --from-beginning
-
-# sudo docker exec -it ksqldb-cli-dev ksql http://localhost:8088

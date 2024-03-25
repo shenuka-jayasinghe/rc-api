@@ -65,7 +65,7 @@ services:
     environment:
       KSQL_LISTENERS: http://0.0.0.0:8088
       KSQL_BOOTSTRAP_SERVERS: kafka:9092
-      # KSQL_KSQL_SCHEMA_REGISTRY_URL: http://schema-registry:8081
+      KSQL_KSQL_SCHEMA_REGISTRY_URL: http://schema-registry:8081
       KSQL_KSQL_LOGGING_PROCESSING_STREAM_AUTO_CREATE: "true"
       KSQL_KSQL_LOGGING_PROCESSING_TOPIC_AUTO_CREATE: "true"
 
@@ -96,13 +96,15 @@ services:
   # sudo docker logs tei-api -f
 
   tei-api2:
-    image: shenukacj/tei-api:0.0.4
+    image: shenukacj/tei-api:0.0.5
     container_name: 'tei-api2'
     ports:
       - '3003:3003'
     depends_on:
       - 'kafka'
+      - 'ksqldb-server'
   # sudo docker logs tei-api2 -f
+  # sudo docker compose restart tei-api2 
 
 
 # to create topic:
@@ -113,13 +115,13 @@ services:
 # sudo docker exec -it kafka kafka-topics.sh --list --bootstrap-server kafka:9092
 
 # sudo docker exec -it ksqldb-cli ksql http://ksqldb-server:8088
-# CREATE STREAM xml_stream (
-#     message_timestamp BIGINT,
-#     xml_data VARCHAR
+# CREATE STREAM tei (
+#     title VARCHAR,
+#     timestamp BIGINT,
+#     tei VARCHAR
 # ) WITH (
-#     KAFKA_TOPIC='xml-topic',
-#     VALUE_FORMAT='JSON',
-#     TIMESTAMP='message_timestamp'
+#     KAFKA_TOPIC='new-topic',
+#     VALUE_FORMAT='JSON'
 # );
 
 
