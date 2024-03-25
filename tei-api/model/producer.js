@@ -20,14 +20,16 @@ async function sendToKafka(xmlData) {
     await producer.disconnect();
 }
 
-exports.produceXml = async (xmlData) => {
+exports.newTei = async (xmlData, title) => {
     try {
         const xmlString = xmlData.toString();
         const payLoad = {
-            id: 'testId',
+            event: 'New TEI posted',
+            title,
             timestamp: Date.now(),
             tei: xmlString
         }
+        console.log(payLoad)
         await sendToKafka(JSON.stringify(payLoad));
         console.log('XML data sent to Kafka topic.');
     } catch (error) {
@@ -36,29 +38,3 @@ exports.produceXml = async (xmlData) => {
     }
 }
 
-exports.insert2ksql = async (xmlData) => {
-    try {
-        const xmlString = xmlData.toString();
-        // Construct the TEI data object
-        const timestamp = Date.now();
-        console.log(timestamp)
-        const row = {
-            id: 'randomid',
-            timestamp: timestamp,
-            tei: xmlString
-        };
-        const { status, error } = await client.insertInto('TEI', row);
-
-        if (error) {
-            throw new Error(`Error posting TEI data to ksqlDB: ${error}`);
-        }
-        console.log('TEI data posted to ksqlDB.');
-        return { status };
-    } catch (error) {
-        console.error('Error posting TEI data:', error);
-        throw error;
-    }
-}
-
-
-// echo '{"id":"testId","timestamp":1648575075000,"tei":"<xml>Data</xml>"}' | kafka-console-producer.sh --broker-list kafka:9092 --topic test-topic

@@ -1,5 +1,6 @@
+// sudo docker build -t shenukacj/tei-api:0.0.4 . && sudo docker push shenukacj/tei-api:0.0.4
 const express = require('express');
-const { healthCheck, postTEI } = require('./controller/controller');
+const { healthCheck, postNewTei} = require('./controller/controller');
 // const xmlParser = require('express-xml-bodyparser');
 const bodyParser = require('body-parser');
 
@@ -18,7 +19,9 @@ app.use(bodyParser.text({ type: 'text/xml' }));
 
 app.get('/api/v1/TEI/healthcheck', healthCheck);
 
-app.post('/api/v1/TEI', postTEI);
+app.post('/api/v1/TEI/:title', postNewTei);
+
+app.get('/api/')
 
 // Start the server
 app.listen(port, () => {
