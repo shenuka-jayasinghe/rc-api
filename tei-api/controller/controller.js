@@ -18,7 +18,7 @@ exports.postTEI = async (req,res) => {
     req.on('end', async () => {
         try {
             // Process XML data
-            await insert2ksql(xmlData);
+            await produceXml(xmlData);
             // Respond with the same XML data
             res.status(200).set('Content-Type', 'text/xml').send(xmlData);
         } catch (error) {

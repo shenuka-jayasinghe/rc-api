@@ -1,10 +1,10 @@
 const express = require('express');
 const { healthCheck, postTEI } = require('./controller/controller');
-const xmlParser = require('express-xml-bodyparser');
+// const xmlParser = require('express-xml-bodyparser');
 const bodyParser = require('body-parser');
 
 const app = express();
-const port = 3002;
+const port = 3003;
 
 // Middleware to parse JSON bodies
 // app.use(express.json());

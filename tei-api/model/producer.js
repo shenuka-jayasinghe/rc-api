@@ -24,6 +24,11 @@ async function sendToKafka(xmlData) {
 exports.produceXml = async (xmlData) => {
     try {
         const xmlString = xmlData.toString();
+        // const payLoad = {
+        //     id: 'testId',
+        //     timestamp: Date.now(),
+        //     tei: xmlString
+        // }
         await sendToKafka(xmlString);
         console.log('XML data sent to Kafka topic.');
     } catch (error) {
