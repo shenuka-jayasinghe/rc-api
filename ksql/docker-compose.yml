@@ -87,24 +87,25 @@ services:
     privileged: true
   
   tei-api:
-    image: shenukacj/tei-api:0.0.1
+    image: shenukacj/tei-api:0.0.6
     container_name: 'tei-api'
     ports:
       - '3000:3000'
     depends_on:
       - 'kafka'
+      - 'ksqldb-server'
   # sudo docker logs tei-api -f
 
-  tei-api2:
-    image: shenukacj/tei-api:0.0.5
-    container_name: 'tei-api2'
-    ports:
-      - '3003:3003'
-    depends_on:
-      - 'kafka'
-      - 'ksqldb-server'
-  # sudo docker logs tei-api2 -f
-  # sudo docker compose restart tei-api2 
+  # tei-api2:
+  #   image: shenukacj/tei-api:0.0.5
+  #   container_name: 'tei-api2'
+  #   ports:
+  #     - '3003:3003'
+  #   depends_on:
+  #     - 'kafka'
+  #     - 'ksqldb-server'
+  # sudo docker logs tei-api -f
+  # sudo docker compose restart tei-api 
 
 
 # to create topic:

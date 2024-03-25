@@ -1,21 +1,14 @@
-// sudo docker build -t shenukacj/tei-api:0.0.5 . && sudo docker push shenukacj/tei-api:0.0.5
+// sudo docker build -t shenukacj/tei-api:0.0.6 . && sudo docker push shenukacj/tei-api:0.0.6
 const express = require('express');
 const { healthCheck, postNewTei, updateTei, deleteTei, getTei} = require('./controller/controller');
-// const xmlParser = require('express-xml-bodyparser');
 const bodyParser = require('body-parser');
 
 const app = express();
-const port = 3003;
+const port = 3000;
 
-// Middleware to parse JSON bodies
-// app.use(express.json());
-
-// Use middleware to parse XML bodies
-// app.use(xmlParser());
 app.use(bodyParser.text({ type: 'text/xml' }));
 
 
-// Define routes
 
 app.get('/api/v1/TEI/healthcheck', healthCheck);
 
