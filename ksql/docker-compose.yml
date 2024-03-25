@@ -21,7 +21,7 @@
 # 2. Update .env file to use your local images by setting KSQL_IMAGE_BASE=placeholder/ and KSQL_VERSION=local.build.
 
 ---
-version: '2'
+version: "3"
 services:
   zookeeper:
     image: 'bitnami/zookeeper:latest'
@@ -29,7 +29,6 @@ services:
       - '2181:2181'
     environment:
       - ALLOW_ANONYMOUS_LOGIN=yes
-
   kafka:
     image: 'bitnami/kafka:latest'
     container_name: 'kafka'
@@ -37,8 +36,8 @@ services:
       - '9092:9092'
     environment:
       - KAFKA_BROKER_ID=1
-      - KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092
-      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka:9092 # Change to 'kafka' which is the service name
+      - KAFKA_LISTENERS=PLAINTEXT://:9092
+      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka:9092
       - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
       - ALLOW_PLAINTEXT_LISTENER=yes
     depends_on:
@@ -60,13 +59,13 @@ services:
     container_name: ksqldb-server
     depends_on:
       - kafka
-      - schema-registry
+      # - schema-registry
     ports:
       - "8088:8088"
     environment:
       KSQL_LISTENERS: http://0.0.0.0:8088
       KSQL_BOOTSTRAP_SERVERS: kafka:9092
-      KSQL_KSQL_SCHEMA_REGISTRY_URL: http://schema-registry:8081
+      # KSQL_KSQL_SCHEMA_REGISTRY_URL: http://schema-registry:8081
       KSQL_KSQL_LOGGING_PROCESSING_STREAM_AUTO_CREATE: "true"
       KSQL_KSQL_LOGGING_PROCESSING_TOPIC_AUTO_CREATE: "true"
 
@@ -88,32 +87,42 @@ services:
     privileged: true
   
   tei-api:
-    image: shenukacj/tei-api:0.0.2
+    image: shenukacj/tei-api:0.0.1
     container_name: 'tei-api'
     ports:
       - '3000:3000'
     depends_on:
       - 'kafka'
+  # sudo docker logs tei-api -f
+
+  tei-api2:
+    image: shenukacj/tei-api:0.0.4
+    container_name: 'tei-api2'
+    ports:
+      - '3003:3003'
+    depends_on:
+      - 'kafka'
+  # sudo docker logs tei-api2 -f
 
 
 # to create topic:
-# sudo docker exec -it kafka kafka-topics --create --topic movements_topic --bootstrap-server kafka:9092 --replication-factor 1 --partitions 1
+# sudo docker exec -it kafka kafka-topics.sh --create --topic xml-topic --bootstrap-server kafka:9092 --replication-factor 1 --partitions 1
+
 
 # list topics:
-# sudo docker exec -it ksql-kafka-1 kafka-topics --list --bootstrap-server kafka:9092
+# sudo docker exec -it kafka kafka-topics.sh --list --bootstrap-server kafka:9092
 
 # sudo docker exec -it ksqldb-cli ksql http://ksqldb-server:8088
-# CREATE STREAM movements (
-#     id VARCHAR,
-#     timestamp BIGINT,
-#     amount DOUBLE,
-#     type VARCHAR
+# CREATE STREAM xml_stream (
+#     message_timestamp BIGINT,
+#     xml_data VARCHAR
 # ) WITH (
-#     KAFKA_TOPIC='movements_topic',
-#     VALUE_FORMAT='JSON'
+#     KAFKA_TOPIC='xml-topic',
+#     VALUE_FORMAT='JSON',
+#     TIMESTAMP='message_timestamp'
 # );
 
+
 # to check topic
-# sudo docker exec -it ksql-kafka-1 kafka
-# -console-consumer --bootstrap-server kafka:9092 --t
-# opic tei-topic --from-beginning
+# sudo docker exec -it kafka kafka-console-consumer.sh --bootstrap-server kafka:9092 --topic new-topic --from-beginning --property print.timestamp=true
+

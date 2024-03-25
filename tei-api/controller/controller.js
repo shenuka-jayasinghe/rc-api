@@ -20,7 +20,7 @@ exports.postTEI = async (req,res) => {
             // Process XML data
             await produceXml(xmlData);
             // Respond with the same XML data
-            res.status(200).set('Content-Type', 'text/xml').send(xmlData);
+            res.status(200).set('Content-Type', 'text/xml').send('xmlData');
         } catch (error) {
             console.error('Error processing XML data:', error);
             res.status(500).send('Internal Server Error');
