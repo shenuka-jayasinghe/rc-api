@@ -6,8 +6,9 @@
 2. [Node](https://nodejs.org/en/download)
 
 ## Architecture
+![Untitled Diagram drawio (2)](https://github.com/shenuka-jayasinghe/rc-api/assets/137282472/f976fa48-9766-4f19-9753-b8cb32256061)
 
-![Untitled Diagram drawio (1)](https://github.com/shenuka-jayasinghe/rc-api/assets/137282472/1d7c98ae-51ac-4528-95dc-d60b00d97a12)
+
 
 ## Steps
 
