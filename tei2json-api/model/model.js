@@ -3,7 +3,7 @@ const { processDataWithDocker } = require("../utils/xslt-processor");
 //sudo docker exec -it kafka /opt/bitnami/kafka/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test-topic --from-beginning
 
 const kafka = new Kafka({
-  clientId: "my-app",
+  clientId: "tei2json-api",
   brokers: ["kafka:9092"], // Kafka broker addresses
 });
 
