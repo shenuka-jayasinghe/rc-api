@@ -1,6 +1,6 @@
 //you can double check in the kafka topic using:
 //docker exec -it kafka /opt/bitnami/kafka/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test-topic --from-beginning
-const { newTei, updateTeiModel, deleteTeiModel, getTeiModel } = require("../model/model");
+const { newTei, updateTeiModel, deleteTeiModel, getTeiModel, getAllEventsTeiModel } = require("../model/model");
 
 exports.healthCheck = (req,res) => {
     res.status(200).send('Hello!')
@@ -65,12 +65,25 @@ exports.deleteTei = async (req,res) => {
     }
 }
 
+exports.getAllEventsTei = async (req,res) => {
+    const { title } = req.params;
+    try{
+        console.log(title)
+        const data = await getAllEventsTeiModel(title);
+        res.status(200).send(data.rows)
+    }
+    catch(error) {
+        console.error('Error fetching TEI:', error);
+        res.status(500).send('Internal Server Error');
+    }
+}
+
 exports.getTei = async (req,res) => {
     const { title } = req.params;
     try{
         console.log(title)
         const data = await getTeiModel(title);
-        res.status(200).send(data.rows)
+        res.status(200).send(data)
     }
     catch(error) {
         console.error('Error fetching TEI:', error);

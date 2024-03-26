@@ -3,7 +3,7 @@ const { Kafka } = require("kafkajs");
 const client = require("../db/connection");
 
 const kafka = new Kafka({
-  clientId: "my-app2",
+  clientId: "tei-api",
   brokers: ["kafka:9092"], // Kafka broker addresses
   //change to 'kafka:9092' before containerising
 });
@@ -29,7 +29,6 @@ exports.newTei = async (xmlData, title) => {
       timestamp: Date.now(),
       tei: xmlString,
     };
-    console.log("PAYLOAD==>", payLoad);
     await sendToKafka(JSON.stringify(payLoad));
     console.log("XML data sent to Kafka topic.");
   } catch (error) {
@@ -59,18 +58,20 @@ exports.updateTeiModel = async (xmlData, title) => {
 exports.deleteTeiModel = async (title) => {
   try {
     const payLoad = {
-      event: "deleted",
+      event: "deleted tei",
       title,
       timestamp: Date.now(),
       tei: "",
     };
+    await sendToKafka(JSON.stringify(payLoad));
+    console.log("Delete event sent successfully to Kafka topic.");
   } catch (error) {
     console.error("Error deleting TEI", error);
     throw error;
   }
 };
 
-exports.getTeiModel = async (title) => {
+exports.getAllEventsTeiModel = async (title) => {
   try {
     await client.connect();
     if (/\;/g.test(title)) {
@@ -84,6 +85,32 @@ exports.getTeiModel = async (title) => {
       }
       console.log(data);
       return data;
+    }
+
+  } catch (err) {
+    console.error("Error thrown while doing the query:", err);
+    throw err;
+  } finally {
+    await client.disconnect();
+  }
+};
+
+
+exports.getTeiModel = async (title) => {
+  try {
+    await client.connect();
+    if (/\;/g.test(title)) {
+      return "No SQL injections allowed";
+    } else {
+      const query = `SELECT * FROM tei_stream WHERE title = '${title}';`;
+      const { data, status, error } = await client.query(query);
+      if (error) {
+        console.error("Error returned by KsqlDB:", error);
+        throw new Error(error);
+      }
+      const latestEvent = data.rows[data.rows.length-1]
+      console.log(latestEvent)
+      return latestEvent;
     }
 
   } catch (err) {

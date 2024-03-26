@@ -7,7 +7,7 @@ CREATE STREAM tei_stream (
     timestamp BIGINT,
     tei VARCHAR
 ) WITH (
-    KAFKA_TOPIC='new-topic',
+    KAFKA_TOPIC='tei-topic',
     VALUE_FORMAT='JSON'
 );
 
