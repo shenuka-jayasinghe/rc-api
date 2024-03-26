@@ -7,6 +7,7 @@
 
 ## Architecture
 
+![Untitled-Diagram drawio-_2_](https://github.com/shenuka-jayasinghe/rc-api/assets/137282472/23fd69f1-0190-402f-ab45-69f6fc87350e)
 
 
 
