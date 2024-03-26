@@ -14,7 +14,7 @@ async function sendToKafka(xmlData) {
   await producer.connect();
 
   await producer.send({
-    topic: "new-topic", // Kafka topic name
+    topic: "tei-topic", // Kafka topic name
     messages: [{ value: xmlData }],
   });
   await producer.disconnect();
@@ -85,7 +85,7 @@ exports.getTeiModel = async (title) => {
       console.log(data);
       return data;
     }
-    
+
   } catch (err) {
     console.error("Error thrown while doing the query:", err);
     throw err;

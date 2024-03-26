@@ -78,13 +78,15 @@ services:
     tty: true
   
   tei2json-api:
-    image: shenukacj/tei2json-api:0.0.5
+    image: shenukacj/tei2json-api:0.0.6
     container_name: 'tei2json-api'
     ports:
       - '3001:3001'
     depends_on:
       - 'kafka'
+      - 'ksqldb-server'
     privileged: true
+    # sudo docker logs tei2json-api -f
   
   tei-api:
     image: shenukacj/tei-api:0.0.6

@@ -9,22 +9,32 @@ const kafka = new Kafka({
 
 const producer = kafka.producer();
 
-async function sendToKafka(xmlData) {
+
+
+async function sendToKafka(payLoad) {
     await producer.connect();
     await producer.send({
-        topic: 'cudl-json-topic', // Kafka topic name
-        messages: [{ value: xmlData }]
+        topic: 'json-topic', // Kafka topic name
+        messages: [{ value: payLoad }]
     });
     await producer.disconnect();
 }
 
-exports.processXml = async (xmlData) => {
+exports.processXml = async (xmlData, title) => {
     try {
         const xmlString = xmlData.toString();
         const processedData = await processDataWithDocker(xmlString, false); //true for 'sudo docker'
         const dataJSONstring = JSON.stringify(processedData);
+        const payLoad = {
+            event: 'new-xslt-transformation',
+            title,
+            type:'cudl-xslt',
+            timestamp: Date.now(),
+            json: dataJSONstring
+        }
+        console.log(payLoad)
+        await sendToKafka(JSON.stringify(payLoad));
         console.log('JSON data successfully sent to Kafka')
-        await sendToKafka(dataJSONstring);
         return processedData
     } catch (error) {
         console.error('Error sending JSON data to Kafka:', error);
