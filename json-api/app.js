@@ -18,15 +18,15 @@ app.use(bodyParser.text({ type: 'text/xml' }));
 
 app.get('/api/v1/json/healthcheck', healthCheck);
 
-app.post('/api/v1/json/:title', postJson);
+app.post('/api/v1/json/:id', postJson);
 
-app.put('/api/v1/json/:title', updateJson);
+app.put('/api/v1/json/:id', updateJson);
 
-app.delete('/api/v1/json/:title', deleteJson);
+app.delete('/api/v1/json/:id', deleteJson);
 
-app.get('/api/v1/json/allEvents/:title', getAllEventsJson);
+app.get('/api/v1/json/allEvents/:id', getAllEventsJson);
 
-app.get('/api/v1/json/:title', getJson);
+app.get('/api/v1/json/:id', getJson);
 
 // Start the server
 app.listen(port, () => {

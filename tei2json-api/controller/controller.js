@@ -17,9 +17,9 @@ exports.cudlXslt = async (req,res) => {
     // Once request data ends, respond with the received XML data
     req.on('end', async () => {
         try {
-            const { title }= req.params
+            const { id }= req.params
             // Process XML data
-            await processXml(xmlData, title).then( (processedData) => {
+            await processXml(xmlData, id).then( (processedData) => {
                 res.status(200).send(processedData);
             })
             // Respond with the same XML data

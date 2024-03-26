@@ -18,7 +18,7 @@ app.use(bodyParser.text({ type: 'text/xml' }));
 
 app.get('/api/v1/tei2json/healthcheck', healthCheck);
 
-app.post('/api/v1/tei2json/cudl-xslt/:title',  cudlXslt);
+app.post('/api/v1/tei2json/cudl-xslt/:id',  cudlXslt);
 
 // Start the server
 app.listen(port, () => {

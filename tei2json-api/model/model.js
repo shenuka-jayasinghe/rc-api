@@ -18,14 +18,14 @@ async function sendToKafka(payLoad) {
   await producer.disconnect();
 }
 
-exports.processXml = async (xmlData, title) => {
+exports.processXml = async (xmlData, id) => {
   try {
     const xmlString = xmlData.toString();
     const processedData = await processDataWithDocker(xmlString, false); //true for 'sudo docker'
     const dataJSONstring = JSON.stringify(processedData);
     const payLoad = {
       event: "new-json-cudl-xslt",
-      title,
+      id,
       timestamp: Date.now(),
       json: dataJSONstring,
     };

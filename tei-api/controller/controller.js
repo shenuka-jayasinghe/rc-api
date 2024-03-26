@@ -8,7 +8,7 @@ exports.healthCheck = (req,res) => {
 
 exports.postNewTei = async (req,res) => {
     let xmlData = '';
-    const { title } = req.params
+    const { id } = req.params
 
     // Accumulate data chunks
     req.on('data', chunk => {
@@ -19,7 +19,7 @@ exports.postNewTei = async (req,res) => {
     req.on('end', async () => {
         try {
             // Process XML data
-            await newTei(xmlData, title);
+            await newTei(xmlData, id);
             // Respond with the same XML data
             res.status(200).set('Content-Type', 'text/xml').send(xmlData);
         } catch (error) {
@@ -32,7 +32,7 @@ exports.postNewTei = async (req,res) => {
 
 exports.updateTei = async (req,res) => {
     let xmlData = '';
-    const { title } = req.params
+    const { id } = req.params
 
     // Accumulate data chunks
     req.on('data', chunk => {
@@ -43,7 +43,7 @@ exports.updateTei = async (req,res) => {
     req.on('end', async () => {
         try {
             // Process XML data
-            await updateTeiModel(xmlData, title);
+            await updateTeiModel(xmlData, id);
             // Respond with the same XML data
             res.status(200).set('Content-Type', 'text/xml').send(xmlData);
         } catch (error) {
@@ -54,9 +54,9 @@ exports.updateTei = async (req,res) => {
 }
 
 exports.deleteTei = async (req,res) => {
-    const  { title } = req.params
+    const  { id } = req.params
     try {
-        await deleteTeiModel(title);
+        await deleteTeiModel(id);
         res.status(200).send('TEI deleted successfully');
     }
     catch (error) {
@@ -66,10 +66,10 @@ exports.deleteTei = async (req,res) => {
 }
 
 exports.getAllEventsTei = async (req,res) => {
-    const { title } = req.params;
+    const { id } = req.params;
     try{
-        console.log(title)
-        const data = await getAllEventsTeiModel(title);
+        console.log(id)
+        const data = await getAllEventsTeiModel(id);
         res.status(200).send(data.rows)
     }
     catch(error) {
@@ -79,10 +79,10 @@ exports.getAllEventsTei = async (req,res) => {
 }
 
 exports.getTei = async (req,res) => {
-    const { title } = req.params;
+    const { id } = req.params;
     try{
-        console.log(title)
-        const data = await getTeiModel(title);
+        console.log(id)
+        const data = await getTeiModel(id);
         res.status(200).send(data)
     }
     catch(error) {

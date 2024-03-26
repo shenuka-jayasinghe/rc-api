@@ -7,33 +7,33 @@ exports.healthCheck = (req,res) => {
 }
 
 exports.postJson = async (req,res) => {
-    const  { title } = req.params;
+    const  { id } = req.params;
     const json = req.body;
-    await postJsonModel(json, title).then( () => {
+    await postJsonModel(json, id).then( () => {
         res.status(200).send('new JSON data sent to Kafka')
     }) 
 }
 
 exports.updateJson = async (req,res) => {
-    const  { title } = req.params;
+    const  { id } = req.params;
     const json = req.body;
-    await updateJsonModel(json, title).then( () => {
+    await updateJsonModel(json, id).then( () => {
         res.status(200).send('JSON data updated')
     }) 
 }
 
 exports.deleteJson = async (req,res) => {
-    const  { title } = req.params;
-    await deleteJsonModel(title).then( () => {
+    const  { id } = req.params;
+    await deleteJsonModel(id).then( () => {
         res.status(200).send('JSON data deleted')
     }) 
 }
 
 exports.getAllEventsJson = async (req, res) => {
-    const { title } = req.params;
+    const { id } = req.params;
     try{
-        console.log(title)
-        const data = await getAllEventsJsonModel(title);
+        console.log(id)
+        const data = await getAllEventsJsonModel(id);
         res.status(200).send(data.rows)
     }
     catch(error) {
@@ -43,10 +43,10 @@ exports.getAllEventsJson = async (req, res) => {
 }
 
 exports.getJson = async (req, res) => {
-    const { title } = req.params;
+    const { id } = req.params;
     try{
-        console.log(title)
-        const data = await getJsonModel(title);
+        console.log(id)
+        const data = await getJsonModel(id);
         res.status(200).send(data)
     }
     catch(error) {

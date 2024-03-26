@@ -12,15 +12,15 @@ app.use(bodyParser.text({ type: 'text/xml' }));
 
 app.get('/api/v1/TEI/healthcheck', healthCheck);
 
-app.post('/api/v1/TEI/:title', postNewTei);
+app.post('/api/v1/TEI/:id', postNewTei);
 
-app.put('/api/v1/TEI/:title', updateTei);
+app.put('/api/v1/TEI/:id', updateTei);
 
-app.delete('/api/v1/TEI/:title', deleteTei);
+app.delete('/api/v1/TEI/:id', deleteTei);
 
-app.get('/api/v1/TEI/:title', getTei);
+app.get('/api/v1/TEI/:id', getTei);
 
-app.get('/api/v1/TEI/allEvents/:title', getAllEventsTei);
+app.get('/api/v1/TEI/allEvents/:id', getAllEventsTei);
 
 // Start the server
 app.listen(port, () => {

@@ -3,7 +3,7 @@ const client = require("../db/connection");
 //sudo docker exec -it kafka /opt/bitnami/kafka/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test-topic --from-beginning
 
 const kafka = new Kafka({
-  clientId: "my-app",
+  clientId: "json-api",
   brokers: ["kafka:9092"], // Kafka broker addresses
 });
 
@@ -18,11 +18,11 @@ async function sendToKafka(payLoad) {
   await producer.disconnect();
 }
 
-exports.postJsonModel = async (json, title) => {
+exports.postJsonModel = async (json, id) => {
   try {
     const payLoad = {
       event: "new-json-item",
-      title,
+      id,
       timestamp: Date.now(),
       json
     };
@@ -35,11 +35,11 @@ exports.postJsonModel = async (json, title) => {
   }
 };
 
-exports.updateJsonModel = async (updatedJson, title) => {
+exports.updateJsonModel = async (updatedJson, id) => {
   try {
     const payLoad = {
         event: "updated-json",
-        title,
+        id,
         timestamp: Date.now(),
         json: updatedJson,
       };
@@ -52,11 +52,11 @@ exports.updateJsonModel = async (updatedJson, title) => {
   }
 };
 
-exports.deleteJsonModel = async (title) => {
+exports.deleteJsonModel = async (id) => {
     try {
       const payLoad = {
           event: "deleted-json",
-          title,
+          id,
           timestamp: Date.now(),
           json: '',
         };
@@ -69,13 +69,13 @@ exports.deleteJsonModel = async (title) => {
     }
   };
 
-exports.getAllEventsJsonModel = async (title) => {
+exports.getAllEventsJsonModel = async (id) => {
     try {
       await client.connect();
-      if (/\;/g.test(title)) {
+      if (/\;/g.test(id)) {
         return "No SQL injections allowed";
       } else {
-        const query = `SELECT * FROM json_stream WHERE title = '${title}';`;
+        const query = `SELECT * FROM json_stream WHERE id = '${id}';`;
         const { data, status, error } = await client.query(query);
         if (error) {
           console.error("Error returned by KsqlDB:", error);
@@ -92,13 +92,13 @@ exports.getAllEventsJsonModel = async (title) => {
     }
   };
 
-  exports.getJsonModel = async (title) => {
+  exports.getJsonModel = async (id) => {
     try {
       await client.connect();
-      if (/\;/g.test(title)) {
+      if (/\;/g.test(id)) {
         return "No SQL injections allowed";
       } else {
-        const query = `SELECT * FROM json_stream WHERE title = '${title}';`;
+        const query = `SELECT * FROM json_stream WHERE id = '${id}';`;
         const { data, status, error } = await client.query(query);
         if (error) {
           console.error("Error returned by KsqlDB:", error);
