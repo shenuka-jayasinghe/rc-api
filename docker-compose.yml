@@ -76,9 +76,10 @@ services:
       - ksqldb-server
     entrypoint: /bin/sh
     tty: true
+  # sudo docker exec -it ksqldb-cli ksql http://ksqldb-server:8088 
   
   tei2json-api:
-    image: shenukacj/tei2json-api:0.0.6
+    image: shenukacj/tei2json-api:0.0.9
     container_name: 'tei2json-api'
     ports:
       - '3001:3001'
@@ -86,6 +87,7 @@ services:
       - 'kafka'
       - 'ksqldb-server'
     privileged: true
+#     sudo docker compose restart tei-api && sudo docker compose restart json-api && sudo docker exec -it tei2json-api docker run shenukacj/cudl-xslt:0.0.5 && sudo docker exec -it tei2json-api node app.js
     # sudo docker logs tei2json-api -f
   
   tei-api:
@@ -96,7 +98,16 @@ services:
     depends_on:
       - 'kafka'
       - 'ksqldb-server'
-  # sudo docker logs tei-api -f
+
+  json-api:
+    image: shenukacj/json-api:0.0.2
+    container_name: 'json-api'
+    ports:
+      - '3002:3002'
+    depends_on:
+      - 'kafka'
+      - 'ksqldb-server'
+  # sudo docker logs json-api -f
 
   # tei-api2:
   #   image: shenukacj/tei-api:0.0.5

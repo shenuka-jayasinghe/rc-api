@@ -6,7 +6,7 @@ exports.healthCheck = (req,res) => {
     res.status(200).send('Hello!')
 }
 
-exports.postTEI = async (req,res) => {
+exports.cudlXslt = async (req,res) => {
     let xmlData = '';
 
     // Accumulate data chunks

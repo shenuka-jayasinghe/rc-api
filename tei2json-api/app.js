@@ -1,6 +1,6 @@
-// sudo docker build -t shenukacj/tei2json-api:0.0.6 . && sudo docker push shenukacj/tei2json-api:0.0.6
+// sudo docker build -t shenukacj/tei2json-api:0.0.9 . && sudo docker push shenukacj/tei2json-api:0.0.9
 const express = require('express');
-const { healthCheck, postTEI } = require('./controller/controller.js');
+const { healthCheck, cudlXslt } = require('./controller/controller.js');
 const xmlParser = require('express-xml-bodyparser');
 const bodyParser = require('body-parser');
 
@@ -18,7 +18,7 @@ app.use(bodyParser.text({ type: 'text/xml' }));
 
 app.get('/api/v1/tei2json/healthcheck', healthCheck);
 
-app.post('/api/v1/tei2json/cudl-xslt/:title', postTEI);
+app.post('/api/v1/tei2json/cudl-xslt/:title',  cudlXslt);
 
 // Start the server
 app.listen(port, () => {
