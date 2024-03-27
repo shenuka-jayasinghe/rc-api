@@ -44,11 +44,11 @@ Working endpoints:
 
 | Microservice | Request | Body format | Data | Port | Endpoint |
 |-------------|---------|-------------|------|------|----------|
-| TEI to JSON | ```post```| XML | [TEI Example](#tei-example)| 3001 | http://localhost:3001/api/v1/tei2json/cudl-xslt/```:id```|
-| JSON | ```post``` <br> ```put``` <br> ```delete``` <br> ```get```| JSON | [JSON Example](#json-example-data) | 3002 | http://localhost:3002/api/v1/json/```:id``` |
-| JSON | ```get```| JSON |  | 3002 | http://localhost:3002/api/v1/json/allEvents/```:id``` |
-| TEI | ```post``` <br> ```put``` <br> ```delete``` <br> ```get```| TEI | [TEI Example](#tei-example) | 3000 | http://localhost:3002/api/v1/json/```:id``` |
-| TEI | ```get```| TEI | | 3000 | http://localhost:3002/api/v1/json/allEvents/```:id``` |
+| TEI to JSON | ```post```| XML | [TEI Example](#tei-example)| 3001 | http://localhost:3001/api/v1/tei2json/cudl-xslt/[:id]|
+| JSON | ```post``` <br> ```put``` <br> ```delete``` <br> ```get```| JSON | [JSON Example](#json-example-data) | 3002 | http://localhost:3002/api/v1/json/[:id] |
+| JSON | ```get```| JSON |  | 3002 | http://localhost:3002/api/v1/json/allEvents/[:id] |
+| TEI | ```post``` <br> ```put``` <br> ```delete``` <br> ```get```| TEI | [TEI Example](#tei-example) | 3000 | http://localhost:3002/api/v1/json/[:id] |
+| TEI | ```get```| TEI | | 3000 | http://localhost:3002/api/v1/json/allEvents/[:id] |
 
 
 ## Example Data
