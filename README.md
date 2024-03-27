@@ -23,7 +23,7 @@
 sudo docker compose up -d
 ```
 
-2. Then cache the [```shenukacj/cudl-xslt:0.0.5```](https://github.com/shenuka-jayasinghe/cudl-data-processing-xslt/blob/main/Dockerfile) container and run the node server using the terminal (we also need to restart the tei-api container):
+2. Then cache the [```shenukacj/cudl-xslt:0.0.5```](https://github.com/shenuka-jayasinghe/cudl-data-processing-xslt/blob/main/Dockerfile) container and run the node server using the terminal (we also need to restart the tei-api and json container):
 
 ```bash
 sudo docker compose restart tei-api && \ 
