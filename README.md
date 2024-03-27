@@ -41,6 +41,12 @@ docker exec -it kafka kafka-topics.sh --create --topic tei-topic --bootstrap-ser
 docker exec -it kafka kafka-topics.sh --create --topic json-topic --bootstrap-server kafka:9092 --replication-factor 1 --partitions 1
 ```
 
+You can list both topics using:
+
+```bash
+docker exec -it kafka kafka-topics.sh --list --bootstrap-server kafka:9092
+```
+
 (ii) Caches the [```shenukacj/cudl-xslt:0.0.5```](https://github.com/shenuka-jayasinghe/cudl-data-processing-xslt/blob/main/Dockerfile) container and run the node server
 
 ```bash
