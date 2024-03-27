@@ -28,7 +28,7 @@ docker compose up --build
 
 ```bash
 docker compose restart tei-api && \ 
-docker compose restart json-api && \
+docker compose restart json-api
 ```
 
 (ii) Initialises the Kafka topics, ```json-topic``` and ```tei-topic```
@@ -45,7 +45,7 @@ docker exec -it kafka kafka-topics.sh --create --topic json-topic --bootstrap-se
 
 ```bash
 docker exec -it tei2json-api docker run shenukacj/cudl-xslt:0.0.5 && \
-docker exec -it tei2json-api node app.js -d \
+docker exec -it tei2json-api node app.js 
 ```
 
 4. Initialise the streams (like tables in Kafka) in KSQLDB.
