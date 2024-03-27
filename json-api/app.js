@@ -1,11 +1,15 @@
-// sudo docker build -t shenukacj/json-api:0.0.3 . && sudo docker push shenukacj/json-api:0.0.3
+// sudo docker build -t shenukacj/json-api:0.0.4 . && sudo docker push shenukacj/json-api:0.0.4
 const express = require('express');
 const { healthCheck, updateJson, deleteJson, getJson, postJson, getAllEventsJson } = require('./controller/controller.js');
 const xmlParser = require('express-xml-bodyparser');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 const app = express();
 const port = 3002;
+
+// Middleware to handle CORS
+app.use(cors());
 
 // Middleware to parse JSON bodies
 app.use(express.json());

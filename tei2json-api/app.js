@@ -1,11 +1,15 @@
-// sudo docker build -t shenukacj/tei2json-api:0.0.11 . && sudo docker push shenukacj/tei2json-api:0.0.11
+// sudo docker build -t shenukacj/tei2json-api:0.0.12 . && sudo docker push shenukacj/tei2json-api:0.0.12
 const express = require('express');
 const { healthCheck, cudlXslt } = require('./controller/controller.js');
 const xmlParser = require('express-xml-bodyparser');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 const app = express();
 const port = 3001;
+
+//Middleware to handle CORS
+app.use(cors());
 
 // Middleware to parse JSON bodies
 app.use(express.json());

@@ -3,7 +3,7 @@ sudo docker exec -it kafka kafka-topics --create --topic tei_topic --bootstrap-s
 sudo docker exec -it ksqldb-cli ksql http://ksqldb-server:8088 
 CREATE STREAM tei_stream (
     event VARCHAR,
-    title VARCHAR,
+    id VARCHAR,
     timestamp BIGINT,
     tei VARCHAR
 ) WITH (
