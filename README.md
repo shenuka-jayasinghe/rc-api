@@ -20,31 +20,39 @@
 1. In the root directory run
 
 ```bash
-docker compose up -d
+docker compose up --build
 ```
 
 2. Run the the bash commands below which does following:
 (i) Restarts tei and json services (needs to wait for KSQLDB to startup first, but will be automated when running in Kubernetes)
-(ii) Initialises the Kafka topics, ```json-topic``` and ```tei-topic```
-(ii) Caches the [```shenukacj/cudl-xslt:0.0.5```](https://github.com/shenuka-jayasinghe/cudl-data-processing-xslt/blob/main/Dockerfile) container and run the node server
 
 ```bash
 docker compose restart tei-api && \ 
 docker compose restart json-api && \
-docker exec -it kafka kafka-topics --create --topic tei-topic --bootstrap-server kafka:9092 --replication-factor 1 --partitions 1 \
-docker exec -it kafka kafka-topics --create --topic json-topic --bootstrap-server kafka:9092 --replication-factor 1 --partitions 1 \
-docker exec -it tei2json-api docker run shenukacj/cudl-xslt:0.0.5 && \
-docker exec -it tei2json-api node app.js -d \
-
 ```
 
-3. Initialise th
+(ii) Initialises the Kafka topics, ```json-topic``` and ```tei-topic```
+
+```bash
+docker exec -it kafka kafka-topics.sh --create --topic tei-topic --bootstrap-server kafka:9092 --replication-factor 1 --partitions 1
+```
+
+```bash
+docker exec -it kafka kafka-topics.sh --create --topic json-topic --bootstrap-server kafka:9092 --replication-factor 1 --partitions 1
+```
+
+(ii) Caches the [```shenukacj/cudl-xslt:0.0.5```](https://github.com/shenuka-jayasinghe/cudl-data-processing-xslt/blob/main/Dockerfile) container and run the node server
+
+```bash
+docker exec -it tei2json-api docker run shenukacj/cudl-xslt:0.0.5 && \
+docker exec -it tei2json-api node app.js -d \
+```
 
 4. Initialise the streams (like tables in Kafka) in KSQLDB.
 
 (i) Shell into the KSQLDB server:
 ```bash
-sudo docker exec -it ksqldb-cli ksql http://ksqldb-server:8088 
+docker exec -it ksqldb-cli ksql http://ksqldb-server:8088 
 ```
 This should open up the ksql cli:
 ```bash
