@@ -23,16 +23,80 @@
 docker compose up -d
 ```
 
-2. Then cache the [```shenukacj/cudl-xslt:0.0.5```](https://github.com/shenuka-jayasinghe/cudl-data-processing-xslt/blob/main/Dockerfile) container and run the node server using the terminal (we also need to restart the tei-api and json container):
+2. Run the the bash commands below which does following:
+(i) Restarts tei and json services (needs to wait for KSQLDB to startup first, but will be automated when running in Kubernetes)
+(ii) Initialises the Kafka topics, ```json-topic``` and ```tei-topic```
+(ii) Caches the [```shenukacj/cudl-xslt:0.0.5```](https://github.com/shenuka-jayasinghe/cudl-data-processing-xslt/blob/main/Dockerfile) container and run the node server
 
 ```bash
 docker compose restart tei-api && \ 
 docker compose restart json-api && \
+docker exec -it kafka kafka-topics --create --topic tei-topic --bootstrap-server kafka:9092 --replication-factor 1 --partitions 1 \
+docker exec -it kafka kafka-topics --create --topic json-topic --bootstrap-server kafka:9092 --replication-factor 1 --partitions 1 \
 docker exec -it tei2json-api docker run shenukacj/cudl-xslt:0.0.5 && \
-docker exec -it tei2json-api node app.js
+docker exec -it tei2json-api node app.js -d \
+
 ```
 
-3. When testing and use is complete, you can shut down the docker containers using ```sudo docker compose down``` in the root directory
+3. Initialise th
+
+4. Initialise the streams (like tables in Kafka) in KSQLDB.
+
+(i) Shell into the KSQLDB server:
+```bash
+sudo docker exec -it ksqldb-cli ksql http://ksqldb-server:8088 
+```
+This should open up the ksql cli:
+```bash
+                  ===========================================
+                  =       _              _ ____  ____       =
+                  =      | | _____  __ _| |  _ \| __ )      =
+                  =      | |/ / __|/ _` | | | | |  _ \      =
+                  =      |   <\__ \ (_| | | |_| | |_) |     =
+                  =      |_|\_\___/\__, |_|____/|____/      =
+                  =                   |_|                   =
+                  =        The Database purpose-built       =
+                  =        for stream processing apps       =
+                  ===========================================
+
+Copyright 2017-2022 Confluent Inc.
+
+CLI v0.29.0, Server v0.29.0 located at http://ksqldb-server:8088
+Server Status: RUNNING
+
+Having trouble? Type 'help' (case-insensitive) for a rundown of how things work!
+
+ksql> 
+```
+
+(ii) Run the following SQL query in KSQL to initialise the json stream
+
+```SQL
+CREATE STREAM json_stream (
+    event VARCHAR,
+    id VARCHAR,
+    timestamp BIGINT,
+    json VARCHAR
+) WITH (
+    KAFKA_TOPIC='json-topic',
+    VALUE_FORMAT='JSON'
+);
+```
+Run the following SQL query in KSQL to initialise the tei stream
+
+```SQL
+CREATE STREAM tei_stream (
+    event VARCHAR,
+    id VARCHAR,
+    timestamp BIGINT,
+    tei VARCHAR
+) WITH (
+    KAFKA_TOPIC='tei-topic',
+    VALUE_FORMAT='JSON'
+);
+```
+
+4. When testing and use is complete, you can shut down the docker containers using ```sudo docker compose down``` in the root directory
 
 ### 2. REST API
 
