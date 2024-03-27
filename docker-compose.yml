@@ -79,7 +79,7 @@ services:
   # sudo docker exec -it ksqldb-cli ksql http://ksqldb-server:8088 
   
   tei2json-api:
-    image: shenukacj/tei2json-api:0.0.9
+    image: shenukacj/tei2json-api:0.0.11
     container_name: 'tei2json-api'
     ports:
       - '3001:3001'
@@ -91,7 +91,7 @@ services:
     # sudo docker logs tei2json-api -f
   
   tei-api:
-    image: shenukacj/tei-api:0.0.7
+    image: shenukacj/tei-api:0.0.8
     container_name: 'tei-api'
     ports:
       - '3000:3000'
@@ -101,7 +101,7 @@ services:
       #  sudo docker logs tei-api -f
 
   json-api:
-    image: shenukacj/json-api:0.0.2
+    image: shenukacj/json-api:0.0.3
     container_name: 'json-api'
     ports:
       - '3002:3002'

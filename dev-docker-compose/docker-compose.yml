@@ -22,4 +22,4 @@ services:
 
 # sudo docker exec -it kafka-dev kafka-topics.sh --list --bootstrap-server localhost:9092
 
-# sudo docker exec -it kafka-dev kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic new-topic --from-beginning
+# sudo docker exec -it kafka-dev kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic items-topic --from-beginning

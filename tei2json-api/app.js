@@ -1,4 +1,4 @@
-// sudo docker build -t shenukacj/tei2json-api:0.0.9 . && sudo docker push shenukacj/tei2json-api:0.0.9
+// sudo docker build -t shenukacj/tei2json-api:0.0.11 . && sudo docker push shenukacj/tei2json-api:0.0.11
 const express = require('express');
 const { healthCheck, cudlXslt } = require('./controller/controller.js');
 const xmlParser = require('express-xml-bodyparser');

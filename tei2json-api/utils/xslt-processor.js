@@ -67,7 +67,8 @@ exports.processDataWithDocker = async (
     return jsonData.filter((data) => data);
   } catch (err) {
     console.error("Error:", err);
-    return [];
+    await exec(`rm -r ${__dirname}/data`)
+    return ['XSLT transformation failed'];
   }
 }
 

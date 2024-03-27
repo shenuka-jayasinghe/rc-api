@@ -1,4 +1,4 @@
-// sudo docker build -t shenukacj/tei-api:0.0.7 . && sudo docker push shenukacj/tei-api:0.0.7
+// sudo docker build -t shenukacj/tei-api:0.0.8 . && sudo docker push shenukacj/tei-api:0.0.8
 const express = require('express');
 const { healthCheck, postNewTei, updateTei, deleteTei, getTei, getAllEventsTei} = require('./controller/controller');
 const bodyParser = require('body-parser');

@@ -12,7 +12,7 @@
 ## Steps
 
 1. [Run the Containers](#1-run-the-containers)
-2. [Test the API](#2-test-the-api)
+2. [REST API](#2-rest-api)
 3. [Check the Kafka Topic](#3-check-the-kafka-topic)
 
 ### 1. Run the Containers
@@ -34,9 +34,11 @@ sudo docker exec -it tei2json-api node app.js
 
 3. When testing and use is complete, you can shut down the docker containers using ```sudo docker compose down``` in the root directory
 
-### 2. Test the API
+### 2. REST API
 
-You can test the following with ```PR-CHCR-00023``` for the ```:id``` parameter. 
+You can test the REST API with ```PR-CHCR-00023``` for the ```:id``` parameter. 
+
+>Note: The APIs are currently on different ports, but after these containers are run in Kubernetes, they will all use one port, ```80``` through an NGINX ingress controller.
 
 Working endpoints:
 
@@ -48,7 +50,6 @@ Working endpoints:
 | TEI | ```post``` <br> ```put``` <br> ```delete``` <br> ```get```| TEI | [TEI Example](#tei-example) | 3000 | http://localhost:3002/api/v1/json/```:id``` |
 | TEI | ```get```| TEI | | 3000 | http://localhost:3002/api/v1/json/allEvents/```:id``` |
 
-```post``` request ```http://localhost:3001/api/v1/tei2json/cudl-xslt/:id```
 
 ## Example Data
 
