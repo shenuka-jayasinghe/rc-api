@@ -17,19 +17,19 @@
 
 ### 1. Run the Containers
 
-1. In the root directory run (sudo is optional)
+1. In the root directory run
 
 ```bash
-sudo docker compose up -d
+docker compose up -d
 ```
 
 2. Then cache the [```shenukacj/cudl-xslt:0.0.5```](https://github.com/shenuka-jayasinghe/cudl-data-processing-xslt/blob/main/Dockerfile) container and run the node server using the terminal (we also need to restart the tei-api and json container):
 
 ```bash
-sudo docker compose restart tei-api && \ 
-sudo docker compose restart json-api && \
-sudo docker exec -it tei2json-api docker run shenukacj/cudl-xslt:0.0.5 && \
-sudo docker exec -it tei2json-api node app.js
+docker compose restart tei-api && \ 
+docker compose restart json-api && \
+docker exec -it tei2json-api docker run shenukacj/cudl-xslt:0.0.5 && \
+docker exec -it tei2json-api node app.js
 ```
 
 3. When testing and use is complete, you can shut down the docker containers using ```sudo docker compose down``` in the root directory
