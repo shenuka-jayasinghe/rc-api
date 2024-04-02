@@ -208,40 +208,40 @@ spec:
 
 ---
 
-apiVersion: v1
-kind: Service
-metadata:
-  name: tei2json-api
-spec:
-  selector:
-    app: tei2json-api
-  ports:
-    - protocol: TCP
-      port: 3001
-      targetPort: 3001
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: tei2json-api
+# spec:
+#   selector:
+#     app: tei2json-api
+#   ports:
+#     - protocol: TCP
+#       port: 3001
+#       targetPort: 3001
 
----
+# ---
 
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: tei2json-api
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: tei2json-api
-  template:
-    metadata:
-      labels:
-        app: tei2json-api
-    spec:
-      containers:
-        - name: tei2json-api
-          image: shenukacj/tei2json-api:0.0.12
-          ports:
-            - containerPort: 3001
-          # Add other configuration as needed
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: tei2json-api
+# spec:
+#   replicas: 1
+#   selector:
+#     matchLabels:
+#       app: tei2json-api
+#   template:
+#     metadata:
+#       labels:
+#         app: tei2json-api
+#     spec:
+#       containers:
+#         - name: tei2json-api
+#           image: shenukacj/tei2json-api:0.0.12
+#           ports:
+#             - containerPort: 3001
+#           # Add other configuration as needed
 
 ---
 
