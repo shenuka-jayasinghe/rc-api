@@ -20,6 +20,8 @@ services:
     depends_on:
       - zookeeper
 
+# sudo docker exec -it kafka-dev kafka-topics.sh --create --topic collections-topic --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1
+
 # sudo docker exec -it kafka-dev kafka-topics.sh --list --bootstrap-server localhost:9092
 
-# sudo docker exec -it kafka-dev kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic items-topic --from-beginning
+# sudo docker exec -it kafka-dev kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic collections-topic --from-beginning

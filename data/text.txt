@@ -1,0 +1,811 @@
+item ==> PR-CHCR-00023
+[
+  {
+    descriptiveMetadata: [ [Object] ],
+    numberOfPages: 22,
+    embeddable: true,
+    textDirection: 'L',
+    sourceData: '/v1/metadata/tei/data/',
+    pages: [
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object]
+    ],
+    logicalStructures: [ [Object] ]
+  }
+]
+post item ==> PR-CHCR-00023
+item ==> PR-CHCR-00024
+[
+  {
+    descriptiveMetadata: [ [Object] ],
+    numberOfPages: 16,
+    embeddable: true,
+    textDirection: 'L',
+    sourceData: '/v1/metadata/tei/data/',
+    pages: [
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object]
+    ],
+    logicalStructures: [ [Object] ]
+  }
+]
+post item ==> PR-CHCR-00024
+item ==> PR-CHCR-00025
+[
+  {
+    descriptiveMetadata: [ [Object] ],
+    numberOfPages: 34,
+    embeddable: true,
+    textDirection: 'L',
+    sourceData: '/v1/metadata/tei/data/',
+    pages: [
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object]
+    ],
+    logicalStructures: [ [Object] ]
+  }
+]
+post item ==> PR-CHCR-00025
+item ==> PR-CHCR-00067
+[
+  {
+    descriptiveMetadata: [ [Object] ],
+    numberOfPages: 21,
+    embeddable: true,
+    textDirection: 'L',
+    sourceData: '/v1/metadata/tei/data/',
+    pages: [
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object]
+    ],
+    logicalStructures: [ [Object] ]
+  }
+]
+post item ==> PR-CHCR-00067
+item ==> PR-CHCR-00227
+[
+  {
+    descriptiveMetadata: [ [Object] ],
+    numberOfPages: 258,
+    embeddable: true,
+    textDirection: 'L',
+    sourceData: '/v1/metadata/tei/data/',
+    pages: [
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      ... 158 more items
+    ],
+    logicalStructures: [ [Object] ]
+  }
+]
+post item ==> PR-CHCR-00227
+item ==> MS-CHCR-00241
+[
+  {
+    descriptiveMetadata: [ [Object] ],
+    numberOfPages: 30,
+    embeddable: true,
+    textDirection: 'L',
+    sourceData: '/v1/metadata/tei/data/',
+    pages: [
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object]
+    ],
+    logicalStructures: [ [Object] ]
+  }
+]
+post item ==> MS-CHCR-00241
+item ==> PR-CHCR-00398
+[
+  {
+    descriptiveMetadata: [ [Object], [Object], [Object] ],
+    numberOfPages: 202,
+    embeddable: true,
+    textDirection: 'L',
+    sourceData: '/v1/metadata/tei/data/',
+    pages: [
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      ... 102 more items
+    ],
+    logicalStructures: [ [Object] ]
+  }
+]
+post item ==> PR-CHCR-00398
+item ==> PR-CHCR-00411
+[
+  {
+    descriptiveMetadata: [ [Object] ],
+    numberOfPages: 46,
+    embeddable: true,
+    textDirection: 'L',
+    sourceData: '/v1/metadata/tei/data/',
+    pages: [
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object]
+    ],
+    logicalStructures: [ [Object] ]
+  }
+]
+post item ==> PR-CHCR-00411
+item ==> PR-CHCR-00415-001
+[
+  {
+    descriptiveMetadata: [ [Object], [Object], [Object] ],
+    numberOfPages: 30,
+    embeddable: true,
+    textDirection: 'L',
+    sourceData: '/v1/metadata/tei/data/',
+    pages: [
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object]
+    ],
+    logicalStructures: [ [Object] ],
+    listItemPages: [ [Object], [Object] ]
+  }
+]
+post item ==> PR-CHCR-00415-001
+item ==> PR-CHCR-00415-002
+[
+  {
+    descriptiveMetadata: [ [Object], [Object], [Object], [Object], [Object] ],
+    numberOfPages: 54,
+    embeddable: true,
+    textDirection: 'L',
+    sourceData: '/v1/metadata/tei/data/',
+    pages: [
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object]
+    ],
+    logicalStructures: [ [Object] ],
+    listItemPages: [ [Object], [Object], [Object], [Object] ]
+  }
+]
+post item ==> PR-CHCR-00415-002
+item ==> PR-CHCR-00415-003
+[
+  {
+    descriptiveMetadata: [
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object]
+    ],
+    numberOfPages: 197,
+    embeddable: true,
+    textDirection: 'L',
+    sourceData: '/v1/metadata/tei/data/',
+    pages: [
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      ... 97 more items
+    ],
+    logicalStructures: [ [Object] ],
+    listItemPages: [
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object]
+    ]
+  }
+]
+post item ==> PR-CHCR-00415-003
+item ==> PR-CHCR-00411
+[
+  {
+    descriptiveMetadata: [ [Object] ],
+    numberOfPages: 46,
+    embeddable: true,
+    textDirection: 'L',
+    sourceData: '/v1/metadata/tei/data/',
+    pages: [
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object]
+    ],
+    logicalStructures: [ [Object] ]
+  }
+]
+post item ==> PR-CHCR-00411
+item ==> PR-CHCR-00457
+[
+  {
+    descriptiveMetadata: [
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object]
+    ],
+    numberOfPages: 111,
+    embeddable: true,
+    textDirection: 'L',
+    sourceData: '/v1/metadata/tei/data/',
+    pages: [
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      ... 11 more items
+    ],
+    logicalStructures: [ [Object] ]
+  }
+]
+post item ==> PR-CHCR-00457
+item ==> PR-CHCR-00459
+[
+  {
+    descriptiveMetadata: [ [Object] ],
+    numberOfPages: 15,
+    embeddable: true,
+    textDirection: 'L',
+    sourceData: '/v1/metadata/tei/data/',
+    pages: [
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object]
+    ],
+    logicalStructures: [ [Object] ]
+  }
+]
+post item ==> PR-CHCR-00459
+item ==> MS-CHCR-00460
+[
+  {
+    descriptiveMetadata: [ [Object] ],
+    numberOfPages: 5,
+    embeddable: true,
+    textDirection: 'L',
+    sourceData: '/v1/metadata/tei/data/',
+    pages: [ [Object], [Object], [Object], [Object], [Object] ],
+    logicalStructures: [ [Object] ]
+  }
+]
+post item ==> MS-CHCR-00460
+item ==> PR-CHCR-00462
+[
+  {
+    descriptiveMetadata: [ [Object] ],
+    numberOfPages: 180,
+    embeddable: true,
+    textDirection: 'L',
+    sourceData: '/v1/metadata/tei/data/',
+    pages: [
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      ... 80 more items
+    ],
+    logicalStructures: [ [Object] ]
+  }
+]
+post item ==> PR-CHCR-00462
+item ==> VS-CHDR-00028
+[
+  {
+    descriptiveMetadata: [ [Object] ],
+    numberOfPages: 29,
+    embeddable: true,
+    textDirection: 'L',
+    sourceData: '/v1/metadata/tei/data/',
+    pages: [
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object]
+    ],
+    logicalStructures: [ [Object] ]
+  }
+]
+post item ==> VS-CHDR-00028
+item ==> VS-CHDR-00046
+[
+  {
+    descriptiveMetadata: [ [Object] ],
+    numberOfPages: 36,
+    embeddable: true,
+    textDirection: 'L',
+    sourceData: '/v1/metadata/tei/data/',
+    pages: [
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object]
+    ],
+    logicalStructures: [ [Object] ]
+  }
+]
+post item ==> VS-CHDR-00046
+All items processed for collection: chinese
+Collection seeded: chinese
+item ==> AR-JA-00033-00001-00001
+[
+  {
+    descriptiveMetadata: [
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      ... 86 more items
+    ],
+    numberOfPages: 86,
+    embeddable: true,
+    textDirection: 'L',
+    sourceData: '/v1/metadata/tei/data/',
+    pages: [
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object]
+    ],
+    logicalStructures: [ [Object] ]
+  }
+]
+post item ==> AR-JA-00033-00001-00001
+item ==> AR-JA-00033-00001-00002
+[
+  {
+    descriptiveMetadata: [
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      ... 14 more items
+    ],
+    numberOfPages: 102,
+    embeddable: true,
+    textDirection: 'L',
+    sourceData: '/v1/metadata/tei/data/',
+    pages: [
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      ... 2 more items
+    ],
+    logicalStructures: [ [Object] ]
+  }
+]
+post item ==> AR-JA-00033-00001-00002
+item ==> PR-SPCC-R-97511
+[
+  {
+    descriptiveMetadata: [ [Object], [Object], [Object], [Object], [Object], [Object] ],
+    numberOfPages: 68,
+    embeddable: true,
+    textDirection: 'L',
+    sourceData: '/v1/metadata/tei/data/',
+    pages: [
+      [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object]
+    ],
+    logicalStructures: [ [Object] ]
+  }
+]
+post item ==> PR-SPCC-R-97511
+item ==> VS-VPH-00006
+[
+  {
+    descriptiveMetadata: [
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object]
+    ],
+    numberOfPages: 120,
+    embeddable: true,
+    textDirection: 'L',
+    sourceData: '/v1/metadata/tei/data/',
+    pages: [
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      ... 20 more items
+    ],
+    logicalStructures: [ [Object] ]
+  }
+]
+post item ==> VS-VPH-00006
+item ==> VS-VPH-00008
+[
+  {
+    descriptiveMetadata: [
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object]
+    ],
+    numberOfPages: 42,
+    embeddable: true,
+    textDirection: 'L',
+    sourceData: '/v1/metadata/tei/data/',
+    pages: [
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object]
+    ],
+    logicalStructures: [ [Object] ]
+  }
+]
+post item ==> VS-VPH-00008
+item ==> VS-VPH-00009
+[
+  {
+    descriptiveMetadata: [
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object]
+    ],
+    numberOfPages: 94,
+    embeddable: true,
+    textDirection: 'L',
+    sourceData: '/v1/metadata/tei/data/',
+    pages: [
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object]
+    ],
+    logicalStructures: [ [Object] ]
+  }
+]
+post item ==> VS-VPH-00009
+item ==> VS-VPH-00010
+[
+  {
+    descriptiveMetadata: [
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object]
+    ],
+    numberOfPages: 28,
+    embeddable: true,
+    textDirection: 'L',
+    sourceData: '/v1/metadata/tei/data/',
+    pages: [
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object]
+    ],
+    logicalStructures: [ [Object] ]
+  }
+]
+post item ==> VS-VPH-00010
+item ==> VS-VPH-00023
+[
+  {
+    descriptiveMetadata: [
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object]
+    ],
+    numberOfPages: 28,
+    embeddable: true,
+    textDirection: 'L',
+    sourceData: '/v1/metadata/tei/data/',
+    pages: [
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object]
+    ],
+    logicalStructures: [ [Object] ]
+  }
+]
+post item ==> VS-VPH-00023
+All items processed for collection: early_photography
+Collection seeded: early_photography
+All collections seeded successfully
