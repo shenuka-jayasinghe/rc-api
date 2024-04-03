@@ -84,44 +84,44 @@ spec:
 
 ---
 
-apiVersion: v1
-kind: Service
-metadata:
-  name: schema-registry
-spec:
-  selector:
-    app: schema-registry
-  ports:
-    - protocol: TCP
-      port: 8081
-      targetPort: 8081
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: schema-registry
+# spec:
+#   selector:
+#     app: schema-registry
+#   ports:
+#     - protocol: TCP
+#       port: 8081
+#       targetPort: 8081
 
----
+# ---
 
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: schema-registry
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: schema-registry
-  template:
-    metadata:
-      labels:
-        app: schema-registry
-    spec:
-      containers:
-        - name: schema-registry
-          image: confluentinc/cp-schema-registry:7.4.0
-          ports:
-            - containerPort: 8081
-          env:
-            - name: SCHEMA_REGISTRY_HOST_NAME
-              value: "schema-registry"
-            - name: SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS
-              value: "PLAINTEXT://kafka:9092"
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: schema-registry
+# spec:
+#   replicas: 1
+#   selector:
+#     matchLabels:
+#       app: schema-registry
+#   template:
+#     metadata:
+#       labels:
+#         app: schema-registry
+#     spec:
+#       containers:
+#         - name: schema-registry
+#           image: confluentinc/cp-schema-registry:7.4.0
+#           ports:
+#             - containerPort: 8081
+#           env:
+#             - name: SCHEMA_REGISTRY_HOST_NAME
+#               value: "schema-registry"
+#             - name: SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS
+#               value: "PLAINTEXT://kafka:9092"
 
 ---
 
@@ -184,34 +184,19 @@ spec:
 
 ---
 
-apiVersion: apps/v1
-kind: Deployment
+---
+apiVersion: v1
+kind: ConfigMap
 metadata:
-  name: ksqldb-cli
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: ksqldb-cli
-  template:
-    metadata:
-      labels:
-        app: ksqldb-cli
-    spec:
-      containers:
-        - name: ksqldb-cli
-          image: confluentinc/ksqldb-cli:0.29.0
-          entrypoint: /bin/sh
-          tty: true
-          env:
-            - name: KSQL_LISTENERS
-              value: "http://0.0.0.0:8088"
-            - name: KSQL_BOOTSTRAP_SERVERS
-              value: "kafka:9092"
-            - name: KSQL_KSQL_LOGGING_PROCESSING_STREAM_AUTO_CREATE
-              value: "true"
-            - name: KSQL_KSQL_LOGGING_PROCESSING_TOPIC_AUTO_CREATE
-              value: "true"
+  name: demo-ksql-server-ksql-queries-configmap
+  labels:
+    app: ksqldb-server
+data:
+  queries.sql: |-
+    
+    -- Create JSON_STREAM
+    CREATE STREAM json_stream (event VARCHAR, title VARCHAR, timestamp BIGINT, json VARCHAR) WITH (KAFKA_TOPIC='json-topic',
+    VALUE_FORMAT='JSON');
 
 ---
 
