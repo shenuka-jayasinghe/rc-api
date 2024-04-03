@@ -163,8 +163,6 @@ spec:
               value: "http://0.0.0.0:8088"
             - name: KSQL_BOOTSTRAP_SERVERS
               value: "kafka:9092"
-            - name: KSQL_KSQL_SCHEMA_REGISTRY_URL
-              value: "http://schema-registry:8081"
             - name: KSQL_KSQL_LOGGING_PROCESSING_STREAM_AUTO_CREATE
               value: "true"
             - name: KSQL_KSQL_LOGGING_PROCESSING_TOPIC_AUTO_CREATE
@@ -215,6 +213,7 @@ metadata:
 spec:
   selector:
     app: tei2json-api
+  type: LoadBalancer
   ports:
     - protocol: TCP
       port: 3001
@@ -254,6 +253,7 @@ metadata:
 spec:
   selector:
     app: tei-api
+  type: LoadBalancer
   ports:
     - protocol: TCP
       port: 3000
@@ -291,6 +291,7 @@ metadata:
 spec:
   selector:
     app: json-api
+  type: LoadBalancer
   ports:
     - protocol: TCP
       port: 3002
