@@ -1,7 +1,7 @@
 sudo docker exec -it ksqldb-cli ksql http://ksqldb-server:8088 
 CREATE STREAM json_stream (
     event VARCHAR,
-    title VARCHAR,
+    id VARCHAR,
     timestamp BIGINT,
     json VARCHAR
 ) WITH (

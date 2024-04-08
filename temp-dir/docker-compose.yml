@@ -1,0 +1,145 @@
+# Docker compose from bringing up a local ksqlDB cluster and dependencies.
+#
+# By default, the cluster has two ksqlDB servers. You can scale the number of ksqlDB nodes in the
+# cluster by using the docker `--scale` command line arg.
+#
+# e.g. for a 4 node cluster run:
+# > docker-compose up --scale additional-ksqldb-server=3
+#
+# or a 1 node cluster run:
+# > docker-compose up --scale additional-ksqldb-server=0
+#
+# The default is one `primary-ksqldb-server` and one `additional-ksqdb-server`. The only
+# difference is that the primary node has a well-known port exposed so clients can connect, where
+# as the additional nodes use auto-port assignment so that ports don't clash.
+#
+# If you wish to run with locally built ksqlDB docker images then:
+#
+# 1. Follow the steps in https://github.com/confluentinc/ksql/blob/master/ksqldb-docker/README.md
+# to build a ksqlDB docker image with local changes.
+#
+# 2. Update .env file to use your local images by setting KSQL_IMAGE_BASE=placeholder/ and KSQL_VERSION=local.build.
+
+---
+version: "3"
+services:
+  zookeeper:
+    image: 'bitnami/zookeeper:latest'
+    ports:
+      - '2181:2181'
+    environment:
+      - ALLOW_ANONYMOUS_LOGIN=yes
+  kafka:
+    image: 'bitnami/kafka:latest'
+    container_name: 'kafka'
+    ports:
+      - '9092:9092'
+    environment:
+      - KAFKA_BROKER_ID=1
+      - KAFKA_LISTENERS=PLAINTEXT://:9092
+      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka:9092
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
+      - ALLOW_PLAINTEXT_LISTENER=yes
+    depends_on:
+      - zookeeper
+
+  schema-registry:
+    image: confluentinc/cp-schema-registry:7.4.0
+    depends_on:
+      - zookeeper
+      - kafka
+    environment:
+      SCHEMA_REGISTRY_HOST_NAME: schema-registry
+      SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: PLAINTEXT://kafka:9092
+
+
+  ksqldb-server:
+    image: confluentinc/ksqldb-server:0.29.0
+    hostname: ksqldb-server
+    container_name: ksqldb-server
+    depends_on:
+      - kafka
+      # - schema-registry
+    ports:
+      - "8088:8088"
+    environment:
+      KSQL_LISTENERS: http://0.0.0.0:8088
+      KSQL_BOOTSTRAP_SERVERS: kafka:9092
+      KSQL_KSQL_SCHEMA_REGISTRY_URL: http://schema-registry:8081
+      KSQL_KSQL_LOGGING_PROCESSING_STREAM_AUTO_CREATE: "true"
+      KSQL_KSQL_LOGGING_PROCESSING_TOPIC_AUTO_CREATE: "true"
+
+  ksqldb-cli:
+    image: confluentinc/ksqldb-cli:0.29.0
+    container_name: ksqldb-cli
+    depends_on:
+      - ksqldb-server
+    entrypoint: /bin/sh
+    tty: true
+  # sudo docker exec -it ksqldb-cli ksql http://ksqldb-server:8088 
+  
+  tei2json-api:
+    image: shenukacj/tei2json-api:0.0.12
+    container_name: 'tei2json-api'
+    ports:
+      - '3001:3001'
+    depends_on:
+      - 'kafka'
+      - 'ksqldb-server'
+    privileged: true
+#     sudo docker compose restart tei-api && sudo docker compose restart json-api && sudo docker exec -it tei2json-api docker run shenukacj/cudl-xslt:0.0.5 && sudo docker exec -it tei2json-api node app.js
+    # sudo docker logs tei2json-api -f
+  
+  tei-api:
+    image: shenukacj/tei-api:0.0.9
+    container_name: 'tei-api'
+    ports:
+      - '3000:3000'
+    depends_on:
+      - 'kafka'
+      - 'ksqldb-server'
+      #  sudo docker logs tei-api -f
+
+  json-api:
+    image: shenukacj/json-api:0.0.4
+    container_name: 'json-api'
+    ports:
+      - '3002:3002'
+    depends_on:
+      - 'kafka'
+      - 'ksqldb-server'
+  # sudo docker logs json-api -f
+
+  # tei-api2:
+  #   image: shenukacj/tei-api:0.0.5
+  #   container_name: 'tei-api2'
+  #   ports:
+  #     - '3003:3003'
+  #   depends_on:
+  #     - 'kafka'
+  #     - 'ksqldb-server'
+  # sudo docker logs tei-api -f
+  # sudo docker compose restart tei-api 
+
+
+# to create topic:
+# sudo docker exec -it kafka kafka-topics.sh --create --topic xml-topic --bootstrap-server kafka:9092 --replication-factor 1 --partitions 1
+
+
+# list topics:
+# sudo docker exec -it kafka kafka-topics.sh --list --bootstrap-server kafka:9092
+
+# sudo docker exec -it ksqldb-cli ksql http://ksqldb-server:8088
+# CREATE STREAM tei (
+#     title VARCHAR,
+#     timestamp BIGINT,
+#     tei VARCHAR
+# ) WITH (
+#     KAFKA_TOPIC='new-topic',
+#     VALUE_FORMAT='JSON'
+# );
+
+
+# to check topic
+# sudo docker exec -it kafka kafka-console-consumer.sh --bootstrap-server kafka:9092 --topic new-topic --from-beginning --property print.timestamp=true
+
