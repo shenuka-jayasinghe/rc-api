@@ -6,7 +6,10 @@
 
 ## Architecture
 
-![Untitled Diagram drawio (2)](https://github.com/shenuka-jayasinghe/rc-api/assets/137282472/cd246a12-297e-45a8-8466-3b223cccbba9)
+The best way to view this image is to download it and re-open in the browser
+
+![MDC-architecture drawio](https://github.com/shenuka-jayasinghe/rc-api/assets/137282472/d061da77-a9b2-464b-aca5-557349ee8cfa)
+
 
 
 ## Steps
