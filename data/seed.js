@@ -1,5 +1,7 @@
+const { timeLog } = require("console");
 const { collections } = require("./collections");
 const axios = require("axios");
+let itemJsonArray = [];
 
 // Define a function to handle sequential processing of items
 async function processItems(items) {
@@ -13,8 +15,17 @@ async function processItems(items) {
                 data: response.data,
             };
             const postResponse = await axios(options);
+            const itemTitle = postResponse.data.find((element, index) => element === 'title');
             console.log(postResponse.data);
             console.log(`post item ==> ${item}`);
+            const itemCollectionData = {
+                id : item,
+                title: postResponse.data[0].descriptiveMetadata[0].title.displayForm,
+                thumbnailUrl : postResponse.data[0].descriptiveMetadata[0].thumbnailUrl,
+                abstract: postResponse.data[0].descriptiveMetadata[0].abstract.displayForm
+            }
+            console.log(" itemCollectionData ==> ", itemCollectionData )
+            itemJsonArray.push(itemCollectionData)
         } catch (error) {
             console.error(`Error processing item ${item}:`, error);
         }
@@ -27,14 +38,23 @@ async function seed(collections) {
         try {
             await processItems(collection.items);
             console.log("All items processed for collection:", collection.title);
+            const payLoad = {
+                title: collection.title,
+                thumbnailUrl: collection.thumbnailUrl,
+                description: collection.description,
+                items: itemJsonArray
+            }
             
             const options = {
                 method: 'put',
                 url: `http://localhost:3003/api/v1/collections/${collection.title}`,
-                data: collection
+                data: payLoad
             };
             await axios(options);
+            console.log("payLoad ===>", payLoad)
             console.log("Collection seeded:", collection.title);
+            itemJsonArray = [];
+
         } catch (error) {
             console.error("Error seeding collection:", collection.title, error);
         }
