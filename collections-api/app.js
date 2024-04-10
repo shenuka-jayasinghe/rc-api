@@ -1,6 +1,6 @@
-// sudo docker build -t shenukacj/collections-api:0.0.1 . && sudo docker push shenukacj/collections-api:0.0.1
+// sudo docker build -t shenukacj/collections-api:0.0.3 . && sudo docker push shenukacj/collections-api:0.0.3
 const express = require('express');
-const { healthCheck, updateCollection, deleteCollection, getCollection, postCollection, getAllEventsCollections } = require('./controller/controller.js');
+const { healthCheck, updateCollection, deleteCollection, getCollection, postCollection, getAllEventsCollections, getAllCollections } = require('./controller/controller.js');
 const xmlParser = require('express-xml-bodyparser');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -13,6 +13,10 @@ app.use(cors());
 
 // Middleware to parse JSON bodies
 app.use(express.json());
+
+//middleware to extend payload sizes
+app.use(express.json({limit: '50mb'}));
+app.use(express.urlencoded({limit: '50mb', extended: true, parameterLimit: 50000}));
 
 
 // Define routes
@@ -28,6 +32,8 @@ app.delete('/api/v1/collections/:title', deleteCollection);
 app.get('/api/v1/collections/allEvents/:title', getAllEventsCollections);
 
 app.get('/api/v1/collections/:title', getCollection);
+
+app.get('/api/v1/collections', getAllCollections);
 
 // Start the server
 app.listen(port, () => {

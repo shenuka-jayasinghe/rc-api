@@ -117,3 +117,40 @@ exports.getAllEventsCollectionsModel = async (title) => {
     }
   };
 
+  exports.getAllCollectionsModel = async () => {
+    try {
+      await client.connect();
+        const query = `SELECT * FROM collection_stream;`;
+        const { data, status, error } = await client.query(query);
+        console.log(data.rows)
+        if (error) {
+          console.error("Error returned by KsqlDB:", error);
+          throw new Error(error);
+        }
+        // Process the data in JavaScript
+        const processedData = getLatestByTitle(data.rows);
+
+        return processedData;
+    }
+    catch (err) {
+      console.error("Error fetching all collections", err);
+    }
+    finally {
+      await client.disconnect();
+    }
+  }
+
+
+  // Function to process the data
+  function getLatestByTitle(data) {
+    const latestByTitle = {};
+
+    data.forEach(obj => {
+        const { TITLE, TIMESTAMP } = obj;
+        if (!latestByTitle[TITLE] || TIMESTAMP > latestByTitle[TITLE].TIMESTAMP) {
+            latestByTitle[TITLE] = obj;
+        }
+    });
+
+    return Object.values(latestByTitle);
+}

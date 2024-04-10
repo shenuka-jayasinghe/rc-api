@@ -9,3 +9,25 @@ CREATE STREAM collection_stream (
     VALUE_FORMAT='JSON'
 );
 
+CREATE STREAM tei_stream (
+    event VARCHAR,
+    id VARCHAR,
+    timestamp BIGINT,
+    tei VARCHAR
+) WITH (
+    KAFKA_TOPIC='tei-topic',
+    VALUE_FORMAT='JSON'
+);
+
+CREATE STREAM json_stream (
+    event VARCHAR,
+    id VARCHAR,
+    timestamp BIGINT,
+    json VARCHAR
+) WITH (
+    KAFKA_TOPIC='json-topic',
+    VALUE_FORMAT='JSON'
+);
+
+
+

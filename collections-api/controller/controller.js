@@ -1,6 +1,6 @@
 //you can double check in the kafka topic using:
 //docker exec -it kafka /opt/bitnami/kafka/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test-topic --from-beginning
-const { updateCollectionModel, deleteCollectionModel, getCollectionModel, postCollectionModel, getAllEventsCollectionsModel } = require("../model/model");
+const { updateCollectionModel, deleteCollectionModel, getCollectionModel, postCollectionModel, getAllEventsCollectionsModel, getAllCollectionsModel } = require("../model/model");
 
 exports.healthCheck = (req,res) => {
     res.status(200).send('Hello!')
@@ -51,7 +51,18 @@ exports.getCollection = async (req, res) => {
         res.status(200).send(data)
     }
     catch(error) {
-        console.error('Error fetching TEI:', error);
+        console.error('Error fetching collections:', error);
+        res.status(500).send('Internal Server Error');
+    }
+}
+
+exports.getAllCollections = async (req, res) => {
+    try{
+        const data = await getAllCollectionsModel();
+        res.status(200).send(data)
+    }
+    catch(error) {
+        console.error('Error fetching collections:', error);
         res.status(500).send('Internal Server Error');
     }
 }
