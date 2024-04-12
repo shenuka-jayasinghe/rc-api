@@ -21,9 +21,9 @@ The best way to view this image is to download it and re-open in the browser
 
 The images now run on a Kubernetes cluster. If you still prefer to use Docker compose, they are in the ```depracated``` directory.
 
-1. Enable Kuberentes using [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+1. Enable Kubernetes using [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 
-2. Run ArgoCD with these three steps below
+2. Run ArgoCD with these three steps below in the terminal
 
 Create a namespace for Argo in Kubernetes.
 
@@ -36,8 +36,9 @@ Install argo in that namespace
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 ```
 Run Argo
+
 ```
-kubectl port-forward svc/argocd-server -n argocd 8083:443 -d
+kubectl port-forward svc/argocd-server -n argocd 8083:443
 ```
 
 Open your browser to http://localhost:8083. 
@@ -50,11 +51,32 @@ Username: ```admin```
 
 Password: ```INSTRUCTIONS BELOW```
 
-Run this in your terminal to get the password:
+Open a new terminal and run this to get the password:
 ```
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
 ```
 
+Click on ```Create Application``` and then ```Edit as YAML``` and paste in this following YAML:
+
+```YAML
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: RC-API
+spec:
+  destination:
+    name: ''
+    namespace: default
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: kubernetes
+    repoURL: 'https://github.com/shenuka-jayasinghe/rc-api.git'
+    targetRevision: HEAD
+  sources: []
+  project: default
+```
+
+and then click ```CREATE```
 
 ### 2. REST API
 

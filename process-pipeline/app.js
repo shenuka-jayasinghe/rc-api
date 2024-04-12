@@ -6,13 +6,13 @@ const express = require('express');
 // Create a Kafka client instance
 const kafka = new Kafka({
   clientId: 'my-app',
-  brokers: ['kafka:9092']
+  brokers: ['localhost:9092']
 });
 
 const port = 3004;
 
 // Create a consumer instance
-const consumer = kafka.consumer({ groupId: 'my-group' });
+const consumer = kafka.consumer({ groupId: 'my-group2' });
 
 // Create a producer instance
 const producer = kafka.producer();

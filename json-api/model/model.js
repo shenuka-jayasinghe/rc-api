@@ -1,10 +1,15 @@
 const { Kafka } = require("kafkajs");
 const client = require("../db/connection");
-//sudo docker exec -it kafka /opt/bitnami/kafka/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test-topic --from-beginning
+const ENV = process.env.NODE_ENV || "local"
+//Make sure to set NODE_ENV to "prod" in Dockerfile
+const pathToEnvFile = `${__dirname}/../../.env.${ENV}`
+require("dotenv").config({ path: pathToEnvFile })
+
+const KAFKA_CLIENT = process.env.KAFKA_CLIENT;
 
 const kafka = new Kafka({
   clientId: "json-api",
-  brokers: ["kafka:9092"], // Kafka broker addresses
+  brokers: [KAFKA_CLIENT], // Kafka broker addresses
 });
 
 const producer = kafka.producer();

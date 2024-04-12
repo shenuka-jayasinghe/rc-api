@@ -1,4 +1,4 @@
-// sudo docker build -t shenukacj/json-api:0.0.6 . && sudo docker push shenukacj/json-api:0.0.6
+// sudo docker build -t shenukacj/json-api:0.0.7 . && sudo docker push shenukacj/json-api:0.0.7
 const express = require('express');
 const { healthCheck, updateJson, deleteJson, getJson, postJson, getAllEventsJson } = require('./controller/controller.js');
 const xmlParser = require('express-xml-bodyparser');
