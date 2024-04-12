@@ -183,6 +183,10 @@ spec:
       labels:
         app: tei2json-api
     spec:
+      initContainers:
+        - name: init-command
+          image: your-image:tag
+          command: ["/bin/sh", "-c", "docker run shenukacj/cudl-xslt:0.0.5 && node app.js"]
       containers:
         - name: tei2json-api
           image: shenukacj/tei2json-api:0.0.12
