@@ -274,7 +274,7 @@ spec:
     spec:
       containers:
         - name: json-api
-          image: shenukacj/json-api:0.0.7
+          image: shenukacj/json-api:0.0.8
           ports:
             - containerPort: 3002
           livenessProbe:
