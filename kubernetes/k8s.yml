@@ -184,11 +184,9 @@ spec:
         app: tei2json-api
     spec:
       initContainers:
-        - name: init-command
-          image: your-image:tag
-      containers:
         - name: tei2json-api
           image: shenukacj/tei2json-api:0.0.12
+          command: ["/bin/sh", "-c", "docker run shenukacj/cudl-xslt:0.0.5 && node app.js"]
           ports:
             - containerPort: 3001
           securityContext:           
