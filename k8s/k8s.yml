@@ -269,7 +269,18 @@ spec:
           image: shenukacj/tei-api:0.0.9
           ports:
             - containerPort: 3000
-          # Add other configuration as needed
+          livenessProbe:
+            httpGet:
+              path: /api/v1/TEI/healthcheck
+              port: 3000
+            initialDelaySeconds: 15
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /api/v1/TEI/healthcheck
+              port: 3000
+            initialDelaySeconds: 15
+            periodSeconds: 10
 
 ---
 
@@ -304,7 +315,43 @@ spec:
     spec:
       containers:
         - name: json-api
-          image: shenukacj/json-api:0.0.4
+          image: shenukacj/json-api:0.0.6
           ports:
             - containerPort: 3002
           # Add other configuration as needed
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: collections-api
+spec:
+  selector:
+    app: collections-api
+  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 3003
+      targetPort: 3003
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: collections-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: collections-api
+  template:
+    metadata:
+      labels:
+        app: collections-api
+    spec:
+      containers:
+        - name: collections-api
+          image: shenukacj/collections-api:0.0.3
+          ports:
+            - containerPort: 3003
