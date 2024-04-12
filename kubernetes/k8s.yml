@@ -191,7 +191,6 @@ spec:
             - containerPort: 3001
           securityContext:           
             privileged: true
-          # Add other configuration as needed
 
 ---
 
@@ -282,14 +281,8 @@ spec:
             httpGet:
               path: /api/v1/json/healthcheck
               port: 3002
-            initialDelaySeconds: 15
-            periodSeconds: 10
-          readinessProbe:
-            httpGet:
-              path: /api/v1/json/healthcheck
-              port: 3002
-            initialDelaySeconds: 15
-            periodSeconds: 10
+            initialDelaySeconds: 3
+            periodSeconds: 5
 
 ---
 apiVersion: v1
