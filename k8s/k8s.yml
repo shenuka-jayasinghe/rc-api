@@ -105,7 +105,7 @@ kind: Deployment
 metadata:
   name: ksqldb-server
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: ksqldb-server
@@ -274,7 +274,7 @@ spec:
     spec:
       containers:
         - name: json-api
-          image: shenukacj/json-api:0.0.6
+          image: shenukacj/json-api:0.0.7
           ports:
             - containerPort: 3002
           livenessProbe:
