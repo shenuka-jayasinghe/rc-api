@@ -62,7 +62,7 @@ Click on ```Create Application``` and then ```Edit as YAML``` and paste in this 
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: RC-API
+  name: rc-api
 spec:
   destination:
     name: ''
@@ -74,6 +74,10 @@ spec:
     targetRevision: HEAD
   sources: []
   project: default
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false
 ```
 
 and then click ```CREATE```
