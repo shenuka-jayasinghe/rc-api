@@ -19,100 +19,42 @@ The best way to view this image is to download it and re-open in the browser
 
 ### 1. Run the Containers
 
-1. In the root directory run
+The images now run on a Kubernetes cluster. If you still prefer to use Docker compose, they are in the ```depracated``` directory.
+
+1. Enable Kuberentes using [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+
+2. Run ArgoCD with these three steps below
+
+Create a namespace for Argo in Kubernetes.
 
 ```bash
-docker compose up --build
+kubectl create namespace argocd
 ```
-
-2. Run the the bash commands below which does following:
-(i) Restarts tei and json services (needs to wait for KSQLDB to startup first, but will be automated when running in Kubernetes)
+Install argo in that namespace
 
 ```bash
-docker compose restart tei-api && \ 
-docker compose restart json-api
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+```
+Run Argo
+```
+kubectl port-forward svc/argocd-server -n argocd 8083:443 -d
 ```
 
-(ii) Initialises the Kafka topics, ```json-topic``` and ```tei-topic```
+Open your browser to http://localhost:8083. 
 
-```bash
-docker exec -it kafka kafka-topics.sh --create --topic tei-topic --bootstrap-server kafka:9092 --replication-factor 1 --partitions 1
+> Your browser will warn you not to proceed because it is not a https connection, but you can proceed as it is only in your local machine and not a website.
+
+You will then come to a login page.
+
+Username: ```admin```
+
+Password: ```INSTRUCTIONS BELOW```
+
+Run this in your terminal to get the password:
+```
+kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
 ```
 
-```bash
-docker exec -it kafka kafka-topics.sh --create --topic json-topic --bootstrap-server kafka:9092 --replication-factor 1 --partitions 1
-```
-
-You can list both topics using:
-
-```bash
-docker exec -it kafka kafka-topics.sh --list --bootstrap-server kafka:9092
-```
-
-(ii) Caches the [```shenukacj/cudl-xslt:0.0.5```](https://github.com/shenuka-jayasinghe/cudl-data-processing-xslt/blob/main/Dockerfile) container and run the node server
-
-```bash
-docker exec -it tei2json-api docker run shenukacj/cudl-xslt:0.0.5 && \
-docker exec -it tei2json-api node app.js 
-```
-
-4. Initialise the streams (like tables in Kafka) in KSQLDB.
-
-(i) Shell into the KSQLDB server:
-```bash
-docker exec -it ksqldb-cli ksql http://ksqldb-server:8088 
-```
-This should open up the ksql cli:
-```bash
-                  ===========================================
-                  =       _              _ ____  ____       =
-                  =      | | _____  __ _| |  _ \| __ )      =
-                  =      | |/ / __|/ _` | | | | |  _ \      =
-                  =      |   <\__ \ (_| | | |_| | |_) |     =
-                  =      |_|\_\___/\__, |_|____/|____/      =
-                  =                   |_|                   =
-                  =        The Database purpose-built       =
-                  =        for stream processing apps       =
-                  ===========================================
-
-Copyright 2017-2022 Confluent Inc.
-
-CLI v0.29.0, Server v0.29.0 located at http://ksqldb-server:8088
-Server Status: RUNNING
-
-Having trouble? Type 'help' (case-insensitive) for a rundown of how things work!
-
-ksql> 
-```
-
-(ii) Run the following SQL query in KSQL to initialise the json stream
-
-```SQL
-CREATE STREAM json_stream (
-    event VARCHAR,
-    id VARCHAR,
-    timestamp BIGINT,
-    json VARCHAR
-) WITH (
-    KAFKA_TOPIC='json-topic',
-    VALUE_FORMAT='JSON'
-);
-```
-Run the following SQL query in KSQL to initialise the tei stream
-
-```SQL
-CREATE STREAM tei_stream (
-    event VARCHAR,
-    id VARCHAR,
-    timestamp BIGINT,
-    tei VARCHAR
-) WITH (
-    KAFKA_TOPIC='tei-topic',
-    VALUE_FORMAT='JSON'
-);
-```
-
-4. When testing and use is complete, you can shut down the docker containers using ```sudo docker compose down``` in the root directory
 
 ### 2. REST API
 
