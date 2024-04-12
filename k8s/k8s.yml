@@ -164,7 +164,7 @@ spec:
             - name: KSQL_LISTENERS
               value: "http://0.0.0.0:8088"
             - name: KSQL_BOOTSTRAP_SERVERS
-              value: "127.0.0.1:9092"
+              value: "PLAINTEXT://127.0.0.1:9092"
             - name: KSQL_KSQL_LOGGING_PROCESSING_STREAM_AUTO_CREATE
               value: "true"
             - name: KSQL_KSQL_LOGGING_PROCESSING_TOPIC_AUTO_CREATE
