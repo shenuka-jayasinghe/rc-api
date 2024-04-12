@@ -131,6 +131,7 @@ kind: Service
 metadata:
   name: ksqldb-server
 spec:
+  type: LoadBalancer
   selector:
     app: ksqldb-server
   ports:
