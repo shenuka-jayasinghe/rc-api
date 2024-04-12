@@ -3,7 +3,7 @@ const { Kafka } = require('kafkajs');
 // Initialize Kafka client
 const kafka = new Kafka({
   clientId: 'my-app',
-  brokers: ['localhost:9092'] // Change this to match your Kafka broker(s)
+  brokers: ['kafka:9092'] // Change this to match your Kafka broker(s)
 });
 
 // Initialize consumer

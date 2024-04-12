@@ -87,7 +87,7 @@ services:
       - 'kafka'
       - 'ksqldb-server'
     privileged: true
-#     sudo docker compose restart tei-api && sudo docker compose restart json-api && sudo docker exec -it tei2json-api docker run shenukacj/cudl-xslt:0.0.5 && sudo docker exec -it tei2json-api node app.js
+#     sudo docker compose restart tei-api && sudo docker compose restart json-api && sudo docker compose restart collections-api && sudo docker exec -it tei2json-api docker run shenukacj/cudl-xslt:0.0.5 && sudo docker exec -it tei2json-api node app.js
     # sudo docker logs tei2json-api -f
   
   tei-api:
@@ -101,7 +101,7 @@ services:
       #  sudo docker logs tei-api -f
 
   json-api:
-    image: shenukacj/json-api:0.0.4
+    image: shenukacj/json-api:0.0.6
     container_name: 'json-api'
     ports:
       - '3002:3002'
@@ -110,20 +110,25 @@ services:
       - 'ksqldb-server'
   # sudo docker logs json-api -f
 
-  # tei-api2:
-  #   image: shenukacj/tei-api:0.0.5
-  #   container_name: 'tei-api2'
-  #   ports:
-  #     - '3003:3003'
-  #   depends_on:
-  #     - 'kafka'
-  #     - 'ksqldb-server'
-  # sudo docker logs tei-api -f
-  # sudo docker compose restart tei-api 
+  collections-api:
+    image: shenukacj/collections-api:0.0.3
+    container_name: 'collections-api'
+    ports:
+      - '3003:3003'
+    depends_on:
+      - 'kafka'
+      - 'ksqldb-server'
 
+  event-orchestrator:
+    image: shenukacj/event-orchestrator:0.0.1
+    container_name: 'event-orchestrator'
+    ports:
+      - '3004:3004'
+    depends_on:
+      - 'kafka'
 
 # to create topic:
-# sudo docker exec -it kafka kafka-topics.sh --create --topic xml-topic --bootstrap-server kafka:9092 --replication-factor 1 --partitions 1
+# sudo docker exec -it kafka kafka-topics.sh --create --topic tei-topic --bootstrap-server kafka:9092 --replication-factor 1 --partitions 1 && sudo docker exec -it kafka kafka-topics.sh --create --topic json-topic --bootstrap-server kafka:9092 --replication-factor 1 --partitions 1 && sudo docker exec -it kafka kafka-topics.sh --create --topic collections-topic --bootstrap-server kafka:9092 --replication-factor 1 --partitions 1 
 
 
 # list topics:

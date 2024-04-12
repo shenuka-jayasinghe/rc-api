@@ -11,5 +11,3 @@ CREATE STREAM tei_stream (
     VALUE_FORMAT='JSON'
 );
 
-INSERT INTO tei_stream (event, title, timestamp, tei)
-VALUES ('default_event', 'Chinese_Crawford_23', 1203981290481, '<some_tei>');
