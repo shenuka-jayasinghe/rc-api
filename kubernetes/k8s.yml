@@ -66,10 +66,6 @@ spec:
       labels:
         app: kafka
     spec:
-      initContainers:
-        - name: init-command
-          image: your-image:tag
-          command: ["/bin/sh", "-c", "kafka-topics.sh --create --topic k8s-command-topic --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1"]
       containers:
         - name: kafka
           image: bitnami/kafka:latest
