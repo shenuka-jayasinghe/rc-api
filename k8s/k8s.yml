@@ -177,6 +177,7 @@ kind: Service
 metadata:
   name: ksqldb-cli
 spec:
+  type: LoadBalancer
   selector:
     app: ksqldb-cli
   ports:
@@ -185,6 +186,27 @@ spec:
       targetPort: 8088
 
 ---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ksqldb-cli
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ksqldb-cli
+  template:
+    metadata:
+      labels:
+        app: ksqldb-cli
+    spec:
+      containers:
+        - name: ksqldb-cli
+          image: confluentinc/ksqldb-cli:0.29.0
+          command: ["/bin/sh"]
+          args: ["-c", "sleep infinity"]
+          tty: true
 
 ---
 apiVersion: v1
