@@ -1,5 +1,3 @@
-//you can double check in the kafka topic using:
-//docker exec -it kafka /opt/bitnami/kafka/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test-topic --from-beginning
 const { updateCollectionModel, deleteCollectionModel, getCollectionModel, postCollectionModel, getAllEventsCollectionsModel, getAllCollectionsModel } = require("../model/model");
 
 exports.healthCheck = (req,res) => {
