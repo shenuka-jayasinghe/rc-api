@@ -28,10 +28,10 @@ services:
 
 # sudo docker exec -it kafka-dev kafka-topics.sh --create --topic tei-topic --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 && sudo docker exec -it kafka-dev kafka-topics.sh --create --topic json-topic --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 && sudo docker exec -it kafka-dev kafka-topics.sh --create --topic collections-topic --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 
 
-# docker exec -it d9cdb7f06001 kafka-topics.sh --create --topic tei-topic --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 && docker exec -it d9cdb7f06001 kafka-topics.sh --create --topic json-topic --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 && docker exec -it d9cdb7f06001 kafka-topics.sh --create --topic collections-topic --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1
+# docker exec -it 6f910b26f184 kafka-topics.sh --create --topic tei-topic --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 && docker exec -it 6f910b26f184 kafka-topics.sh --create --topic json-topic --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 && docker exec -it 6f910b26f184 kafka-topics.sh --create --topic collections-topic --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1
 
-# docker exec -it d9cdb7f06001 kafka-topics.sh --list --bootstrap-server localhost:9092
+# docker exec -it 6f910b26f184 kafka-topics.sh --list --bootstrap-server localhost:9092
 
-# docker exec -it bc76994dcb5b ksql http://ksqldb-server:8088
+# docker exec -it 830df2661ff6 ksql http://ksqldb-server:8088
 
-# docker exec -it 949ce7c8c3c7 docker run shenukacj/cudl-xslt:0.0.5 && docker exec -it 949ce7c8c3c7 node app.js
+# docker exec -it 1fd40476642f docker run shenukacj/cudl-xslt:0.0.5 && docker exec -it 1fd40476642f node app.js

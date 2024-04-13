@@ -1,7 +1,7 @@
 const KsqldbClient = require("ksqldb-client");
 const ENV = process.env.NODE_ENV || "local"
 //Make sure to set NODE_ENV to "prod" in Dockerfile
-const pathToEnvFile = `${__dirname}/../../.env.${ENV}`
+const pathToEnvFile = `${__dirname}/../.env.${ENV}`
 require("dotenv").config({ path: pathToEnvFile })
 
 const KSQL_CLIENT = process.env.KSQL_CLIENT;
@@ -17,6 +17,8 @@ const client = new KsqldbClient(options);
 client.connect()
     .then(() => {
         console.log("Connected to ksqlDB server successfully!");
+        console.log(`ENV IS ====> ${ENV}`);
+        console.log(`KSQL CLIENT IS ====> ${KSQL_CLIENT}`);
     })
     .catch((error) => {
         console.error("Error connecting to ksqlDB server:", error);
