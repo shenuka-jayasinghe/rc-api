@@ -1,4 +1,4 @@
-// sudo docker build -t shenukacj/collections-api:0.0.3 . && sudo docker push shenukacj/collections-api:0.0.3
+// sudo docker build -t shenukacj/collections-api:0.0.5 . && sudo docker push shenukacj/collections-api:0.0.5
 const express = require('express');
 const { healthCheck, updateCollection, deleteCollection, getCollection, postCollection, getAllEventsCollections, getAllCollections } = require('./controller/controller.js');
 const xmlParser = require('express-xml-bodyparser');

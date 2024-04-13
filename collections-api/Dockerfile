@@ -13,6 +13,9 @@ RUN npm install
 # Copy the rest of the application code to the working directory
 COPY . .
 
+# Create ENV variable to activate connection to internal KSQLDB Server // in connection.js
+ENV NODE_ENV="prod"
+
 # Expose the port the app runs on
 EXPOSE 3002
 
