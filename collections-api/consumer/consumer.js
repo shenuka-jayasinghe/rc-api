@@ -1,5 +1,5 @@
 const { Kafka } = require("kafkajs");
-const { getAllCollectionsModel } = require('../model/model');
+const { getAllCollectionsModel, updateCollectionModel } = require('../model/model');
 
 const ENV = process.env.NODE_ENV || "local"
 //Make sure to set NODE_ENV to "prod" in Dockerfile
@@ -16,25 +16,52 @@ const kafka = new Kafka({
 // Create a consumer instance
 const consumer = kafka.consumer({ groupId: 'my-group' });
 
-//check which collections the item belongs to
+//check which collections the item belongs to and updated the pre-hydrated the collections topic
 
-async function checkAllCollections(checkItemId){
-  const collectionData = await getAllCollectionsModel();
-  console.log("collectionData ==>", collectionData)
-  const collectionJson = JSON.parse(collectionData.JSON)
-  const collectionsAndItems = collectionJson.map((collection) => {
-    const itemIds = collection.items.map((item) => item.id)
+async function updateCollections(inputItemId, inputItemJson){
+  const collectionData = await getAllCollectionsModel(); //array
+  const collectionsAndItems = collectionData.map((collection) => {
+    const collectionJson = JSON.parse(collection.JSON)
+    const itemIds = collectionJson.items.map((item) => item.id)
     const collectionAndItems = {
-      title: collection.title,
+      title: collectionJson.title,
       itemIds
     }
-    console.log("collectionsAndItems ---->", collectionAndItems)
     return collectionAndItems
   })
   const changedCollections = collectionsAndItems.filter((collection) => {
-    return collection.itemIds.some(itemId => itemId === checkItemId);
+    return collection.itemIds.some(itemId => itemId === inputItemId);
   })
-  console.log("changedCollections ==> ",changedCollections)
+  const changedTitles = changedCollections.map(collection => collection.title)
+  if(changedTitles){
+    const itemCollectionData = {
+    id : inputItemId,
+    title: inputItemJson.json[0].descriptiveMetadata[0].title.displayForm,
+    thumbnailUrl : inputItemJson.json[0].descriptiveMetadata[0].thumbnailUrl,
+    abstract: inputItemJson.json[0].descriptiveMetadata[0].abstract.displayForm
+    }
+    const updateCollections  = collectionData.map(collection => {
+      const collectionJson = JSON.parse(collection.JSON)
+      const newItems = collectionJson.items.map((item) => {
+        if(item.id === inputItemId){
+          return itemCollectionData
+        }
+        else {
+          return item
+        }
+      })
+      const updatedCollectionData = {
+        title: collectionJson.title,
+        thumbnailUrl: collectionJson.thumbnailUrl,
+        description: collectionJson.description,
+        items: newItems
+      }
+      updateCollectionModel(updatedCollectionData, collectionJson.title)
+    })
+  }
+  else {
+    console.log("changedTitles ==>", changedTitles)
+  }
 }
 
 //replace the new json data in that array
@@ -53,7 +80,7 @@ exports.runConsumer = async () => {
       const jsonData = JSON.parse(jsonStringData)
       const jsonId = jsonData.id
       console.log("JSON ID ===>", jsonId)
-      checkAllCollections(jsonId)
+      updateCollections(jsonId, jsonData)    
     },
   });
 };
