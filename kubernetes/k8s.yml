@@ -310,7 +310,7 @@ spec:
     spec:
       containers:
         - name: collections-api
-          image: shenukacj/collections-api:0.0.19
+          image: shenukacj/collections-api:0.0.20
           ports:
             - containerPort: 3003
           livenessProbe:
