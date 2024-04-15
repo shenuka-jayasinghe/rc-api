@@ -1,4 +1,4 @@
-// sudo docker build -t shenukacj/json-api:0.0.8 . && sudo docker push shenukacj/json-api:0.0.8
+// sudo docker build -t shenukacj/mapping-api:0.0.1 . && sudo docker push shenukacj/mapping-api:0.0.1
 const express = require('express');
 const { healthCheck, updateMapping, deleteMapping, getMapping, postMapping, getAllEventsMapping } = require('./controller/controller.js');
 const xmlParser = require('express-xml-bodyparser');

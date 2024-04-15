@@ -17,7 +17,7 @@ COPY . .
 ENV NODE_ENV="prod"
 
 # Expose the port the app runs on
-EXPOSE 3002
+EXPOSE 3005
 
 # Start the Node.js Express server
 CMD ["node", "app.js"]

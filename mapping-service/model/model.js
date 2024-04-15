@@ -80,7 +80,7 @@ exports.getAllEventsMappingModel = async (id) => {
       if (/\;/g.test(id)) {
         return "No SQL injections allowed";
       } else {
-        const query = `SELECT * FROM json_stream WHERE id = '${id}';`;
+        const query = `SELECT * FROM mapping_stream WHERE id = '${id}';`;
         const { data, status, error } = await client.query(query);
         if (error) {
           console.error("Error returned by KsqlDB:", error);
@@ -103,7 +103,7 @@ exports.getAllEventsMappingModel = async (id) => {
       if (/\;/g.test(id)) {
         return "No SQL injections allowed";
       } else {
-        const query = `SELECT * FROM json_stream WHERE id = '${id}';`;
+        const query = `SELECT * FROM mapping_stream WHERE id = '${id}';`;
         const { data, status, error } = await client.query(query);
         if (error) {
           console.error("Error returned by KsqlDB:", error);
