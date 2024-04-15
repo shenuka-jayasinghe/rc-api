@@ -368,35 +368,35 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: collections-api
+  name: mapping-api
 spec:
   selector:
-    app: collections-api
+    app: mapping-api
   type: LoadBalancer
   ports:
     - protocol: TCP
-      port: 3003
-      targetPort: 3003
+      port: 3005
+      targetPort: 3005
 
 ---
 
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mapping-service
+  name: mapping-api
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mapping-service
+      app: mapping-api
   template:
     metadata:
       labels:
-        app: mapping-service
+        app: mapping-api
     spec:
       containers:
-        - name: mapping-service
-          image: shenukacj/mapping-service:0.0.1
+        - name: mapping-api
+          image: shenukacj/mapping-api:0.0.1
           ports:
             - containerPort: 3005
           livenessProbe:
