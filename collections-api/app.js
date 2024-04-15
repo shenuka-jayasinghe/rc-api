@@ -7,7 +7,7 @@ const cors = require('cors');
 const { runConsumer } = require('./consumer/consumer.js');
 
 const app = express();
-const port = 3003;
+const port = 3007;
 
 // Middleware to handle CORS
 app.use(cors());

@@ -82,6 +82,16 @@ spec:
 
 and then click ```CREATE```
 
+3. Reconfigure hosts DNS using ```sudo nano /etc/hosts```
+
+and kafka as one of the DNS to 127.0.0.1
+
+```bash
+127.0.0.1       kafka
+127.0.0.1       localhost
+
+```
+
 ### 2. REST API
 
 You can test the REST API with ```PR-CHCR-00023``` for the ```:id``` parameter. 

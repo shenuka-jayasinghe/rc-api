@@ -11,7 +11,7 @@ const KAFKA_CLIENT = process.env.KAFKA_CLIENT;
 
 const kafka = new Kafka({
   clientId: "collections-api",
-  brokers: [KAFKA_CLIENT], // Kafka broker addresses
+  brokers: ['localhost:9092'], // Kafka broker addresses
 });
 
 // Create a consumer instance
