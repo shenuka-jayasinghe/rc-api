@@ -364,3 +364,46 @@ spec:
             periodSeconds: 10
 
 ---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: collections-api
+spec:
+  selector:
+    app: collections-api
+  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 3003
+      targetPort: 3003
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mapping-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mapping-service
+  template:
+    metadata:
+      labels:
+        app: mapping-service
+    spec:
+      containers:
+        - name: mapping-service
+          image: shenukacj/mapping-service:0.0.1
+          ports:
+            - containerPort: 3005
+          livenessProbe:
+            httpGet:
+              path: /api/v1/mapping/healthcheck
+              port: 3005
+            initialDelaySeconds: 15
+            periodSeconds: 10
+
+---
