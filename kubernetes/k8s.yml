@@ -225,7 +225,7 @@ spec:
     spec:
       containers:
         - name: tei-api
-          image: shenukacj/tei-api:0.0.9
+          image: shenukacj/tei-api:0.0.10
           ports:
             - containerPort: 3000
           livenessProbe:
