@@ -92,11 +92,13 @@ Working endpoints:
 
 | Microservice | Request | Body format | Data | Port | Endpoint |
 |-------------|---------|-------------|------|------|----------|
+| Collections | ```get```| JSON |  | 3003 | http://localhost:3003/api/v1/collections/allEvents/[:title] |
+| Collections | ```post``` <br> ```put``` <br> ```delete``` <br> ```get```| JSON |  | 3003 | http://localhost:3003/api/v1/collections/[:title] |
 | TEI to JSON | ```post```| XML | [TEI Example](#tei-example)| 3001 | http://localhost:3001/api/v1/tei2json/cudl-xslt/[:id]|
-| JSON | ```post``` <br> ```put``` <br> ```delete``` <br> ```get```| JSON | [JSON Example](#json-example-data) | 3002 | http://localhost:3002/api/v1/json/[:id] |
-| JSON | ```get```| JSON |  | 3002 | http://localhost:3002/api/v1/json/allEvents/[:id] |
-| TEI | ```post``` <br> ```put``` <br> ```delete``` <br> ```get```| XML | [TEI Example](#tei-example) | 3000 | http://localhost:3000/api/v1/TEI/[:id] |
-| TEI | ```get```| XML | | 3000 | http://localhost:3000/api/v1/TEI/allEvents/[:id] |
+| Item JSON | ```post``` <br> ```put``` <br> ```delete``` <br> ```get```| JSON | [JSON Example](#json-example-data) | 3002 | http://localhost:3002/api/v1/json/[:id] |
+| Item JSON | ```get```| JSON |  | 3002 | http://localhost:3002/api/v1/json/allEvents/[:id] |
+| Item TEI | ```post``` <br> ```put``` <br> ```delete``` <br> ```get```| XML | [TEI Example](#tei-example) | 3000 | http://localhost:3000/api/v1/TEI/[:id] |
+| Item TEI | ```get```| XML | | 3000 | http://localhost:3000/api/v1/TEI/allEvents/[:id] |
 
 
 ## Example Data
