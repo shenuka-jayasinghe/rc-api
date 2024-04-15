@@ -1,3 +1,4 @@
+//consumes from item JSON service and prehydrates the collections topic
 const { Kafka } = require("kafkajs");
 const { getAllCollectionsModel, updateCollectionModel } = require('../model/model');
 
@@ -16,8 +17,7 @@ const kafka = new Kafka({
 // Create a consumer instance
 const consumer = kafka.consumer({ groupId: 'my-group' });
 
-//check which collections the item belongs to and updated the pre-hydrated the collections topic
-
+//check which collections the item belongs to and updates the collections topic based on changes
 async function updateCollections(inputItemId, inputItemJson){
   const collectionData = await getAllCollectionsModel(); //array
   const collectionsAndItems = collectionData.map((collection) => {
@@ -56,6 +56,7 @@ async function updateCollections(inputItemId, inputItemJson){
         description: collectionJson.description,
         items: newItems
       }
+      //Goes into the model (in model directory) to update Collection
       updateCollectionModel(updatedCollectionData, collectionJson.title)
     })
   }
@@ -70,7 +71,6 @@ async function updateCollections(inputItemId, inputItemJson){
 exports.runConsumer = async () => {
   await consumer.connect();
   await consumer.subscribe({ topics: ['json-topic'] });
-  console.log("KAFKA_CLIENT ===>",KAFKA_CLIENT)
 
   // Run the consumer
   await consumer.run({

@@ -28,10 +28,10 @@ services:
 
 # sudo docker exec -it kafka-dev kafka-topics.sh --create --topic tei-topic --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 && sudo docker exec -it kafka-dev kafka-topics.sh --create --topic json-topic --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 && sudo docker exec -it kafka-dev kafka-topics.sh --create --topic collections-topic --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 
 
-# kubectl exec -it kafka-7756d6c55d-mmvf9 -- kafka-topics.sh --create --topic tei-topic --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 && kubectl exec -it kafka-7756d6c55d-mmvf9 -- kafka-topics.sh --create --topic json-topic --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 && kubectl exec -it kafka-7756d6c55d-mmvf9 -- kafka-topics.sh --create --topic collections-topic --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1
+# kubectl exec -it kafka-7756d6c55d-4x94d -- kafka-topics.sh --create --topic tei-topic --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 && kubectl exec -it kafka-7756d6c55d-4x94d -- kafka-topics.sh --create --topic json-topic --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 && kubectl exec -it kafka-7756d6c55d-4x94d -- kafka-topics.sh --create --topic collections-topic --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 && kubectl exec -it kafka-7756d6c55d-4x94d -- kafka-topics.sh --create --topic tei-template-topic --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1
 
-# kubectl exec -it kafka-7756d6c55d-mmvf9 -- kafka-topics.sh --list --bootstrap-server localhost:9092
+# kubectl exec -it kafka-7756d6c55d-4x94d -- kafka-topics.sh --list --bootstrap-server localhost:9092
 
-# kubectl exec -it ksqldb-cli-847fbfcc9c-4fhll -- ksql http://ksqldb-server:8088
+# kubectl exec -it ksqldb-cli-847fbfcc9c-4r4km -- ksql http://ksqldb-server:8088
 
 # kubectl exec -it tei2json-api-778bcf56d6-25g75 -- docker run shenukacj/cudl-xslt:0.0.5 && kubectl exec -it tei2json-api-778bcf56d6-25g75 -- node app.js
