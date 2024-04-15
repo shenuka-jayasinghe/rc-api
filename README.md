@@ -8,7 +8,8 @@
 
 The best way to view this image is to download it and re-open in the browser
 
-![MDC-architecture2 drawio](https://github.com/shenuka-jayasinghe/rc-api/assets/137282472/c5be4f7c-a4a9-4a5c-bc72-08b9ad1f16e2)
+![MDC-architecture2 drawio (1)](https://github.com/shenuka-jayasinghe/rc-api/assets/137282472/4e596753-873a-4a93-aae9-9bc83cd03313)
+
 
 ## Steps
 
