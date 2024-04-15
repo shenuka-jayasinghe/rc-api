@@ -353,7 +353,7 @@ spec:
     spec:
       containers:
         - name: tei-template-api
-          image: shenukacj/tei-template-api:0.0.4
+          image: shenukacj/tei-template-api:0.0.5
           ports:
             - containerPort: 3004
           livenessProbe:
