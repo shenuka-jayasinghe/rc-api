@@ -48,3 +48,13 @@ CREATE STREAM mapping_stream (
     KAFKA_TOPIC='mapping-topic',
     VALUE_FORMAT='JSON'
 );
+
+CREATE STREAM narratives_stream (
+    event VARCHAR,
+    id VARCHAR,
+    timestamp BIGINT,
+    json VARCHAR
+) WITH (
+    KAFKA_TOPIC='narratives-topic',
+    VALUE_FORMAT='JSON'
+);

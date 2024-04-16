@@ -32,6 +32,6 @@ services:
 
 # kubectl exec -it kafka-7756d6c55d-ddrzg -- kafka-topics.sh --list --bootstrap-server localhost:9092
 
-# kubectl exec -it ksqldb-server-7f65fb7f6-2d7rf -- ksql http://ksqldb-server:8088
+# kubectl exec -it ksqldb-cli-847fbfcc9c-fjkxb -- ksql http://ksqldb-server:8088
 
 # kubectl exec -it tei2json-api-778bcf56d6-25g75 -- docker run shenukacj/cudl-xslt:0.0.5 && kubectl exec -it tei2json-api-778bcf56d6-25g75 -- node app.js

@@ -407,3 +407,46 @@ spec:
             periodSeconds: 10
 
 ---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: narratives-api
+spec:
+  selector:
+    app: narratives-api
+  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 3006
+      targetPort: 3006
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: narratives-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: narratives-api
+  template:
+    metadata:
+      labels:
+        app: narratives-api
+    spec:
+      containers:
+        - name: narratives-api
+          image: shenukacj/narratives-api:0.0.1
+          ports:
+            - containerPort: 3006
+          livenessProbe:
+            httpGet:
+              path: /api/v1/narratives/healthcheck
+              port: 3006
+            initialDelaySeconds: 15
+            periodSeconds: 10
+
+---
