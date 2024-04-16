@@ -1,0 +1,169 @@
+[
+  {
+    "id": "6346ef68-b5b7-4ce9-afa5-af3ba23e19ca",
+    "tab": 0,
+    "name": "Object name",
+    "key": "ClaObjectName_tab",
+    "join": ", ",
+    "search": "<!--ClaObjectName_tab-->",
+    "required": true,
+    "outerstart": "<list>",
+    "outerend": "</list>",
+    "limit": "3"
+  },
+  {
+    "id": "8836c986-0e07-4868-9e3e-dfcef0b557fc",
+    "tab": 0,
+    "name": "Collection name",
+    "key": "ColCollectionName_tab",
+    "join": ", ",
+    "search": "<!--ColCollectionName_tab-->",
+    "required": true,
+    "outerstart": "",
+    "outerend": ""
+  },
+  {
+    "id": "915321ee-7ea3-4df0-9f45-f34bd027fb5d",
+    "tab": 0,
+    "name": "Primary materials",
+    "key": "MatPrimaryMaterials_tab",
+    "join": ", ",
+    "search": "<!--MatPrimaryMaterials_tab-->",
+    "required": true
+  },
+  {
+    "id": "04369677-e428-44fc-bccb-c9c78e48464d",
+    "tab": 0,
+    "name": "Secondary materials",
+    "key": "MatSecondaryMaterials_tab",
+    "join": ", ",
+    "search": "<!--MatSecondaryMaterials_tab-->"
+  },
+  {
+    "id": "1033969b-4949-497c-adbb-ad2e494eb622",
+    "tab": 0,
+    "name": "Physical description",
+    "key": "DesPhysicalDescription",
+    "search": "<!--DesPhysicalDescription-->",
+    "required": true
+  },
+  {
+    "id": "6d31982a-f738-42d1-bc3a-d9041d059fea",
+    "tab": 0,
+    "name": "Accession number",
+    "key": "ColAccessionNumber",
+    "search": "<!--ColAccessionNumber-->",
+    "required": true
+  },
+  {
+    "id": "5b389d0f-2a75-48a8-8394-75f799f9a41f",
+    "tab": 1,
+    "name": "Decls?",
+    "search": "<!--thumbdecls-->",
+    "replace": "#document-thumbnail"
+  },
+  {
+    "id": "f976cdbf-1df6-4da5-b935-4c319b4ced09",
+    "tab": 1,
+    "name": "Decls?",
+    "search": "<!--surfacedecls-->",
+    "replace": "#downloadImageRights #download"
+  },
+  {
+    "id": "c171ccf6-561c-4c70-9ead-8b5369cc5dcd",
+    "tab": 1,
+    "name": "Revision author",
+    "search": "<!--revisionAuthor-->",
+    "replace": "#CW"
+  },
+  {
+    "id": "c73e27d0-c3f3-4aea-9efa-3aa468664784",
+    "tab": 1,
+    "name": "Boilerplate removal",
+    "search": "<!--BOILERPLATE?-->",
+    "replace": ""
+  },
+  {
+    "id": "b96a7694-0c97-4440-be08-80b4cb72ced3",
+    "tab": 0,
+    "key": "irn",
+    "name": "Revision date",
+    "search": "<!--revisionDate-->",
+    "function": "let t = new Date(); return `${t.getFullYear()}-${(t.getMonth() + 1)}-${t.getDate()}`"
+  },
+  {
+    "id": "ce11df4b-fb88-413d-b265-c525f8ea12f6",
+    "tab": 0,
+    "key": "irn",
+    "name": "Revision time",
+    "search": "<!--revisionTime-->",
+    "function": "let t = new Date(); return `${t.getHours()}:${t.getMinutes()}:${t.getSeconds()}`"
+  },
+  {
+    "id": "4d95063b-5ac5-4100-979a-d075b7455e0f",
+    "tab": 0,
+    "key": "irn",
+    "name": "Test function",
+    "outerstart": "<list>",
+    "outerend": "</list>",
+    "search": "<!--testFunction-->",
+    "function": "var today = new Date(); return String(today);"
+  },
+  {
+    "id": "4fa1c4b8-96ab-468d-a2ae-98712bca1c5b",
+    "tab": 0,
+    "name": "Test function with argument from data",
+    "key": "ColAccessionNumber",
+    "search": "<!--test2Function-->",
+    "function": "return `###${String(key)}###${String(value)}###`;"
+  },
+  {
+    "id": "2a6b0098-6ba5-4118-8090-3bd7d80895bb",
+    "tab": 0,
+    "name": "If irn 148637 replace search with Bob",
+    "key": "irn",
+    "search": "<!--comparison-->",
+    "function": "return value==\"148637\" ? \"IRN FOUND 148637 <!-- deepnest -->\" : \"\""
+  },
+  {
+    "id": "4591354c-6fbc-46af-af69-b00dfe12653a",
+    "tab": 1,
+    "name": "Decls?",
+    "search": "<!-- deepnest -->",
+    "replace": "This is also replaced"
+  },
+  {
+    "id": "3703f46c-c74b-4437-a0f3-53c88470fb9c",
+    "search": "<!--DimHeight_tab-->",
+    "name": "Dimensions: Height",
+    "key": "height",
+    "outerstart": "<height>",
+    "outerend": "</height>"
+  },
+  {
+    "id": "4aa02e6a-48b7-4135-9b30-741e100c80eb",
+    "search": "<!--DimWidth_tab-->",
+    "name": "Dimensions: Width",
+    "key": "width",
+    "outerstart": "<width>",
+    "outerend": "</width>"
+  },
+  {
+    "id": "11e15567-9af4-469f-a702-a70957476609",
+    "search": "<!--\"ProProductionDate\"-->",
+    "name": "Dates",
+    "key": "ProProductionDate"
+  },
+  {
+    "id": "c3f191bf-7879-4930-89ba-b25d90e81b8d",
+    "search": "<!--\"AcqCreditLine\"-->",
+    "name": "Acquisition",
+    "key": "AcqCreditLine"
+  },
+  {
+    "id": "cd5e2f7b-894e-471b-b43d-e3ea7acdc417",
+    "search": "<!--\"DetRights\"-->",
+    "name": "Photographer rights",
+    "key": "DetRights"
+  }
+]

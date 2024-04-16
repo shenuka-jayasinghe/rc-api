@@ -1,0 +1,250 @@
+{
+    "status": "success",
+    "data": {
+      "version": 1,
+      "enarratives": {
+        "irn": 10397,
+        "modified": "2024-03-26T10:56:00.000Z",
+        "NarAuthorsRef_tab": [
+          {
+            "irn": 25742,
+            "modified": "2017-11-14T10:17:00.000Z",
+            "NamFirst": "Campbell",
+            "SummaryData": "Price, Dr Campbell - The Manchester Museum",
+            "NamLast": "Price",
+            "NamOrganisation": "The Manchester Museum",
+            "NamRoles_tab": [
+              "staff"
+            ],
+            "NamSex": "Male",
+            "NamPartyType": "Person",
+            "NamTitle": "Dr"
+          }
+        ],
+        "MulMultiMediaRef_tab": [
+          {
+            "irn": 164894,
+            "modified": "2024-03-25T16:16:00.000Z",
+            "md5": "296d980dbfd0b89a6acfaaf37256bcc0",
+            "title": "2120",
+            "mimetype": "image",
+            "mimeformat": "tiff",
+            "filename": "2120-Gilded-mummy-mask.tif",
+            "rights": "Image: Manchester Museum, The University of Manchester | Photographer: Julia Thorne / Tetisheri",
+            "height": "6000",
+            "width": "4000",
+            "filesize": 143171376
+          }
+        ],
+        "NarTitle": "Golden Mummies of Egypt",
+        "ObjObjectsRef_tab": [
+          {
+            "irn": 157123,
+            "modified": "2023-09-21T12:30:00.000Z",
+            "length": "260mm",
+            "width": "180mm",
+            "height": "245mm",
+            "ColAccessionNumber": "2002.2",
+            "ColCategory": "Humanities",
+            "DimWeightUnit_tab": [
+              "kg"
+            ],
+            "MatPrimaryMaterials_tab": [
+              "Bronze"
+            ],
+            "DimWeight_tab": [1.5],
+            "SitSiteRef_tab": [
+              {
+                "irn": 212519,
+                "modified": "2003-08-26T15:48:00.000Z",
+                "SummaryData": "Greece, Olympia"
+              }
+            ],
+            "ClaObjectName_tab": [
+              "Helmet"
+            ],
+            "MulMultiMediaRef_tab": [
+              {
+                "irn": 160427,
+                "modified": "2024-03-25T16:12:00.000Z",
+                "md5": "cb3346fd4601ff491558291eec05d895",
+                "title": "2002.2",
+                "mimetype": "image",
+                "mimeformat": "tiff",
+                "filename": "2002-2-Corinthian-helmet.tif",
+                "rights": "Image: Manchester Museum, The University of Manchester | Photographer: Julia Thorne / Tetisheri",
+                "height": "6000",
+                "width": "3998",
+                "filesize": 121827042
+              },
+              {
+                "irn": 175320,
+                "modified": "2021-11-12T15:37:00.000Z",
+                "md5": "91e92ddd0a73e38113bf39af68dbedfb",
+                "mimetype": "image",
+                "mimeformat": "jpeg",
+                "filename": "2002.2.jpg",
+                "rights": "© Manchester Museum, The University of Manchester",
+                "height": "4992",
+                "width": "3328",
+                "filesize": 14267996
+              },
+              {
+                "irn": 174310,
+                "modified": "2021-10-13T15:53:00.000Z",
+                "md5": "efbc436eb22094a2c48e00f271ef795e",
+                "mimetype": "image",
+                "mimeformat": "jpeg",
+                "filename": "2002.2.jpg",
+                "rights": "© Manchester Museum, The University of Manchester",
+                "height": "4992",
+                "width": "3328",
+                "filesize": 12846913
+              }              
+            ],
+            "DesPhysicalDescription": "This distinctively Corinthian-style helmet – made to cover the entire head and neck, with slits for the eyes and mouth - dates to around 650 BCE. At that time, Egyptian Pharaohs employed many Greek mercenary warriors to help fight Egypt’s enemies.\n \nThe holes around the edges of the metal were intended to help attach a leather lining that would have made the helmet more comfortable to wear. The fact that the cheek guards were once bent back indicates that the piece was decommissioned and was left as a votive gift to the gods.\n\nAlthough it’s findspot is unknown, this piece was likely to have installed and discovered at a sacred site in Greece. Similar examples to this one have been attributed to sites in Egypt.",
+            "ColDiscipline": "Archaeology",
+            "LocCurrentLocationRef": {
+              "irn": 39450,
+              "warning": true,
+              "message": "Could not find an object with irn '39450' on table elocations"
+            },
+            "ColRecordCategory": "Registered"
+          },
+          {
+            "irn": 112073,
+            "modified": "2021-11-12T10:50:00.000Z",
+            "height": "210mm",
+            "LocCurrentLocationRef": {
+              "irn": 39289,
+              "warning": true,
+              "message": "Could not find an object with irn '39289' on table elocations"
+            },
+            "ColRecordCategory": "Registered",
+            "DesPhysicalDescription": "Bronze helmet, possibly Assyrian.",
+            "AccAccessionLotRef": {
+              "irn": 100593,
+              "modified": "2024-03-25T15:43:00.000Z",
+              "AcqCreditLine": "Donation by Jesse Haworth, 1895-1896",
+              "SummaryData": "Haworth, Mr Jesse (Donation, 1895-1896)"
+            },
+            "ColDiscipline": "Egyptology",
+            "MulMultiMediaRef_tab": [
+              {
+                "irn": 160428,
+                "modified": "2024-03-25T16:16:00.000Z",
+                "md5": "f6a66a33605b0021aed5b5df89ece895",
+                "title": "1618",
+                "mimetype": "image",
+                "mimeformat": "tiff",
+                "filename": "1618-Syrian-style-helmet.tif",
+                "rights": "Image: Manchester Museum, The University of Manchester | Photographer: Julia Thorne / Tetisheri",
+                "height": "4000",
+                "width": "6000",
+                "filesize": 93535312
+              },
+              {
+                "irn": 175284,
+                "modified": "2021-11-12T15:37:00.000Z",
+                "md5": "02ab05e606ef886d08409485542437c3",
+                "mimetype": "image",
+                "mimeformat": "jpeg",
+                "filename": "1618..jpg",
+                "rights": "© Manchester Museum, The University of Manchester",
+                "height": "4955",
+                "width": "3303",
+                "filesize": 11067070
+              },
+              {
+                "irn": 175285,
+                "modified": "2021-11-12T15:37:00.000Z",
+                "md5": "eb9f6ab0b53cb0dee48572de2acd3320",
+                "mimetype": "image",
+                "mimeformat": "jpeg",
+                "filename": "1618.jpg",
+                "rights": "© Manchester Museum, The University of Manchester",
+                "height": "3328",
+                "width": "4992",
+                "filesize": 10391381
+              },
+              {
+                "irn": 167225,
+                "modified": "2021-05-14T14:41:00.000Z",
+                "md5": "56d06d868f15cc620080c23243f561cd",
+                "mimetype": "image",
+                "mimeformat": "jpeg",
+                "filename": "1618 (25).JPG",
+                "rights": "© Paul Cliff",
+                "height": "4992",
+                "width": "3328",
+                "filesize": 1197490
+              }        
+            ],
+            "ProProductionDate": "Late Period (Dyn. 25)",
+            "ClaObjectName_tab": [
+              "Helmet"
+            ],
+            "ProCulturalGroup_tab": [
+              "Assyrian"
+            ],
+            "MatPrimaryMaterials_tab": [
+              "Copper alloy"
+            ],
+            "SitSiteRef_tab": [
+              {
+                "irn": 102766,
+                "modified": "2005-03-30T16:49:00.000Z",
+                "SummaryData": "Africa, Egypt, Upper Egypt, Thebes: West Bank"
+              }
+            ],
+            "ColAccessionNumber": "1618",
+            "ColCategory": "Humanities"
+          },
+          {
+            "irn": 197825,
+            "modified": "2023-04-27T12:36:00.000Z",
+            "length": "1765mm",
+            "ColAccessionNumber": "1775",
+            "ColCategory": "Humanities",
+            "ClaObjectName_tab": [
+              "Human mummy",
+              "Mummy portrait",
+              "Human Remains"
+            ],
+            "MatPrimaryMaterials_tab": [
+              "Human Remains",
+              "Wood"
+            ],
+            "ColCollectionName_tab": [
+              "Human Remains"
+            ],
+            "SitSiteRef_tab": [
+              {
+                "irn": 122801,
+                "modified": "2006-05-05T08:20:00.000Z",
+                "SummaryData": "Africa, Egypt, Faiyum, Hawara"
+              }
+            ],
+            "MulMultiMediaRef_tab": [
+              {
+                "irn": 160429,
+                "modified": "2024-03-25T16:12:00.000Z",
+                "md5": "1f44887a8c3eacb668eeaf01050cef55",
+                "title": "1775",
+                "mimetype": "image",
+                "mimeformat": "tiff",
+                "filename": "1775-Portrait-mummy-of-Artemidorus-full.tif",
+                "rights": "Image: Manchester Museum, The University of Manchester | Photographer: Julia Thorne / Tetisheri",
+                "height": "5579",
+                "width": "3720",
+                "filesize": 83273296
+              }
+            ],
+            "ProProductionDate": "Roman Egypt"
+          }
+        ],
+        "SummaryData": "Golden Mummies of Egypt",
+        "NarNarrative": "\u003Cp\u003E\n\n\u003C/p\u003E\u003Cp style=\"margin: 0cm 0cm 10pt; text-align: justify;\"\u003E\u003Cfont face=\"Calibri\"\u003E\u003Cspan style=\"mso-bidi-font-weight: bold;\"\u003EMummies, gold, and an obsessive belief in the afterlife. These concepts\nare all central to our image of ‘Ancient Egypt’. But how important were they to\nthe Egyptians, and how long did they survive after the last of the Pharaohs? \u003Ci\u003EGolden\nMummies of Egypt\u003C/i\u003E\u003C/span\u003E\u003Cb style=\"mso-bidi-font-weight: normal;\"\u003E \u003C/b\u003E\u003Cspan style=\"mso-bidi-font-weight: bold;\"\u003Eis a collection that explores expectations of\na life after death during the relatively little-known ‘Graeco-Roman’ Period of\nEgyptian history (between \u003Ca style=\"mso-comment-reference: MB_1; mso-comment-date: 20240320T1242; mso-comment-done: yes;\"\u003E300 BCE and 300 CE\u003C/a\u003E\u003C/span\u003E\u003Cspan style=\"line-height: 115%; font-size: 8pt;\"\u003E\u003Ca name=\"_msoanchor_1\" id=\"_anchor_1\" language=\"JavaScript\" href=\"file:///C:/Users/mzfascp3/Downloads/Intro%20-%20Golden%20Mummies%20of%20Egypt%20MDC%20-%20MB%20input.docx#_msocom_1\"\u003E[MB1]\u003C/a\u003E\u003Cspan style=\"mso-special-character: comment;\"\u003E&nbsp;\u003C/span\u003E\u003C/span\u003E\u003Cspan style=\"mso-bidi-font-weight: bold;\"\u003E). This was a time when a Greek royal family,\nknown as the Ptolemies, first ruled Egypt. After three hundred years, this\ndynasty came to an end with the reign of Queen Cleopatra VII, and the kingdom\nwas then ruled by Roman emperors.\u003C/span\u003E\u003C/font\u003E\u003C/p\u003E\u003Cp\u003E\n\n\u003C/p\u003E\u003Cp style=\"margin: 0cm 0cm 10pt; text-align: justify;\"\u003E\u003Cfont face=\"Calibri\"\u003EEgypt was always in contact with\nneighbouring cultures and was never as isolated as it is often portrayed. Plentiful\nevidence survives for trade with Nubia, to the south of Egypt, and around the\nMediterranean for centuries. Under the pharaohs, many non-Egyptians came to\nlive in Egypt too. However, relations between peoples were not always peaceful\nand there were sometimes violent struggles for power. \u003C/font\u003E\u003Ca style=\"mso-comment-reference: MB_2; mso-comment-date: 20240320T1247; mso-comment-done: yes;\"\u003E\u003Cfont face=\"Calibri\"\u003ESome of this upheaval\nfrom the Graeco-Roman Period is recorded in papyrus documents. \u003C/font\u003E\u003C/a\u003E\u003Cspan style=\"line-height: 115%; font-size: 8pt;\"\u003E\u003Ca name=\"_msoanchor_2\" id=\"_anchor_2\" language=\"JavaScript\" href=\"file:///C:/Users/mzfascp3/Downloads/Intro%20-%20Golden%20Mummies%20of%20Egypt%20MDC%20-%20MB%20input.docx#_msocom_2\"\u003E\u003Cfont face=\"Calibri\"\u003E[MB2]\u003C/font\u003E\u003C/a\u003E\u003Cspan style=\"mso-special-character: comment;\"\u003E\u003Cfont face=\"Calibri\"\u003E&nbsp;\u003C/font\u003E\u003C/span\u003E\u003C/span\u003E\u003C/p\u003E\u003Cp\u003E\n\n\u003C/p\u003E\u003Cp style=\"margin: 0cm 0cm 10pt; text-align: justify;\"\u003E\u003Cfont face=\"Calibri\"\u003EThe Ptolemies ruled Egypt from\n323-30 \u003C/font\u003E\u003Ca style=\"mso-comment-reference: MB_3; mso-comment-date: 20240320T1243; mso-comment-done: yes;\"\u003E\u003Cfont face=\"Calibri\"\u003EBC\u003C/font\u003E\u003C/a\u003E\u003Cfont face=\"Calibri\"\u003EE\u003Cspan style=\"line-height: 115%; font-size: 8pt;\"\u003E\u003Ca name=\"_msoanchor_3\" id=\"_anchor_3\" language=\"JavaScript\" href=\"file:///C:/Users/mzfascp3/Downloads/Intro%20-%20Golden%20Mummies%20of%20Egypt%20MDC%20-%20MB%20input.docx#_msocom_3\"\u003E[MB3]\u003C/a\u003E\u003Cspan style=\"mso-special-character: comment;\"\u003E&nbsp;\u003C/span\u003E\u003C/span\u003E.\nOf Macedonian origin, they built the new capital of Alexandria on the coast looking\ntowards their homeland. On\u003C/font\u003E\u003Ca style=\"mso-comment-reference: MB_4; mso-comment-date: 20240320T1156; mso-comment-done: yes;\"\u003E\u003C/a\u003E\u003Cspan style=\"line-height: 115%; font-size: 8pt;\"\u003E\u003Ca name=\"_msoanchor_4\" id=\"_anchor_4\" language=\"JavaScript\" href=\"file:///C:/Users/mzfascp3/Downloads/Intro%20-%20Golden%20Mummies%20of%20Egypt%20MDC%20-%20MB%20input.docx#_msocom_4\"\u003E\u003Cfont face=\"Calibri\"\u003E[MB4]\u003C/font\u003E\u003C/a\u003E\u003Cspan style=\"mso-special-character: comment;\"\u003E\u003Cfont face=\"Calibri\"\u003E&nbsp;\u003C/font\u003E\u003C/span\u003E\u003C/span\u003E\u003Cfont face=\"Calibri\"\u003E\ntemple walls across Egypt, \u003C/font\u003E\u003Ca style=\"mso-comment-reference: MB_5; mso-comment-date: 20240320T1253; mso-comment-done: yes;\"\u003E\u003Cfont face=\"Calibri\"\u003Ethey styled themselves \u003C/font\u003E\u003C/a\u003E\u003Cspan style=\"line-height: 115%; font-size: 8pt;\"\u003E\u003Ca name=\"_msoanchor_5\" id=\"_anchor_5\" language=\"JavaScript\" href=\"file:///C:/Users/mzfascp3/Downloads/Intro%20-%20Golden%20Mummies%20of%20Egypt%20MDC%20-%20MB%20input.docx#_msocom_5\"\u003E\u003Cfont face=\"Calibri\"\u003E[MB5]\u003C/font\u003E\u003C/a\u003E\u003Cspan style=\"mso-special-character: comment;\"\u003E\u003Cfont face=\"Calibri\"\u003E&nbsp;\u003C/font\u003E\u003C/span\u003E\u003C/span\u003E\u003Cfont face=\"Calibri\"\u003Eas\ntraditional Pharaohs. The dynasty developed farmland in the fertile Faiyum\narea, southwest of modern Cairo, to house new settlers from Greece. A wide\nrange of Greek, Roman, and Egyptian were gods worshipped in people’s homes. Items\nburied alongside the dead during the period provide a fascinating glimpse into\npeople's everyday lives. \u003C/font\u003E\u003Ca style=\"mso-comment-reference: MB_6; mso-comment-date: 20240320T1232; mso-comment-done: yes;\"\u003E\u003C/a\u003E\u003Cspan style=\"line-height: 115%; font-size: 8pt;\"\u003E\u003Ca name=\"_msoanchor_6\" id=\"_anchor_6\" language=\"JavaScript\" href=\"file:///C:/Users/mzfascp3/Downloads/Intro%20-%20Golden%20Mummies%20of%20Egypt%20MDC%20-%20MB%20input.docx#_msocom_6\"\u003E\u003Cfont face=\"Calibri\"\u003E[MB6]\u003C/font\u003E\u003C/a\u003E\u003Cspan style=\"mso-special-character: comment;\"\u003E\u003Cfont face=\"Calibri\"\u003E&nbsp;\u003C/font\u003E\u003C/span\u003E\u003C/span\u003E\u003C/p\u003E\u003Cp\u003E\n\n\u003C/p\u003E\u003Cp style=\"margin: 0cm 0cm 10pt; text-align: justify;\"\u003E\u003Cfont face=\"Calibri\"\u003E\u003Cspan style=\"mso-bidi-font-weight: bold;\"\u003EWealthy members of this multicultural society made elaborate preparations\nfor the afterlife. Combining Egyptian, Greek, and Roman ideals of eternal\nbeauty, they created an image of the deceased as a divinity. \u003C/span\u003EIn Egyptian\ntradition, the gods were immortal. In order to attain an eternal presence among\nthe gods, the deceased had – in some sense – to become one. Religious texts\ndescribe the flesh of Egyptian deities as made of gold. As a result, those who\ncould afford to were buried with sheathed in gold-leaf covered masks or\nlife-like painted panels known as the ‘Faiyum Portraits’. Dead men and women\ncould become one with Osiris, the god of rebirth. And, by Graeco-Roman times,\ndeceased women could merge with Hathor, the Mistress of the West, where the sun\nset. \u003C/font\u003E\u003C/p\u003E\u003Cp\u003E\n\n\u003C/p\u003E\u003Cp style=\"margin: 0cm 0cm 10pt; text-align: justify;\"\u003E\u003Cfont face=\"Calibri\"\u003E\u003Cspan style=\"mso-bidi-font-weight: bold;\"\u003EManchester Museum houses one of the finest collections of this material\noutside Cairo. The objects were excavated at a time when Egypt was under\nBritish colonial\u003C/span\u003E\u003Cspan style=\"line-height: 115%; font-size: 8pt;\"\u003E\u003Ca name=\"_msoanchor_7\" id=\"_anchor_7\" language=\"JavaScript\" href=\"file:///C:/Users/mzfascp3/Downloads/Intro%20-%20Golden%20Mummies%20of%20Egypt%20MDC%20-%20MB%20input.docx#_msocom_7\"\u003E[MB7]\u003C/a\u003E\u003Cspan style=\"mso-special-character: comment;\"\u003E&nbsp;\u003C/span\u003E\u003C/span\u003E\u003Cspan style=\"mso-bidi-font-weight: bold;\"\u003E rule. In the 1880s-1910s, Egyptian\narchaeologists worked for the British archaeologist William Matthew Flinders\nPetrie. At that time, it was possible for archaeologists to legally export a\nportion of their finds. \u003C/span\u003EFlinders Petrie was very interested in the\n‘race’ of the mummified people his workers found, interpreting the appearance\nof the Faiyum painted panels and collecting the skulls of mummies to try to\ninvestigate this. He concluded that most were Greek settlers in Egypt, but we\nnow know the elite population of Hawara was much more mixed. The Faiyum panels being\ndisplayed added to a \u003C/font\u003E\u003Ca style=\"mso-comment-reference: MB_8; mso-comment-date: 20240320T1222; mso-comment-done: yes;\"\u003E\u003Cfont face=\"Calibri\"\u003EEuro-\u003C/font\u003E\u003C/a\u003E\u003Cspan style=\"line-height: 115%; font-size: 8pt;\"\u003E\u003Ca name=\"_msoanchor_8\" id=\"_anchor_8\" language=\"JavaScript\" href=\"file:///C:/Users/mzfascp3/Downloads/Intro%20-%20Golden%20Mummies%20of%20Egypt%20MDC%20-%20MB%20input.docx#_msocom_8\"\u003E\u003Cfont face=\"Calibri\"\u003E[MB8]\u003C/font\u003E\u003C/a\u003E\u003Cspan style=\"mso-special-character: comment;\"\u003E\u003Cfont face=\"Calibri\"\u003E&nbsp;\u003C/font\u003E\u003C/span\u003E\u003C/span\u003E\u003Cfont face=\"Calibri\"\u003EWestern\nfascination with Egyptian mummies and immortality during that era. Their depictions\nof male beauty even inspired Oscar Wilde to write his novel \u003Ci\u003EA\u003C/i\u003E \u003Ci\u003EPicture\nof Dorian Gray\u003C/i\u003E. \u003Cspan style=\"mso-bidi-font-weight: bold;\"\u003EOur responses to\nthe objects in this collection reveal more about ourselves than about the\npeople who made, used, and are depicted upon them.\u003Ca style=\"mso-comment-reference: MB_8; mso-comment-date: 20240320T1222; mso-comment-done: yes;\"\u003E\u003C/a\u003E\u003C/span\u003E\u003C/font\u003E\u003C/p\u003E\u003Cp\u003E\n\n\u003C/p\u003E\u003Cp style=\"margin: 0cm 0cm 10pt; text-align: justify;\"\u003E\u003Cspan style=\"mso-bidi-font-weight: bold;\"\u003E\u003Cfont face=\"Calibri\"\u003EAn exhibition of this collection, entitled \u003Ci\u003EGolden Mummies of Egypt\u003C/i\u003E,\ntravelled internationally between 2020 and 2022. It was on display at\nManchester Museum \u003C/font\u003E\u003C/span\u003E\u003C/p\u003E\u003Cdiv style=\"mso-element: comment;\"\u003E\u003Cdiv id=\"_com_3\" language=\"JavaScript\"\u003E\u003Cp style=\"margin: 0cm 0cm 10pt;\"\u003E\u003Cspan\u003E\u003Cspan style=\"font-size: 8pt;\"\u003E\u003Cspan style=\"mso-special-character: comment;\"\u003E\u003Cbr\u003E\u003C/span\u003E\u003C/span\u003E\u003C/span\u003E\u003C/p\u003E\u003C/div\u003E\u003C/div\u003E\n\n\n\n\n\n\u003Cdiv style=\"mso-element: comment;\"\u003E\n\n\u003Cdiv id=\"_com_6\" language=\"JavaScript\"\u003E\u003Cspan style='mso-comment-author: \"Matthew Bridson\"; mso-comment-providerid: AD;'\u003E\u003Ca name=\"_msocom_6\"\u003E\u003C/a\u003E\u003C/span\u003E\n\n\u003Cp style=\"margin: 0cm 0cm 10pt;\"\u003E\u003Cdiv style=\"mso-element: comment;\"\u003E\u003Cdiv id=\"_com_8\" language=\"JavaScript\"\u003E\u003Cp style=\"margin: 0cm 0cm 10pt;\"\u003E\u003Cfont face=\"Calibri\" size=\"2\"\u003E\u003Cbr\u003E\u003C/font\u003E\u003C/p\u003E\n\n\u003C/div\u003E\n\n\u003C/div\u003E\n\n\n\n\u003C/p\u003E\u003C/div\u003E\u003C/div\u003E"
+      }
+    }
+  }
