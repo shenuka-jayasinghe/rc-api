@@ -12,7 +12,9 @@ const mappingJsonArrayPromise = fs.readFile(mappingFile, 'utf-8')
 
 Promise.all([teiTemplatePromise, narrativesJsonStringPromise, mappingJsonArrayPromise])
   .then(([teiTemplate, narrativesJsonString, mappingJsonArrayString]) => {
-    mapToTei(narrativesJsonString, teiTemplate, mappingJsonArrayString)
+
+    const mappedTei = mapToTei(narrativesJsonString, teiTemplate, mappingJsonArrayString)
+    console.log(mappedTei)
   })
   .catch((error) => {
     console.error('An error occurred:', error);
@@ -25,6 +27,7 @@ async function mapToTei(narrativesJsonString,teiTemplate, mappingJsonArrayString
     const dataArrayofObj = narrativesJson.data.enarratives.ObjObjectsRef_tab;
   
     // Iterate over each object in the JSON data
+    const outputTei = [];
     dataArrayofObj.forEach((item) => {
       let mappedTei = teiTemplate;
   
@@ -78,7 +81,9 @@ async function mapToTei(narrativesJsonString,teiTemplate, mappingJsonArrayString
         }
       });
   
-      console.log(mappedTei); // Output the mapped TEI template
+    //   console.log(mappedTei); // Output the mapped TEI template
+      outputTei.push(mappedTei)
     });
+    return outputTei
   }
   
