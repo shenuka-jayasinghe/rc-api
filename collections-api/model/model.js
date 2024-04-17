@@ -9,7 +9,7 @@ const KAFKA_CLIENT = process.env.KAFKA_CLIENT;
 
 const kafka = new Kafka({
   clientId: "collections-api",
-  brokers: [KAFKA_CLIENT], // Kafka broker addresses
+  brokers: ['kafka:9092'], // Kafka broker addresses
 });
 
 
@@ -128,7 +128,6 @@ exports.getAllEventsCollectionsModel = async (title) => {
       await client.connect();
         const query = `SELECT * FROM collection_stream;`;
         const { data, status, error } = await client.query(query);
-        console.log(data.rows)
         if (error) {
           console.error("Error returned by KsqlDB:", error);
           throw new Error(error);

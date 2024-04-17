@@ -8,10 +8,10 @@ const pathToEnvFile = `${__dirname}/../.env.${ENV}`
 require("dotenv").config({ path: pathToEnvFile })
 
 const KAFKA_CLIENT = process.env.KAFKA_CLIENT;
-
+console.log("KAFKA_CLIENT ==>",KAFKA_CLIENT)
 const kafka = new Kafka({
   clientId: "collections-api",
-  brokers: ['localhost:9092'], // Kafka broker addresses
+  brokers: ['kafka:9092'], // Kafka broker addresses
 });
 
 // Create a consumer instance
@@ -22,7 +22,10 @@ async function updateCollections(inputItemId, inputItemJson){
   const collectionData = await getAllCollectionsModel(); //array
   const collectionsAndItems = collectionData.map((collection) => {
     const collectionJson = JSON.parse(collection.JSON)
-    const itemIds = collectionJson.items.map((item) => item.id)
+    console.log("typeof collecitonJSON", typeof collectionJson)
+    const itemIds = collectionJson.items.map((item) => {
+      return item.id ? item.id : '';
+    })
     const collectionAndItems = {
       title: collectionJson.title,
       itemIds
@@ -33,7 +36,9 @@ async function updateCollections(inputItemId, inputItemJson){
     return collection.itemIds.some(itemId => itemId === inputItemId);
   })
   const changedTitles = changedCollections.map(collection => collection.title)
+  
   if(changedTitles){
+    console.log("inputItemJson.json[0] ==>", inputItemJson.json)
     const itemCollectionData = {
     id : inputItemId,
     title: inputItemJson.json[0].descriptiveMetadata[0].title.displayForm,
