@@ -13,7 +13,9 @@ const mappingJsonArrayPromise = fs.readFile(mappingFile, 'utf-8')
 Promise.all([teiTemplatePromise, narrativesJsonStringPromise, mappingJsonArrayPromise])
   .then(([teiTemplate, narrativesJsonString, mappingJsonArrayString]) => {
 
-    const mappedTei = mapToTei(narrativesJsonString, teiTemplate, mappingJsonArrayString)
+    return mappedTei = mapToTei(narrativesJsonString, teiTemplate, mappingJsonArrayString)
+  })
+  .then((mappedTei) => {
     console.log(mappedTei)
   })
   .catch((error) => {
@@ -76,9 +78,7 @@ async function mapToTei(narrativesJsonString,teiTemplate, mappingJsonArrayString
         } else if (mappingJson.replace) {
           // Replace string in TEI template
           mappedTei = mappedTei.replace(mappingJson.search, mappingJson.replace);
-        } else {
-          console.log("There is no key or replace field in the mapping JSON.");
-        }
+        } 
       });
   
     //   console.log(mappedTei); // Output the mapped TEI template

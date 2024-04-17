@@ -1,6 +1,6 @@
 //consumes from item JSON service and prehydrates the collections topic
 const { Kafka } = require("kafkajs");
-const { getAllCollectionsModel, updateCollectionModel } = require('../model/model');
+const { updateCollections, prehydrateCollections } = require('../model/model');
 
 const ENV = process.env.NODE_ENV || "local"
 //Make sure to set NODE_ENV to "prod" in Dockerfile
@@ -18,57 +18,7 @@ const kafka = new Kafka({
 const consumer = kafka.consumer({ groupId: 'my-group' });
 
 //check which collections the item belongs to and updates the collections topic based on changes
-async function updateCollections(inputItemId, inputItemJson){
-  const collectionData = await getAllCollectionsModel(); //array
-  const collectionsAndItems = collectionData.map((collection) => {
-    const collectionJson = JSON.parse(collection.JSON)
-    console.log("typeof collecitonJSON", typeof collectionJson)
-    const itemIds = collectionJson.items.map((item) => {
-      return item.id ? item.id : '';
-    })
-    const collectionAndItems = {
-      title: collectionJson.title,
-      itemIds
-    }
-    return collectionAndItems
-  })
-  const changedCollections = collectionsAndItems.filter((collection) => {
-    return collection.itemIds.some(itemId => itemId === inputItemId);
-  })
-  const changedTitles = changedCollections.map(collection => collection.title)
-  
-  if(changedTitles){
-    console.log("inputItemJson.json[0] ==>", inputItemJson.json)
-    const itemCollectionData = {
-    id : inputItemId,
-    title: inputItemJson.json[0].descriptiveMetadata[0].title.displayForm,
-    thumbnailUrl : inputItemJson.json[0].descriptiveMetadata[0].thumbnailUrl,
-    abstract: inputItemJson.json[0].descriptiveMetadata[0].abstract.displayForm
-    }
-    const updateCollections  = collectionData.map(collection => {
-      const collectionJson = JSON.parse(collection.JSON)
-      const newItems = collectionJson.items.map((item) => {
-        if(item.id === inputItemId){
-          return itemCollectionData
-        }
-        else {
-          return item
-        }
-      })
-      const updatedCollectionData = {
-        title: collectionJson.title,
-        thumbnailUrl: collectionJson.thumbnailUrl,
-        description: collectionJson.description,
-        items: newItems
-      }
-      //Goes into the model (in model directory) to update Collection
-      updateCollectionModel(updatedCollectionData, collectionJson.title)
-    })
-  }
-  else {
-    console.log("changedTitles ==>", changedTitles)
-  }
-}
+
 
 //replace the new json data in that array
 
@@ -85,7 +35,7 @@ exports.runConsumer = async () => {
       const jsonData = JSON.parse(jsonStringData)
       const jsonId = jsonData.id
       console.log("JSON ID ===>", jsonId)
-      updateCollections(jsonId, jsonData)    
+      prehydrateCollections(jsonId, jsonData)
     },
   });
 };

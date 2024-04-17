@@ -1,0 +1,205 @@
+KAFKA_CLIENT ==> http://kafka:9092
+Server running on port 3007
+Connected to ksqlDB server successfully!
+{"level":"INFO","timestamp":"2024-04-17T15:28:43.294Z","logger":"kafkajs","message":"[Consumer] Starting","groupId":"my-group"}
+{"level":"INFO","timestamp":"2024-04-17T15:29:06.940Z","logger":"kafkajs","message":"[ConsumerGroup] Consumer has joined the group","groupId":"my-group","memberId":"collections-api-b530f4ba-c5fe-475d-91e3-5d8c303751db","leaderId":"collections-api-da1c7cba-0866-41f4-b795-a895e8fb00a5","isLeader":false,"memberAssignment":{"json-topic":[0]},"groupProtocol":"RoundRobinAssigner","duration":23644}
+MESSAGE ==> {"event":"new-json-item","id":"PR-CHCR-00024","timestamp":1713367732737,"json":[{"descriptiveMetadata":[{"thumbnailUrl":"PR-JAPANESE-00029-000-00001.jp2","thumbnailOrientation":"portrait","displayImageRights":"Zooming image © University of Manchester Library, All rights reserved.","downloadImageRights":"Images and Metadata made available for download are licensed under a Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0).","imageReproPageURL":"https://www.library.manchester.ac.uk/search-resources/manchester-digital-collections/digitisation-services/copyright-and-licensing/","metadataRights":"Images and Metadata made available for download are licensed under a Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0).","pdfRights":"","watermarkStatement":"","docAuthority":"","fundings":{"display":true,"seq":208,"label":"Funding","value":[{"display":true,"displayForm":"","seq":209}]},"subjects":{"display":true,"seq":22,"listDisplay":"inline","label":"Subject(s)","value":[{"display":true,"displayForm":"Early maps--Japan","seq":23,"linktype":"keyword search","fullForm":"Early maps--Japan"},{"display":true,"displayForm":"Japan--1800-1890","seq":23,"linktype":"keyword search","fullForm":"Japan--1800-1890"},{"display":true,"displayForm":"Fuji--Kantō Region--Japan--Maps","seq":23,"linktype":"keyword search","fullForm":"Fuji--Kantō Region--Japan--Maps"},{"display":true,"displayForm":"Cartography--Japan--History--Maps","seq":23,"linktype":"keyword search","fullForm":"Cartography--Japan--History--Maps"},{"display":true,"displayForm":"Tokugawa period, Japan, 1600-1868","seq":23,"linktype":"keyword search","fullForm":"Tokugawa period, Japan, 1600-1868","authority":"Library of Congress Subject Headings","authorityURI":"http://id.loc.gov/authorities/about.html#lcsh","valueURI":"subject_sh00009486"},{"display":true,"displayForm":"Edo period, Japan, 1600-1868","seq":23,"linktype":"keyword search","fullForm":"Edo period, Japan, 1600-1868","authority":"Library of Congress Subject Headings","authorityURI":"http://id.loc.gov/authorities/about.html#lcsh","valueURI":"subject_sh00009506"},{"display":true,"displayForm":"Fuji, Mount (Japan)","seq":23,"linktype":"keyword search","fullForm":"Fuji, Mount (Japan)","authority":"Library of Congress Subject Headings","authorityURI":"http://id.loc.gov/authorities/about.html#lcsh","valueURI":"subject_sh85052253"},{"display":true,"displayForm":"Kantō Region (Japan)","seq":23,"linktype":"keyword search","fullForm":"Kantō Region (Japan)","authority":"Library of Congress Subject Headings","authorityURI":"http://id.loc.gov/authorities/about.html#lcsh","valueURI":"subject_sh85071529"}]},"ID":"DOCUMENT","abstract":{"display":false,"displayForm":"<p style='text-align: justify;'> Map of the area around Mount Fuji, in Japanese, by Akiyama Nagatoshi. The title is reported on the map and on a mounted cover label. The preface and postface date it to Tenpō 13 (1842). The map represents the thirteen provinces from which Mount Fuji was visible (Hitachi, Shimōsa, Kazusa, Awa, Shimotsuke, Musashi, Sagami, Izu, Kōzuke, Kai, Suruga, Shinano, Tōtōmi), covering roughly the whole Kantō region. By the end of the Tokugawa period (1603-1868), Mount Fuji, a long-revered religious site, had evolved into a cultural icon, at the centre of a thriving travel industry. Fuji confraternities (fujikō), based in Edo, organized frequent pilgrimages to the mountain, and its Sengen Shrine was home to an annual fire festival (hi matsuri) that attracted many visitors. The mountain was therefore a common object of representation, both in art and cartography. </p><p style='text-align: justify;'> This specific map (which was fairly popular and was reprinted up to the end of the Tokugawa period) worked at the same time as a route map, a regional map, a provincial map (and even as a city map for the city of Edo, which appears, highlighted in red and stylized, in the lower right section). Mt. Fuji, unusually represented from above, provides a theme for it. The map is very detailed, showing the borders and names of provinces and districts, castle cities and villages, highways, checkpoints and post stations, lakes, rivers and mountains, temples and shrines and other tourist spots such as hot springs, historical sites and so-called \"meisho\" (famous places). It includes a legend, illustrating the symbols used for notable spots, followed by explanatory notes, signed by the author.</p><p style='text-align: justify;'> The map is oriented with north to the top, wood cut (made with several maps, produced with different printing blocks, joined together in one larger map), with printed colours, and relief shown pictorially. It folds into original covers, with a mounted cover title. Cover description: cream colour burnished paper and flexible cover board; on the front, mounted cover title, in Japanese, text dark blue ink on white label (with Library's call no.: Japanese 29); on the back, mounted bookplate of Biblioteca Lindesiana (at the base of the bookplate in pencil is the notation: \"17/D\"). </p>","label":"Abstract","seq":11},"associated":{"display":true,"seq":139,"listDisplay":"unordered","label":"Associated Name(s)","value":[{"display":true,"displayForm":"Akiyama, Nagatoshi, active 1842-1843　秋山, 永年","seq":140,"linktype":"keyword search","fullForm":"Akiyama, Nagatoshi, active 1842-1843　秋山, 永年","shortForm":"Akiyama, Nagatoshi, active 1842-1843　秋山, 永年","role":"ctg","authority":"VIAF","authorityURI":"http://viaf.org/","valueURI":"http://viaf.org/viaf/259752551"}]},"publications":{"display":true,"seq":80,"value":[{"type":"publication","places":{"display":true,"seq":85,"label":"Place of Publication","value":[{"display":true,"displayForm":"Japan, Kyoto","seq":86,"linktype":"keyword search","shortForm":"Japan, Kyoto","fullForm":"Japan, Kyoto"}]},"dateStart":"1842","dateEnd":"1842","dateDisplay":{"display":true,"displayForm":"1842","linktype":"keyword search","label":"Date of Publication","seq":94},"publishers":{"display":true,"seq":83,"label":"Publisher","value":[{"display":true,"displayForm":"Shūseidō　衆星堂","seq":84}]}}]},"physicalLocation":{"display":true,"displayForm":"The John Rylands Library","label":"Physical Location","seq":4},"shelfLocator":{"display":true,"displayForm":"Japanese 29","label":"Classmark","seq":5},"material":{"display":true,"displayForm":"Paper","label":"Material","seq":177},"extent":{"display":true,"displayForm":"Map height: 1558 mm, width: 1779 mm. Folded height: 262 mm, width: 180 mm.","label":"Extent","seq":173},"bibliographies":{"display":true,"seq":214,"label":"Bibliography","value":[{"display":true,"displayForm":"<div style='list-style-type: disc;'><div style='display: list-item; margin-left: 20px;'><a target='_blank' class='externalLink' href='http://www.worldcat.org/oclc/643741491'>Kornicki, Peter F. \"The Japanese collection in the Bibliotheca-Lindesiana.\" Bulletin of the John Rylands University Library of Manchester 75.2 (1993): 209-300.</a></div><div style='display: list-item; margin-left: 20px;'><a target='_blank' class='externalLink' href='http://www.worldcat.org/oclc/911034256'> Earhart, Byron H. Mount Fuji: Icon of Japan. Columbia: University of South Carolina Press (2011).</a></div><div style='display: list-item; margin-left: 20px;'><a target='_blank' class='externalLink' href='http://www.worldcat.org/oclc/5981883615'>Nakanishi, Ryōtarō. “Kaiga ni hyōgen sareta Fuji-san (Mount Fuji in pictures)”. Chigaku zasshi 124:6 (2015): 917-936.</a></div></div><br />","seq":215}]},"title":{"display":false,"displayForm":"Fujimi jūsanshū yochi zenzu","label":"Title","seq":10},"alternativeTitles":{"display":true,"seq":16,"label":"Alternative Title(s)","value":[{"display":true,"displayForm":"富士見十三州輿地全図","seq":17},{"display":true,"displayForm":"Fujimi jūsanshū yochi no zenzu","seq":17},{"display":true,"displayForm":"Translated title: Map of the thirteen provinces from which Mount Fuji is visible","seq":17}]},"languageCodes":["jpn"],"notes":{"display":true,"seq":164,"label":"Note(s)","value":[{"display":true,"displayForm":"The digitisation of this map has been generously funded by The Great Britain Sasakawa Foundation .","seq":165},{"display":true,"displayForm":"Woodcut (process)","seq":165},{"display":true,"displayForm":"Ink","seq":165}]}}],"numberOfPages":5,"embeddable":true,"textDirection":"L","sourceData":"/v1/metadata/tei/data/","pages":[{"label":"1","physID":"PHYS-1","sequence":1,"IIIFImageURL":"PR-JAPANESE-00029-000-00001.jp2","thumbnailImageOrientation":"portrait","imageWidth":5445,"imageHeight":7000},{"label":"2","physID":"PHYS-2","sequence":2,"IIIFImageURL":"PR-JAPANESE-00029-000-00002.jp2","thumbnailImageOrientation":"portrait","imageWidth":5445,"imageHeight":7000},{"label":"3","physID":"PHYS-3","sequence":3,"IIIFImageURL":"PR-JAPANESE-00029-000-00003.jp2","thumbnailImageOrientation":"portrait","imageWidth":4374,"imageHeight":7000},{"label":"4","physID":"PHYS-4","sequence":4,"IIIFImageURL":"PR-JAPANESE-00029-000-00004.jp2","thumbnailImageOrientation":"portrait","imageWidth":4387,"imageHeight":7000},{"label":"5","physID":"PHYS-5","sequence":5,"IIIFImageURL":"PR-JAPANESE-00029-000-00005.jp2","thumbnailImageOrientation":"landscape","imageWidth":7849,"imageHeight":6903}],"logicalStructures":[{"descriptiveMetadataID":"DOCUMENT","label":"Fujimi jūsanshū yochi zenzu","startPageLabel":"1","startPagePosition":1,"startPageID":"PHYS-1","endPageLabel":"5","endPagePosition":5}]}]}
+JSON ID ===> PR-CHCR-00024
+typeof collectionJSON object
+typeof collectionJSON object
+typeof collectionJSON object
+inputItemJson.json[0] ==> {
+  descriptiveMetadata: [
+    {
+      thumbnailUrl: 'PR-JAPANESE-00029-000-00001.jp2',
+      thumbnailOrientation: 'portrait',
+      displayImageRights: 'Zooming image © University of Manchester Library, All rights reserved.',
+      downloadImageRights: 'Images and Metadata made available for download are licensed under a Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0).',
+      imageReproPageURL: 'https://www.library.manchester.ac.uk/search-resources/manchester-digital-collections/digitisation-services/copyright-and-licensing/',
+      metadataRights: 'Images and Metadata made available for download are licensed under a Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0).',
+      pdfRights: '',
+      watermarkStatement: '',
+      docAuthority: '',
+      fundings: [Object],
+      subjects: [Object],
+      ID: 'DOCUMENT',
+      abstract: [Object],
+      associated: [Object],
+      publications: [Object],
+      physicalLocation: [Object],
+      shelfLocator: [Object],
+      material: [Object],
+      extent: [Object],
+      bibliographies: [Object],
+      title: [Object],
+      alternativeTitles: [Object],
+      languageCodes: [Array],
+      notes: [Object]
+    }
+  ],
+  numberOfPages: 5,
+  embeddable: true,
+  textDirection: 'L',
+  sourceData: '/v1/metadata/tei/data/',
+  pages: [
+    {
+      label: '1',
+      physID: 'PHYS-1',
+      sequence: 1,
+      IIIFImageURL: 'PR-JAPANESE-00029-000-00001.jp2',
+      thumbnailImageOrientation: 'portrait',
+      imageWidth: 5445,
+      imageHeight: 7000
+    },
+    {
+      label: '2',
+      physID: 'PHYS-2',
+      sequence: 2,
+      IIIFImageURL: 'PR-JAPANESE-00029-000-00002.jp2',
+      thumbnailImageOrientation: 'portrait',
+      imageWidth: 5445,
+      imageHeight: 7000
+    },
+    {
+      label: '3',
+      physID: 'PHYS-3',
+      sequence: 3,
+      IIIFImageURL: 'PR-JAPANESE-00029-000-00003.jp2',
+      thumbnailImageOrientation: 'portrait',
+      imageWidth: 4374,
+      imageHeight: 7000
+    },
+    {
+      label: '4',
+      physID: 'PHYS-4',
+      sequence: 4,
+      IIIFImageURL: 'PR-JAPANESE-00029-000-00004.jp2',
+      thumbnailImageOrientation: 'portrait',
+      imageWidth: 4387,
+      imageHeight: 7000
+    },
+    {
+      label: '5',
+      physID: 'PHYS-5',
+      sequence: 5,
+      IIIFImageURL: 'PR-JAPANESE-00029-000-00005.jp2',
+      thumbnailImageOrientation: 'landscape',
+      imageWidth: 7849,
+      imageHeight: 6903
+    }
+  ],
+  logicalStructures: [
+    {
+      descriptiveMetadataID: 'DOCUMENT',
+      label: 'Fujimi jūsanshū yochi zenzu',
+      startPageLabel: '1',
+      startPagePosition: 1,
+      startPageID: 'PHYS-1',
+      endPageLabel: '5',
+      endPagePosition: 5
+    }
+  ]
+}
+Update event sent to Kafka
+Update event sent to Kafka
+Update event sent to Kafka
+MESSAGE ==> {"event":"new-json-item","id":"PR-CHCR-00024","timestamp":1713367761766,"json":[{"descriptiveMetadata":[{"thumbnailUrl":"PR-JAPANESE-00029-000-00001.jp2","thumbnailOrientation":"portrait","displayImageRights":"Zooming image © University of Manchester Library, All rights reserved.","downloadImageRights":"Images and Metadata made available for download are licensed under a Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0).","imageReproPageURL":"https://www.library.manchester.ac.uk/search-resources/manchester-digital-collections/digitisation-services/copyright-and-licensing/","metadataRights":"Images and Metadata made available for download are licensed under a Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0).","pdfRights":"","watermarkStatement":"","docAuthority":"","fundings":{"display":true,"seq":208,"label":"Funding","value":[{"display":true,"displayForm":"","seq":209}]},"subjects":{"display":true,"seq":22,"listDisplay":"inline","label":"Subject(s)","value":[{"display":true,"displayForm":"Early maps--Japan","seq":23,"linktype":"keyword search","fullForm":"Early maps--Japan"},{"display":true,"displayForm":"Japan--1800-1890","seq":23,"linktype":"keyword search","fullForm":"Japan--1800-1890"},{"display":true,"displayForm":"Fuji--Kantō Region--Japan--Maps","seq":23,"linktype":"keyword search","fullForm":"Fuji--Kantō Region--Japan--Maps"},{"display":true,"displayForm":"Cartography--Japan--History--Maps","seq":23,"linktype":"keyword search","fullForm":"Cartography--Japan--History--Maps"},{"display":true,"displayForm":"Tokugawa period, Japan, 1600-1868","seq":23,"linktype":"keyword search","fullForm":"Tokugawa period, Japan, 1600-1868","authority":"Library of Congress Subject Headings","authorityURI":"http://id.loc.gov/authorities/about.html#lcsh","valueURI":"subject_sh00009486"},{"display":true,"displayForm":"Edo period, Japan, 1600-1868","seq":23,"linktype":"keyword search","fullForm":"Edo period, Japan, 1600-1868","authority":"Library of Congress Subject Headings","authorityURI":"http://id.loc.gov/authorities/about.html#lcsh","valueURI":"subject_sh00009506"},{"display":true,"displayForm":"Fuji, Mount (Japan)","seq":23,"linktype":"keyword search","fullForm":"Fuji, Mount (Japan)","authority":"Library of Congress Subject Headings","authorityURI":"http://id.loc.gov/authorities/about.html#lcsh","valueURI":"subject_sh85052253"},{"display":true,"displayForm":"Kantō Region (Japan)","seq":23,"linktype":"keyword search","fullForm":"Kantō Region (Japan)","authority":"Library of Congress Subject Headings","authorityURI":"http://id.loc.gov/authorities/about.html#lcsh","valueURI":"subject_sh85071529"}]},"ID":"DOCUMENT","abstract":{"display":false,"displayForm":"<p style='text-align: justify;'> Map of the area around Mount Fuji, in Japanese, by Akiyama Nagatoshi. The title is reported on the map and on a mounted cover label. The preface and postface date it to Tenpō 13 (1842). The map represents the thirteen provinces from which Mount Fuji was visible (Hitachi, Shimōsa, Kazusa, Awa, Shimotsuke, Musashi, Sagami, Izu, Kōzuke, Kai, Suruga, Shinano, Tōtōmi), covering roughly the whole Kantō region. By the end of the Tokugawa period (1603-1868), Mount Fuji, a long-revered religious site, had evolved into a cultural icon, at the centre of a thriving travel industry. Fuji confraternities (fujikō), based in Edo, organized frequent pilgrimages to the mountain, and its Sengen Shrine was home to an annual fire festival (hi matsuri) that attracted many visitors. The mountain was therefore a common object of representation, both in art and cartography. </p><p style='text-align: justify;'> This specific map (which was fairly popular and was reprinted up to the end of the Tokugawa period) worked at the same time as a route map, a regional map, a provincial map (and even as a city map for the city of Edo, which appears, highlighted in red and stylized, in the lower right section). Mt. Fuji, unusually represented from above, provides a theme for it. The map is very detailed, showing the borders and names of provinces and districts, castle cities and villages, highways, checkpoints and post stations, lakes, rivers and mountains, temples and shrines and other tourist spots such as hot springs, historical sites and so-called \"meisho\" (famous places). It includes a legend, illustrating the symbols used for notable spots, followed by explanatory notes, signed by the author.</p><p style='text-align: justify;'> The map is oriented with north to the top, wood cut (made with several maps, produced with different printing blocks, joined together in one larger map), with printed colours, and relief shown pictorially. It folds into original covers, with a mounted cover title. Cover description: cream colour burnished paper and flexible cover board; on the front, mounted cover title, in Japanese, text dark blue ink on white label (with Library's call no.: Japanese 29); on the back, mounted bookplate of Biblioteca Lindesiana (at the base of the bookplate in pencil is the notation: \"17/D\"). </p>","label":"Abstract","seq":11},"associated":{"display":true,"seq":139,"listDisplay":"unordered","label":"Associated Name(s)","value":[{"display":true,"displayForm":"Akiyama, Nagatoshi, active 1842-1843　秋山, 永年","seq":140,"linktype":"keyword search","fullForm":"Akiyama, Nagatoshi, active 1842-1843　秋山, 永年","shortForm":"Akiyama, Nagatoshi, active 1842-1843　秋山, 永年","role":"ctg","authority":"VIAF","authorityURI":"http://viaf.org/","valueURI":"http://viaf.org/viaf/259752551"}]},"publications":{"display":true,"seq":80,"value":[{"type":"publication","places":{"display":true,"seq":85,"label":"Place of Publication","value":[{"display":true,"displayForm":"Japan, Kyoto","seq":86,"linktype":"keyword search","shortForm":"Japan, Kyoto","fullForm":"Japan, Kyoto"}]},"dateStart":"1842","dateEnd":"1842","dateDisplay":{"display":true,"displayForm":"1842","linktype":"keyword search","label":"Date of Publication","seq":94},"publishers":{"display":true,"seq":83,"label":"Publisher","value":[{"display":true,"displayForm":"Shūseidō　衆星堂","seq":84}]}}]},"physicalLocation":{"display":true,"displayForm":"The John Rylands Library","label":"Physical Location","seq":4},"shelfLocator":{"display":true,"displayForm":"Japanese 29","label":"Classmark","seq":5},"material":{"display":true,"displayForm":"Paper","label":"Material","seq":177},"extent":{"display":true,"displayForm":"Map height: 1558 mm, width: 1779 mm. Folded height: 262 mm, width: 180 mm.","label":"Extent","seq":173},"bibliographies":{"display":true,"seq":214,"label":"Bibliography","value":[{"display":true,"displayForm":"<div style='list-style-type: disc;'><div style='display: list-item; margin-left: 20px;'><a target='_blank' class='externalLink' href='http://www.worldcat.org/oclc/643741491'>Kornicki, Peter F. \"The Japanese collection in the Bibliotheca-Lindesiana.\" Bulletin of the John Rylands University Library of Manchester 75.2 (1993): 209-300.</a></div><div style='display: list-item; margin-left: 20px;'><a target='_blank' class='externalLink' href='http://www.worldcat.org/oclc/911034256'> Earhart, Byron H. Mount Fuji: Icon of Japan. Columbia: University of South Carolina Press (2011).</a></div><div style='display: list-item; margin-left: 20px;'><a target='_blank' class='externalLink' href='http://www.worldcat.org/oclc/5981883615'>Nakanishi, Ryōtarō. “Kaiga ni hyōgen sareta Fuji-san (Mount Fuji in pictures)”. Chigaku zasshi 124:6 (2015): 917-936.</a></div></div><br />","seq":215}]},"title":{"display":false,"displayForm":"Fujimi jūsanshū yochi zenzu","label":"Title","seq":10},"alternativeTitles":{"display":true,"seq":16,"label":"Alternative Title(s)","value":[{"display":true,"displayForm":"富士見十三州輿地全図","seq":17},{"display":true,"displayForm":"Fujimi jūsanshū yochi no zenzu","seq":17},{"display":true,"displayForm":"Translated title: Map of the thirteen provinces from which Mount Fuji is visible","seq":17}]},"languageCodes":["jpn"],"notes":{"display":true,"seq":164,"label":"Note(s)","value":[{"display":true,"displayForm":"The digitisation of this map has been generously funded by The Great Britain Sasakawa Foundation .","seq":165},{"display":true,"displayForm":"Woodcut (process)","seq":165},{"display":true,"displayForm":"Ink","seq":165}]}}],"numberOfPages":5,"embeddable":true,"textDirection":"L","sourceData":"/v1/metadata/tei/data/","pages":[{"label":"1","physID":"PHYS-1","sequence":1,"IIIFImageURL":"PR-JAPANESE-00029-000-00001.jp2","thumbnailImageOrientation":"portrait","imageWidth":5445,"imageHeight":7000},{"label":"2","physID":"PHYS-2","sequence":2,"IIIFImageURL":"PR-JAPANESE-00029-000-00002.jp2","thumbnailImageOrientation":"portrait","imageWidth":5445,"imageHeight":7000},{"label":"3","physID":"PHYS-3","sequence":3,"IIIFImageURL":"PR-JAPANESE-00029-000-00003.jp2","thumbnailImageOrientation":"portrait","imageWidth":4374,"imageHeight":7000},{"label":"4","physID":"PHYS-4","sequence":4,"IIIFImageURL":"PR-JAPANESE-00029-000-00004.jp2","thumbnailImageOrientation":"portrait","imageWidth":4387,"imageHeight":7000},{"label":"5","physID":"PHYS-5","sequence":5,"IIIFImageURL":"PR-JAPANESE-00029-000-00005.jp2","thumbnailImageOrientation":"landscape","imageWidth":7849,"imageHeight":6903}],"logicalStructures":[{"descriptiveMetadataID":"DOCUMENT","label":"Fujimi jūsanshū yochi zenzu","startPageLabel":"1","startPagePosition":1,"startPageID":"PHYS-1","endPageLabel":"5","endPagePosition":5}]}]}
+JSON ID ===> PR-CHCR-00024
+typeof collectionJSON object
+typeof collectionJSON object
+typeof collectionJSON object
+inputItemJson.json[0] ==> {
+  descriptiveMetadata: [
+    {
+      thumbnailUrl: 'PR-JAPANESE-00029-000-00001.jp2',
+      thumbnailOrientation: 'portrait',
+      displayImageRights: 'Zooming image © University of Manchester Library, All rights reserved.',
+      downloadImageRights: 'Images and Metadata made available for download are licensed under a Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0).',
+      imageReproPageURL: 'https://www.library.manchester.ac.uk/search-resources/manchester-digital-collections/digitisation-services/copyright-and-licensing/',
+      metadataRights: 'Images and Metadata made available for download are licensed under a Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0).',
+      pdfRights: '',
+      watermarkStatement: '',
+      docAuthority: '',
+      fundings: [Object],
+      subjects: [Object],
+      ID: 'DOCUMENT',
+      abstract: [Object],
+      associated: [Object],
+      publications: [Object],
+      physicalLocation: [Object],
+      shelfLocator: [Object],
+      material: [Object],
+      extent: [Object],
+      bibliographies: [Object],
+      title: [Object],
+      alternativeTitles: [Object],
+      languageCodes: [Array],
+      notes: [Object]
+    }
+  ],
+  numberOfPages: 5,
+  embeddable: true,
+  textDirection: 'L',
+  sourceData: '/v1/metadata/tei/data/',
+  pages: [
+    {
+      label: '1',
+      physID: 'PHYS-1',
+      sequence: 1,
+      IIIFImageURL: 'PR-JAPANESE-00029-000-00001.jp2',
+      thumbnailImageOrientation: 'portrait',
+      imageWidth: 5445,
+      imageHeight: 7000
+    },
+    {
+      label: '2',
+      physID: 'PHYS-2',
+      sequence: 2,
+      IIIFImageURL: 'PR-JAPANESE-00029-000-00002.jp2',
+      thumbnailImageOrientation: 'portrait',
+      imageWidth: 5445,
+      imageHeight: 7000
+    },
+    {
+      label: '3',
+      physID: 'PHYS-3',
+      sequence: 3,
+      IIIFImageURL: 'PR-JAPANESE-00029-000-00003.jp2',
+      thumbnailImageOrientation: 'portrait',
+      imageWidth: 4374,
+      imageHeight: 7000
+    },
+    {
+      label: '4',
+      physID: 'PHYS-4',
+      sequence: 4,
+      IIIFImageURL: 'PR-JAPANESE-00029-000-00004.jp2',
+      thumbnailImageOrientation: 'portrait',
+      imageWidth: 4387,
+      imageHeight: 7000
+    },
+    {
+      label: '5',
+      physID: 'PHYS-5',
+      sequence: 5,
+      IIIFImageURL: 'PR-JAPANESE-00029-000-00005.jp2',
+      thumbnailImageOrientation: 'landscape',
+      imageWidth: 7849,
+      imageHeight: 6903
+    }
+  ],
+  logicalStructures: [
+    {
+      descriptiveMetadataID: 'DOCUMENT',
+      label: 'Fujimi jūsanshū yochi zenzu',
+      startPageLabel: '1',
+      startPagePosition: 1,
+      startPageID: 'PHYS-1',
+      endPageLabel: '5',
+      endPagePosition: 5
+    }
+  ]
+}
+Update event sent to Kafka
+Update event sent to Kafka
+Update event sent to Kafka

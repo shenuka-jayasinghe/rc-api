@@ -24,7 +24,7 @@ async function sendToKafka(payLoad) {
   await producer.disconnect();
 }
 
-exports.postCollectionModel = async (json, title) => {
+postCollectionModel = async (json, title) => {
   try {
     const payLoad = {
       event: "new-collection-created",
@@ -42,7 +42,7 @@ exports.postCollectionModel = async (json, title) => {
   }
 };
 
-exports.updateCollectionModel = async (updatedCollection, title) => {
+updateCollectionModel = async (updatedCollection, title) => {
   try {
     const payLoad = {
         event: "updated-collection",
@@ -50,7 +50,6 @@ exports.updateCollectionModel = async (updatedCollection, title) => {
         timestamp: Date.now(),
         json: updatedCollection,
       };
-      console.log(payLoad);
       await sendToKafka(JSON.stringify(payLoad));
       console.log("Update event sent to Kafka");
   } catch (error) {
@@ -59,7 +58,7 @@ exports.updateCollectionModel = async (updatedCollection, title) => {
   }
 };
 
-exports.deleteCollectionModel = async (title) => {
+deleteCollectionModel = async (title) => {
     try {
       const payLoad = {
           event: "deleted-collection",
@@ -76,7 +75,7 @@ exports.deleteCollectionModel = async (title) => {
     }
   };
 
-exports.getAllEventsCollectionsModel = async (title) => {
+getAllEventsCollectionsModel = async (title) => {
     try {
       await client.connect();
       if (/\;/g.test(title)) {
@@ -99,7 +98,7 @@ exports.getAllEventsCollectionsModel = async (title) => {
     }
   };
 
-  exports.getCollectionModel = async (title) => {
+  getCollectionModel = async (title) => {
     try {
       await client.connect();
       if (/\;/g.test(title)) {
@@ -123,7 +122,7 @@ exports.getAllEventsCollectionsModel = async (title) => {
     }
   };
 
-  exports.getAllCollectionsModel = async () => {
+  getAllCollectionsModel = async () => {
     try {
       await client.connect();
         const query = `SELECT * FROM collection_stream;`;
@@ -159,3 +158,57 @@ exports.getAllEventsCollectionsModel = async (title) => {
 
     return Object.values(latestByTitle);
 }
+
+prehydrateCollections = async (inputItemId, inputItemJson) => {
+  const collectionData = await getAllCollectionsModel(); //array
+  const collectionsAndItems = collectionData.map((collection) => {
+    const collectionJson = JSON.parse(collection.JSON)
+    console.log("typeof collectionJSON", typeof collectionJson)
+    const itemIds = collectionJson.items.map((item) => {
+      return item.id ? item.id : '';
+    })
+    const collectionAndItems = {
+      title: collectionJson.title,
+      itemIds
+    }
+    return collectionAndItems
+  })
+  const changedCollections = collectionsAndItems.filter((collection) => {
+    return collection.itemIds.some(itemId => itemId === inputItemId);
+  })
+  const changedTitles = changedCollections.map(collection => collection.title)
+  
+  if(changedTitles){
+    console.log("inputItemJson.json[0] ==>", inputItemJson.json[0])
+    const itemCollectionData = {
+    id : inputItemId,
+    title: inputItemJson.json[0].descriptiveMetadata[0].title.displayForm,
+    thumbnailUrl : inputItemJson.json[0].descriptiveMetadata[0].thumbnailUrl,
+    abstract: inputItemJson.json[0].descriptiveMetadata[0].abstract.displayForm
+    }
+    const updateCollections  = collectionData.map(collection => {
+      const collectionJson = JSON.parse(collection.JSON)
+      const newItems = collectionJson.items.map((item) => {
+        if(item.id === inputItemId){
+          return itemCollectionData
+        }
+        else {
+          return item
+        }
+      })
+      const updatedCollectionData = {
+        title: collectionJson.title,
+        thumbnailUrl: collectionJson.thumbnailUrl,
+        description: collectionJson.description,
+        items: newItems
+      }
+      //Goes into the model (in model directory) to update Collection
+      updateCollectionModel(updatedCollectionData, collectionJson.title)
+    })
+  }
+  else {
+    console.log("changedTitles ==>", changedTitles)
+  }
+}
+
+module.exports = {postCollectionModel, updateCollectionModel, deleteCollectionModel, getCollectionModel, getAllCollectionsModel, getAllEventsCollectionsModel, prehydrateCollections }

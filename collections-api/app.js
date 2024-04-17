@@ -1,4 +1,4 @@
-// sudo docker build -t shenukacj/collections-api:0.0.23 . && sudo docker push shenukacj/collections-api:0.0.23
+// sudo docker build -t shenukacj/collections-api:0.0.24 . && sudo docker push shenukacj/collections-api:0.0.24
 const express = require('express');
 const { healthCheck, updateCollection, deleteCollection, getCollection, postCollection, getAllEventsCollections, getAllCollections } = require('./controller/controller.js');
 const xmlParser = require('express-xml-bodyparser');
@@ -8,7 +8,7 @@ const { runConsumer } = require('./consumer/consumer.js');
 
 const app = express();
 // port 3003
-const port = 3007;
+const port = 3003;
 
 // Middleware to handle CORS
 app.use(cors());
