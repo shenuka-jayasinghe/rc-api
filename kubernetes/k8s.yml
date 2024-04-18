@@ -450,3 +450,35 @@ spec:
             periodSeconds: 10
 
 ---
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: mdc-dos
+# spec:
+#   selector:
+#     app: mdc-dos
+#   type: LoadBalancer
+#   ports:
+#     - protocol: TCP
+
+# ---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mdc-dos
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mdc-dos
+  template:
+    metadata:
+      labels:
+        app: mdc-dos
+    spec:
+      containers:
+        - name: mdc-dos
+          image: shenukacj/mdc-dos:0.0.1
+
+---
