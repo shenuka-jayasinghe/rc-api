@@ -460,6 +460,8 @@ spec:
   type: LoadBalancer
   ports:
     - protocol: TCP
+      port: 3008
+      targetPort: 3008
 
 ---
 
