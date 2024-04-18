@@ -159,7 +159,7 @@ getAllEventsCollectionsModel = async (title) => {
     return Object.values(latestByTitle);
 }
 
-prehydrateCollections = async (inputItemId, inputItemJson) => {
+prehydrateCollections = async (inputItemId, inputItemJsonString) => {
   const collectionData = await getAllCollectionsModel(); //array
   const collectionsAndItems = collectionData.map((collection) => {
     const collectionJson = JSON.parse(collection.JSON)
@@ -177,14 +177,20 @@ prehydrateCollections = async (inputItemId, inputItemJson) => {
     return collection.itemIds.some(itemId => itemId === inputItemId);
   })
   const changedTitles = changedCollections.map(collection => collection.title)
+  console.log("changedTitles ==>",changedTitles)
   
   if(changedTitles){
-    console.log("inputItemJson.json[0] ==>", inputItemJson.json[0])
+    console.log("inputItemJsonString ==>", inputItemJsonString)
+    console.log("typeof inputItemJsonString ==>", typeof inputItemJsonString)
+    const inputItemJson = JSON.parse(inputItemJsonString)
+    const itemJson = JSON.parse(inputItemJson['json'])
+    console.log("item Json ==>", itemJson)
+    console.log("typeof itemJSON", typeof itemJson)
     const itemCollectionData = {
     id : inputItemId,
-    title: inputItemJson.json[0].descriptiveMetadata[0].title.displayForm,
-    thumbnailUrl : inputItemJson.json[0].descriptiveMetadata[0].thumbnailUrl,
-    abstract: inputItemJson.json[0].descriptiveMetadata[0].abstract.displayForm
+    title: itemJson[0].descriptiveMetadata[0].title.displayForm,
+    thumbnailUrl : itemJson[0].descriptiveMetadata[0].thumbnailUrl,
+    abstract: itemJson[0].descriptiveMetadata[0].abstract.displayForm
     }
     const updateCollections  = collectionData.map(collection => {
       const collectionJson = JSON.parse(collection.JSON)

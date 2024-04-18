@@ -30,12 +30,12 @@ exports.runConsumer = async () => {
   // Run the consumer
   await consumer.run({
     eachMessage: async ({ topic, partition, message, heartbeat, pause }) => {
-      const jsonStringData = message.value.toString('utf-8')
-      console.log("MESSAGE ==>", jsonStringData);
-      const jsonData = JSON.parse(jsonStringData)
-      const jsonId = jsonData.id
-      console.log("JSON ID ===>", jsonId)
-      prehydrateCollections(jsonId, jsonData)
+      const messageStringData = message.value.toString('utf-8')
+      console.log("MESSAGE ==>", messageStringData);
+      const messageData = JSON.parse(messageStringData)
+      const itemId = messageData.id
+      console.log("Item ID ===>", itemId)
+      prehydrateCollections(itemId, messageStringData)
     },
   });
 };

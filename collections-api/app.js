@@ -1,4 +1,4 @@
-// sudo docker build -t shenukacj/collections-api:0.0.24 . && sudo docker push shenukacj/collections-api:0.0.24
+// sudo docker build -t shenukacj/collections-api:0.0.25 . && sudo docker push shenukacj/collections-api:0.0.25
 const express = require('express');
 const { healthCheck, updateCollection, deleteCollection, getCollection, postCollection, getAllEventsCollections, getAllCollections } = require('./controller/controller.js');
 const xmlParser = require('express-xml-bodyparser');
@@ -6,9 +6,14 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const { runConsumer } = require('./consumer/consumer.js');
 
+const ENV = process.env.NODE_ENV || "local"
+//Make sure to set NODE_ENV to "prod" in Dockerfile
+const pathToEnvFile = `${__dirname}/../.env.${ENV}`
+require("dotenv").config({ path: pathToEnvFile })
+
+const PORT = process.env.PORT;
+
 const app = express();
-// port 3003
-const port = 3003;
 
 // Middleware to handle CORS
 app.use(cors());
@@ -38,8 +43,8 @@ app.get('/api/v1/collections/:title', getCollection);
 app.get('/api/v1/collections', getAllCollections);
 
 // Start the server
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+app.listen(PORT, () => {
+  console.log(`Server running on PORT ${PORT}`);
 });
 
 //Run Consumer
