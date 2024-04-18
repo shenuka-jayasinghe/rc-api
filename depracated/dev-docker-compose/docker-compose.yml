@@ -30,9 +30,11 @@ services:
 
 # kubectl exec -it kafka-7756d6c55d-gdgz8 -- kafka-topics.sh --create --topic tei-topic --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 && kubectl exec -it kafka-7756d6c55d-gdgz8 -- kafka-topics.sh --create --topic json-topic --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 && kubectl exec -it kafka-7756d6c55d-gdgz8 -- kafka-topics.sh --create --topic collections-topic --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 && kubectl exec -it kafka-7756d6c55d-gdgz8 -- kafka-topics.sh --create --topic tei-template-topic --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 && kubectl exec -it kafka-7756d6c55d-gdgz8 -- kafka-topics.sh --create --topic mapping-topic --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 && kubectl exec -it kafka-7756d6c55d-gdgz8 -- kafka-topics.sh --create --topic narratives-topic --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1
 
-# kubectl exec -it kafka-7756d6c55d-gdgz8 -- kafka-topics.sh --list --bootstrap-server localhost:9092
+# kubectl exec -it kafka-7756d6c55d-qfr7z -- kafka-topics.sh --list --bootstrap-server localhost:9092
 
 # kubectl exec -it ksqldb-cli-847fbfcc9c-7g577 -- ksql http://ksqldb-server:8088 
+
+# kubectl exec -it kafka-7756d6c55d-qfr7z -- kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic narratives-topic --from-beginning
 
 
 # kubectl exec -it tei2json-api-778bcf56d6-pvfsf -- docker run shenukacj/cudl-xslt:0.0.5 && kubectl exec -it tei2json-api-778bcf56d6-pvfsf -- node app.js

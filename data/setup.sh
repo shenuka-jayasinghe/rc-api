@@ -1,3 +1,4 @@
+kubectl exec -it ksqldb-cli-847fbfcc9c-2zlrv -- ksql http://ksqldb-server:8088 <<EOF
 CREATE STREAM collection_stream (
     event VARCHAR,
     title VARCHAR,
@@ -57,3 +58,4 @@ CREATE STREAM narratives_stream (
     KAFKA_TOPIC='narratives-topic',
     VALUE_FORMAT='JSON'
 );
+EOF

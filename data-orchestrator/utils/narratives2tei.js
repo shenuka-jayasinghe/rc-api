@@ -1,37 +1,21 @@
-const fs = require("fs").promises;
 
-// Example usage:
-const mappingFile = "./mapping.json";
-const jsonFile = "./10397_20240407.json";
-const templateFile = "template.xml";
-const outputFile = "output.xml";
-
-const teiTemplatePromise = fs.readFile(templateFile, 'utf-8');
-const narrativesJsonStringPromise = fs.readFile(jsonFile, 'utf-8');
-const mappingJsonArrayPromise = fs.readFile(mappingFile, 'utf-8')
-
-Promise.all([teiTemplatePromise, narrativesJsonStringPromise, mappingJsonArrayPromise])
-  .then(([teiTemplate, narrativesJsonString, mappingJsonArrayString]) => {
-
-    return mappedTei = mapToTei(narrativesJsonString, teiTemplate, mappingJsonArrayString)
-  })
-  .then((mappedTei) => {
-    console.log(mappedTei)
-  })
-  .catch((error) => {
-    console.error('An error occurred:', error);
-  });
 
 async function mapToTei(narrativesJsonString,teiTemplate, mappingJsonArrayString) {
     // Read TEI template file
+    console.log(`
+    typeof narrativesJsonString ==> ${typeof narrativesJsonString} \
+    typeof teiTemplate ==> ${typeof teiTemplate} \
+    typeof mappingJsonArrayString ==> ${typeof mappingJsonArrayString} \
+    `)
     const mappingJsonArray = JSON.parse(mappingJsonArrayString)
     const narrativesJson = JSON.parse(narrativesJsonString);
     const dataArrayofObj = narrativesJson.data.enarratives.ObjObjectsRef_tab;
   
     // Iterate over each object in the JSON data
-    const outputTei = [];
+    const outputArray = [];
     dataArrayofObj.forEach((item) => {
       let mappedTei = teiTemplate;
+      const id = item.irn
   
       // Iterate over each mapping rule
       mappingJsonArray.forEach((mappingJson) => {
@@ -80,10 +64,13 @@ async function mapToTei(narrativesJsonString,teiTemplate, mappingJsonArrayString
           mappedTei = mappedTei.replace(mappingJson.search, mappingJson.replace);
         } 
       });
-  
-    //   console.log(mappedTei); // Output the mapped TEI template
-      outputTei.push(mappedTei)
+      const idAndTei = {
+        id,
+        tei: mappedTei
+      }
+      outputArray.push(idAndTei)
     });
-    return outputTei
+    return outputArray
   }
   
+module.exports = { mapToTei }

@@ -1,5 +1,7 @@
 //consumes from item JSON service and prehydrates the collections topic
 const { Kafka } = require("kafkajs");
+const { mapToTei } = require("../utils/narratives2tei");
+const { processNarratives } = require("../model/model");
 
 const ENV = process.env.NODE_ENV || "local"
 //Make sure to set NODE_ENV to "prod" in Dockerfile
@@ -14,13 +16,13 @@ const kafka = new Kafka({
 });
 
 // Create a consumer instance
-const consumer = kafka.consumer({ groupId: 'my-group' });
+const consumer = kafka.consumer({ groupId: 'dos-group' });
 
 
 // Connect to Kafka broker and subscribe to the json-topic
 exports.runConsumer = async () => {
     await consumer.connect();
-    await consumer.subscribe({ topics: ['json-topic','tei-topic','collections-topic', 'tei-template-topic','mapping-topic','narratives-topic'] });
+    await consumer.subscribe({ topics: ['narratives-topic','mapping-topic','tei-template-topic','tei-topic','json-topic'] });
   
     // Run the consumer
     await consumer.run({
@@ -29,7 +31,12 @@ exports.runConsumer = async () => {
         console.log("MESSAGE ==>", jsonStringData);
         const jsonData = JSON.parse(jsonStringData)
         const dataId = jsonData.id
-        console.log("JSON ID ===>", dataId)
+        console.log("ID ===>", dataId)
+        console.log("topic ==>", topic)
+
+        if(topic === 'narratives-topic'){
+          processNarratives(dataId, jsonStringData)
+        }
       },
     });
   };
