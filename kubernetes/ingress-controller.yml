@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-ingress-controller
+  namespace: ingress-nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-ingress
+  template:
+    metadata:
+      labels:
+        app: nginx-ingress
+    spec:
+      containers:
+        - name: nginx-ingress-controller
+          image: k8s.gcr.io/ingress-nginx/controller:v1.0.0
+          args:
+            - /nginx-ingress-controller
+            - --publish-service=ingress-nginx/nginx-ingress-controller
+            - --election-id=ingress-controller-leader
+            - --ingress-class=nginx
+          ports:
+            - name: http
+              containerPort: 80
+            - name: https
+              containerPort: 443
+
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nginx-ingress-controller
+spec:
+  rules:
+  - host: localhost
+    http:
+      paths:
+      - path: /api/v1/json
+        pathType: Prefix
+        backend:
+          service:
+            name: json-api
+            port:
+              number: 3002
+      - path: /api/v1/tei/
+        pathType: Prefix
+        backend:
+          service:
+            name: tei-api
+            port:
+              number: 3000
+  ingressClassName: nginx
