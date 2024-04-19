@@ -13,5 +13,8 @@ RUN npm install
 # Copy the rest of the application code to the working directory
 COPY . .
 
+# Set to production ENV variable
+ENV NODE_ENV="prod"
+
 # Start the Node.js Express server
 CMD ["node", "app.js"]

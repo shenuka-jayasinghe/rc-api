@@ -61,6 +61,8 @@ async function seed(collections) {
     }
 }
 
+
+
 // Call the seed function with your collections
 seed(collections)
     .then(() => console.log("All collections seeded successfully"))

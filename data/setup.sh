@@ -1,4 +1,4 @@
-kubectl exec -it ksqldb-cli-847fbfcc9c-2zlrv -- ksql http://ksqldb-server:8088 <<EOF
+kubectl exec -it ksqldb-cli-847fbfcc9c-5kv6f -- ksql http://ksqldb-server:8088 <<EOF
 CREATE STREAM collection_stream (
     event VARCHAR,
     title VARCHAR,

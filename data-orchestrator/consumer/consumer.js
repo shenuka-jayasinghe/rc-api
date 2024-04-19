@@ -35,7 +35,13 @@ exports.runConsumer = async () => {
         console.log("topic ==>", topic)
 
         if(topic === 'narratives-topic'){
-          processNarratives(dataId, jsonStringData)
+          try{
+          await processNarratives(dataId, jsonStringData)
+          }
+          catch (error){
+            console.log('Error processing Narratives')
+            throw error
+          }
         }
       },
     });

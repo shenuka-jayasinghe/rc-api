@@ -12,8 +12,29 @@ const teiTemplateUrl = process.env.TEI_TEMPLATE_URL;
 const teiUrl = process.env.TEI_URL;
 const jsonUrl = process.env.JSON_URL;
 
+async function convertTeiToJson(id, tei) {
+  try {
+    const options = {
+      method: "post",
+      url: `${tei2jsonUrl}/api/v1/tei2json/cudl-xslt/${id}`,
+      data: tei,
+    };
+    const jsonResponse = await axios(options);
+    console.log("Successfully converted TEI to JSON:", jsonResponse.data);
+    return jsonResponse.data; // Return the converted JSON data
+  } catch (error) {
+    console.error("Error converting TEI to JSON:", error);
+    throw error; // Rethrow the error for the caller to handle if needed
+  }
+}
+
 async function processNarratives(id, narrativeMessageString) {
   try {
+    console.log(`
+    MAPPING_URL ==> ${mappingUrl}
+    TEI2JSON_URL ==> ${tei2jsonUrl}
+    TEI_TEMPLATE_URL => ${teiTemplateUrl}
+    `)
     const narrativeMessage = JSON.parse(narrativeMessageString);
     const narrativeJsonString = JSON.stringify(narrativeMessage.json);
 
@@ -42,17 +63,15 @@ async function processNarratives(id, narrativeMessageString) {
     // Convert TEI to JSON
     for (const idAndTei of processedTeis) {
       try {
-        const options = {
-          method: "post",
-          url: `${tei2jsonUrl}/api/v1/tei2json/cudl-xslt/${idAndTei.id}`,
-          data: idAndTei.tei,
-        };
-        const jsonResponse = await axios(options);
-        console.log("Successfully converted TEI to JSON:", jsonResponse.data);
+        await convertTeiToJson(idAndTei.id, idAndTei.tei);
       } catch (error) {
-        console.error("Error converting TEI to JSON:", error);
+        // Handle error if needed
       }
     }
+    console.log(`==================================
+    *** Successfully converted all TEI to JSON ***
+    ==================================
+    `)
   } catch (error) {
     if (error.response) {
       // The request was made and the server responded with a status code
@@ -70,4 +89,65 @@ async function processNarratives(id, narrativeMessageString) {
   }
 }
 
-module.exports = { processNarratives };
+async function processMapping(id, mappingMessageString) {
+  try {
+    console.log(`
+    NARRATIVES_URL ==> ${narrativesUrl}
+    TEI2JSON_URL ==> ${tei2jsonUrl}
+    TEI_TEMPLATE_URL => ${teiTemplateUrl}
+    `)
+    const mappingMessage = JSON.parse(mappingMessageString);
+    const mappingJsonString = JSON.stringify(mappingMessage.json);
+
+    // Fetch TEI template
+    const teiTemplateResponse = await axios.get(
+      `${teiTemplateUrl}/api/v1/tei/template/${id}`
+    );
+    const teiTemplateMessage = teiTemplateResponse.data;
+    const teiTemplateString = teiTemplateMessage["TEI_TEMPLATE"];
+
+    // Fetch Narratives
+    const narrativesResponse = await axios.get(
+      `${narrativesUrl}/api/v1/narratives/${id}`
+    );
+    console.log("get", `${narrativesUrl}/api/v1/narratives/${id}`);
+    const narrativesMessage = narrativesResponse.data;
+    const narrativesString = narrativesMessage["JSON"];
+
+    // Perform mapping to TEI
+    const processedTeis = await mapToTei(
+      narrativesString,
+      teiTemplateString,
+      mappingJsonString
+    );
+
+    // Convert TEI to JSON
+    for (const idAndTei of processedTeis) {
+      try {
+        await convertTeiToJson(idAndTei.id, idAndTei.tei);
+      } catch (error) {
+        // Handle error if needed
+      }
+    }
+    console.log(`==================================
+    *** Successfully converted all TEI to JSON ***
+    ==================================
+    `)
+  } catch (error) {
+    if (error.response) {
+      // The request was made and the server responded with a status code
+      console.error("Server responded with error:", error.response.status);
+      console.error("Error data:", error.response.data);
+    } else if (error.request) {
+      // The request was made but no response was received
+      console.error("No response received from server:", error.request);
+    } else {
+      // Something happened in setting up the request that triggered an Error
+      console.error("Error setting up request:", error.message);
+    }
+    // Rethrow the error for the caller to handle if needed
+    throw error;
+  }
+}
+
+module.exports = { processNarratives, processMapping };

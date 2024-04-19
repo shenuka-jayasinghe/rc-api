@@ -80,6 +80,11 @@ async function main() {
         // Execute tei2json commands
         await executeTei2jsonCommands(pods);
     } catch (error) {
+        //even if Kafka throws an error continue with tei2json commands
+        // Find appropriate pods using labels or other criteria
+        const pods = (await k8sApi.listNamespacedPod('default')).body.items;
+        await executeTei2jsonCommands(pods);
+
         console.error('Error:', error);
     }
 }
