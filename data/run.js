@@ -75,19 +75,85 @@ async function main() {
         const pods = (await k8sApi.listNamespacedPod('default')).body.items;
 
         // Execute Kafka commands
-        await executeKafkaCommands(pods);
+        // await executeKafkaCommands(pods);
+
+        // Execute ksqlDB commands
+        const ksqlDbPod = pods.find(pod => pod.metadata.name.includes('ksqldb-cli'));
+        if (ksqlDbPod) {
+            await executeCommandInPod(ksqlDbPod.metadata.name, 'ksqldb-cli', `
+                ksql http://ksqldb-server:8088 <<EOF
+                CREATE STREAM collection_stream (
+                    event VARCHAR,
+                    title VARCHAR,
+                    timestamp BIGINT,
+                    json VARCHAR
+                ) WITH (
+                    KAFKA_TOPIC='collections-topic',
+                    VALUE_FORMAT='JSON'
+                );
+
+                CREATE STREAM tei_stream (
+                    event VARCHAR,
+                    id VARCHAR,
+                    timestamp BIGINT,
+                    tei VARCHAR
+                ) WITH (
+                    KAFKA_TOPIC='tei-topic',
+                    VALUE_FORMAT='JSON'
+                );
+
+                CREATE STREAM tei_template_stream (
+                    event VARCHAR,
+                    id VARCHAR,
+                    timestamp BIGINT,
+                    tei_template VARCHAR
+                ) WITH (
+                    KAFKA_TOPIC='tei-template-topic',
+                    VALUE_FORMAT='JSON'
+                );
+
+                CREATE STREAM json_stream (
+                    event VARCHAR,
+                    id VARCHAR,
+                    timestamp BIGINT,
+                    json VARCHAR
+                ) WITH (
+                    KAFKA_TOPIC='json-topic',
+                    VALUE_FORMAT='JSON'
+                );
+
+                CREATE STREAM mapping_stream (
+                    event VARCHAR,
+                    id VARCHAR,
+                    timestamp BIGINT,
+                    json VARCHAR
+                ) WITH (
+                    KAFKA_TOPIC='mapping-topic',
+                    VALUE_FORMAT='JSON'
+                );
+
+                CREATE STREAM narratives_stream (
+                    event VARCHAR,
+                    id VARCHAR,
+                    timestamp BIGINT,
+                    json VARCHAR
+                ) WITH (
+                    KAFKA_TOPIC='narratives-topic',
+                    VALUE_FORMAT='JSON'
+                );
+                EOF
+            `);
+        } else {
+            console.error('ksqldb-cli pod not found.');
+        }
 
         // Execute tei2json commands
         await executeTei2jsonCommands(pods);
     } catch (error) {
-        //even if Kafka throws an error continue with tei2json commands
-        // Find appropriate pods using labels or other criteria
-        const pods = (await k8sApi.listNamespacedPod('default')).body.items;
-        await executeTei2jsonCommands(pods);
-
         console.error('Error:', error);
     }
 }
+
 
 // Run the main function
 main();

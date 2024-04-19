@@ -61,13 +61,15 @@ async function processNarratives(id, narrativeMessageString) {
     );
 
     // Convert TEI to JSON
-    for (const idAndTei of processedTeis) {
+    for (let i = 0; i < processedTeis.length; i++) {
+      const idAndTei = processedTeis[i];
       try {
-        await convertTeiToJson(idAndTei.id, idAndTei.tei);
+          await convertTeiToJson(idAndTei.id, idAndTei.tei);
+          console.log(`Processing item ${i + 1} out of ${processedTeis.length}`);
       } catch (error) {
-        // Handle error if needed
+          // Handle error if needed
       }
-    }
+  }
     console.log(`==================================
     *** Successfully converted all TEI to JSON ***
     ==================================
@@ -122,13 +124,15 @@ async function processMapping(id, mappingMessageString) {
     );
 
     // Convert TEI to JSON
-    for (const idAndTei of processedTeis) {
+    for (let i = 0; i < processedTeis.length; i++) {
+      const idAndTei = processedTeis[i];
       try {
-        await convertTeiToJson(idAndTei.id, idAndTei.tei);
+          await convertTeiToJson(idAndTei.id, idAndTei.tei);
+          console.log(`Processing item ${i + 1} out of ${processedTeis.length}`);
       } catch (error) {
-        // Handle error if needed
+          // Handle error if needed
       }
-    }
+  }
     console.log(`==================================
     *** Successfully converted all TEI to JSON ***
     ==================================
@@ -150,4 +154,67 @@ async function processMapping(id, mappingMessageString) {
   }
 }
 
-module.exports = { processNarratives, processMapping };
+async function processTeiTemplate(id, templateMessageString) {
+  try {
+    console.log(`
+    NARRATIVES_URL ==> ${narrativesUrl}
+    TEI2JSON_URL ==> ${tei2jsonUrl}
+    MAPPING_URL => ${mappingUrl}
+    `)
+    const templateMessage = JSON.parse(templateMessageString);
+    const templateString = templateMessage['TEI_TEMPLATE'];
+
+    // Fetch Mapping
+    const mappingResponse = await axios.get(
+      `${mappingUrl}/api/v1/mapping/${id}`
+    );
+    const mappingMessage = mappingResponse.data;
+    const mappingString = mappingMessage["JSON"];
+
+    // Fetch Narratives
+    const narrativesResponse = await axios.get(
+      `${narrativesUrl}/api/v1/narratives/${id}`
+    );
+    console.log("get", `${narrativesUrl}/api/v1/narratives/${id}`);
+    const narrativesMessage = narrativesResponse.data;
+    const narrativesString = narrativesMessage["JSON"];
+
+    // Perform mapping to TEI
+    const processedTeis = await mapToTei(
+      narrativesString,
+      templateString,
+      mappingString
+    );
+
+    // Convert TEI to JSON
+    for (let i = 0; i < processedTeis.length; i++) {
+      const idAndTei = processedTeis[i];
+      try {
+          await convertTeiToJson(idAndTei.id, idAndTei.tei);
+          console.log(`Processing item ${i + 1} out of ${processedTeis.length}`);
+      } catch (error) {
+          // Handle error if needed
+      }
+  }
+    console.log(`==================================
+    *** Successfully converted all TEI to JSON ***
+    ==================================
+    `)
+  } catch (error) {
+    if (error.response) {
+      // The request was made and the server responded with a status code
+      console.error("Server responded with error:", error.response.status);
+      console.error("Error data:", error.response.data);
+    } else if (error.request) {
+      // The request was made but no response was received
+      console.error("No response received from server:", error.request);
+    } else {
+      // Something happened in setting up the request that triggered an Error
+      console.error("Error setting up request:", error.message);
+    }
+    // Rethrow the error for the caller to handle if needed
+    throw error;
+  }
+}
+
+module.exports = { processNarratives, processMapping, processTeiTemplate };

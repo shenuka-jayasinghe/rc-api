@@ -1,7 +1,7 @@
 //consumes from item JSON service and prehydrates the collections topic
 const { Kafka } = require("kafkajs");
 const { mapToTei } = require("../utils/narratives2tei");
-const { processNarratives } = require("../model/model");
+const { processNarratives, processMapping, processTeiTemplate } = require("../model/model");
 
 const ENV = process.env.NODE_ENV || "local"
 //Make sure to set NODE_ENV to "prod" in Dockerfile
@@ -40,6 +40,24 @@ exports.runConsumer = async () => {
           }
           catch (error){
             console.log('Error processing Narratives')
+            throw error
+          }
+        }
+        if(topic === 'mapping-topic'){
+          try{
+          await processMapping(dataId, jsonStringData)
+          }
+          catch (error){
+            console.log('Error processing Mapping')
+            throw error
+          }
+        }
+        if(topic === 'tei-template-topic'){
+          try{
+          await processTeiTemplate(dataId, jsonStringData)
+          }
+          catch (error){
+            console.log('Error processing TEI Template')
             throw error
           }
         }

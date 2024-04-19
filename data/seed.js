@@ -11,7 +11,7 @@ async function processItems(items) {
             const response = await axios.get(`https://services.digitalcollections.manchester.ac.uk/v1/metadata/tei/${item}`);
             const options = {
                 method: "post",
-                url: `http://localhost:3001/api/v1/tei2json/cudl-xslt/${item}`,
+                url: `http://localhost/api/v1/tei2json/cudl-xslt/${item}`,
                 data: response.data,
             };
             const postResponse = await axios(options);
@@ -47,7 +47,7 @@ async function seed(collections) {
             
             const options = {
                 method: 'put',
-                url: `http://localhost:3003/api/v1/collections/${collection.title}`,
+                url: `http://localhost/api/v1/collections/${collection.title}`,
                 data: payLoad
             };
             await axios(options);

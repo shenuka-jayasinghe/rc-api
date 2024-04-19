@@ -2,7 +2,8 @@
 
 ## Dependencies
 
-1. [Docker](https://www.docker.com/products/docker-desktop/)
+1. [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+2. [NodeJS](https://nodejs.org/en)
 
 ## Architecture
 
@@ -19,13 +20,51 @@ The best way to view this image is to download it and re-open in the browser
 2. [REST API](#2-rest-api)
 3. [Check the Kafka Topic](#3-check-the-kafka-topic)
 
-### 1. Run the Containers
-
 The images now run on a Kubernetes cluster. If you still prefer to use Docker compose, they are in the ```depracated``` directory.
 
-1. Enable Kubernetes using [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+### 1. Activate Kubernetes
 
-2. Run ArgoCD with these three steps below in the terminal
+
+Enable Kubernetes using [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+
+-----INSERT PICTURE------
+
+### 2. Run NGINX Ingress Controller
+
+1. Make sure localhost port 80 is free
+
+Go to http://localhost:80 and check that there is no reverse proxy like NGINX or Apache2 running. You can double check by running the following in the terminal:
+
+```bash
+sudo lsof -i :80
+```
+
+If Apache server is running, try:
+```
+sudo systemctl stop apache2
+```
+
+If NGINX server is running, try:
+```
+sudo systemctl stop nginx
+```
+Go to http://localhost:80 and doublecheck that nothing is running, as this port will be necessary to run the ingress-controller.
+
+Once port 80 is free run the following in the terminal:
+
+```bash
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/cloud/deploy.yaml
+```
+
+Watch the pods until the ingress-controller is running
+```bash
+kubectl get pods --namespace ingress-nginx -w
+```
+-----INSERT PICTURE------
+
+### 3. Run the Kubernetes Cluster using ArgoCD
+
+1. Run ArgoCD with these three steps below in the terminal
 
 Create a namespace for Argo in Kubernetes.
 
@@ -82,35 +121,138 @@ spec:
       selfHeal: false
 ```
 
-and then click ```CREATE```
+and then click ```SAVE``` then ```CREATE```
 
-3. Reconfigure hosts DNS using ```sudo nano /etc/hosts```
+The Kubernetes cluster should run automatically and connect this github repository
 
-and kafka as one of the DNS to 127.0.0.1
+2. Reconfigure hosts 
+
+Run this in terminal:
+```bash
+sudo nano /etc/hosts
+```
+
+and ``kafka`` as one of the names for 127.0.0.1
 
 ```bash
 127.0.0.1       kafka
 127.0.0.1       localhost
-
 ```
+### 4. Setup KSQLDB for SQL queries
+
+Find your KSQLDB-CLI pod name
+```bash
+kubectl get pods
+```
+
+and shell into the KSQLDB-CLI pod
+
+```bash
+kubectl exec -it [KSQLDB-CLI NAME] -- ksql http://ksqldb-server:8088
+```
+Once you entered KSQLDB-CLI, run the following SQL setup:
+```SQL
+CREATE STREAM collection_stream (
+    event VARCHAR,
+    title VARCHAR,
+    timestamp BIGINT,
+    json VARCHAR
+) WITH (
+    KAFKA_TOPIC='collections-topic',
+    VALUE_FORMAT='JSON'
+);
+
+CREATE STREAM tei_stream (
+    event VARCHAR,
+    id VARCHAR,
+    timestamp BIGINT,
+    tei VARCHAR
+) WITH (
+    KAFKA_TOPIC='tei-topic',
+    VALUE_FORMAT='JSON'
+);
+
+CREATE STREAM tei_template_stream (
+    event VARCHAR,
+    id VARCHAR,
+    timestamp BIGINT,
+    tei_template VARCHAR
+) WITH (
+    KAFKA_TOPIC='tei-template-topic',
+    VALUE_FORMAT='JSON'
+);
+
+CREATE STREAM json_stream (
+    event VARCHAR,
+    id VARCHAR,
+    timestamp BIGINT,
+    json VARCHAR
+) WITH (
+    KAFKA_TOPIC='json-topic',
+    VALUE_FORMAT='JSON'
+);
+
+CREATE STREAM mapping_stream (
+    event VARCHAR,
+    id VARCHAR,
+    timestamp BIGINT,
+    json VARCHAR
+) WITH (
+    KAFKA_TOPIC='mapping-topic',
+    VALUE_FORMAT='JSON'
+);
+
+CREATE STREAM narratives_stream (
+    event VARCHAR,
+    id VARCHAR,
+    timestamp BIGINT,
+    json VARCHAR
+) WITH (
+    KAFKA_TOPIC='narratives-topic',
+    VALUE_FORMAT='JSON'
+);
+```
+
+### 5. Activate the TEI2JSON service
+
+Find your ```tei2json-api``` pod name
+```bash
+kubectl get pods
+```
+Then run:
+```bash
+kubectl exec -it [tei2json-api-PODNAME] -- docker run shenukacj/cudl-xslt:0.0.5
+```
+```bash
+kubectl exec -it [tei2json-api-PODNAME] -- node app.js
+```
+
+### 5. Seed your Kafka cluster
+
+Run the seed function that inside the data directory
+
+```bash
+rc-api/data$ node seed.js
+```
+===================================================<br>
+Your local Kubernetes and Kafka cluster is now ready
+===================================================<br>
 
 ### 2. REST API
 
 You can test the REST API with ```PR-CHCR-00023``` for the ```:id``` parameter. 
 
->Note: The APIs are currently on different ports, but after these containers are run in Kubernetes, they will all use one port, ```80``` through an NGINX ingress controller.
-
 Working endpoints:
 
 | Microservice | Request | Body format | Data | Port | Endpoint |
 |-------------|---------|-------------|------|------|----------|
-| Collections | ```get```| JSON |  | 3003 | http://localhost:3003/api/v1/collections/allEvents/[:title] |
-| Collections | ```post``` <br> ```put``` <br> ```delete``` <br> ```get```| JSON |  | 3003 | http://localhost:3003/api/v1/collections/[:title] |
-| TEI to JSON | ```post```| XML | [TEI Example](#tei-example)| 3001 | http://localhost:3001/api/v1/tei2json/cudl-xslt/[:id]|
-| Item JSON | ```post``` <br> ```put``` <br> ```delete``` <br> ```get```| JSON | [JSON Example](#json-example-data) | 3002 | http://localhost:3002/api/v1/json/[:id] |
-| Item JSON | ```get```| JSON |  | 3002 | http://localhost:3002/api/v1/json/allEvents/[:id] |
-| Item TEI | ```post``` <br> ```put``` <br> ```delete``` <br> ```get```| XML | [TEI Example](#tei-example) | 3000 | http://localhost:3000/api/v1/TEI/[:id] |
-| Item TEI | ```get```| XML | | 3000 | http://localhost:3000/api/v1/TEI/allEvents/[:id] |
+| Collections | ```get```| JSON |  | 3003 | http://localhost/api/v1/collections/allEvents/[:title] |
+| Collections | ```post``` <br> ```put``` <br> ```delete``` <br> ```get```| JSON |  | 3003 | http://localhost/api/v1/collections/[:title] |
+| TEI to JSON | ```post```| XML | [TEI Example](#tei-example)| 3001 | http://localhost/api/v1/tei2json/cudl-xslt/[:id]|
+| Item JSON | ```post``` <br> ```put``` <br> ```delete``` <br> ```get```| JSON | [JSON Example](#json-example-data) | 3002 | http://localhost/api/v1/json/[:id] |
+| Item JSON | ```get```| JSON |  | 3002 | http://localhost/api/v1/json/allEvents/[:id] |
+| Item TEI | ```post``` <br> ```put``` <br> ```delete``` <br> ```get```| XML | [TEI Example](#tei-example) | 3000 | http://localhost/api/v1/tei/[:id] |
+| Item TEI | ```get```| XML | | 3000 | http://localhost/api/v1/tei/allEvents/[:id] |
 
 
 ## Example Data
