@@ -1,5 +1,9 @@
 # R-Collections API
 
+1. [Dependencies](#dependencies)
+2. [Architecture](#architecture)
+3. [Setup](#setup)
+
 ## Dependencies
 
 1. [Docker Desktop](https://www.docker.com/products/docker-desktop/)
@@ -18,7 +22,7 @@ The best way to view this image is to download it and re-open in the browser
 
 
 
-## Steps
+## Setup
 
 
 1. [Setup your Kubernetes and Kafka Cluster](#1-setup-your-kubernetes-and-kafka-cluster)
@@ -198,9 +202,9 @@ kubectl get pods
 and shell into the KSQLDB-CLI pod
 
 ```bash
-kubectl exec -it [KSQLDB-CLI NAME] -- ksql http://ksqldb-server:8088
+kubectl exec -it [KSQLDB-CLI-POD-NAME] -- ksql http://ksqldb-server:8088
 ```
-Once you entered KSQLDB-CLI, run the following SQL setup:
+Once you entered KSQLDB-CLI, run the following SQL command:
 ```SQL
 CREATE STREAM collection_stream (
     event VARCHAR,
@@ -279,7 +283,7 @@ kubectl exec -it [tei2json-api-PODNAME] -- node app.js
 
 ### 7. Seed your Kafka cluster
 
-Run the seed function that is inside the data directory
+Run the seed function, ```node seed.js``` that is inside the data directory
 
 ```bash
 rc-api/data$ node seed.js
