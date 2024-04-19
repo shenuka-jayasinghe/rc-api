@@ -14,7 +14,8 @@ The best way to view this image is to download it and re-open in the browser
 
 ### Architecture running in Argo
 
-![Screencastfrom19-04-24161311-ezgif com-video-to-gif-converter](https://github.com/shenuka-jayasinghe/rc-api/assets/137282472/0f79a59d-ac1a-442e-830d-ba8f8d55a206)
+[Screencast from 19-04-24 16:13:11.webm](https://github.com/shenuka-jayasinghe/rc-api/assets/137282472/4a88921b-e44f-4e82-9f17-10f4e1cf2b3e)
+
 
 
 ## Steps
