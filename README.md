@@ -300,8 +300,8 @@ Working endpoints:
 
 | Microservice | Request | Body format | Data | Port | Endpoint |
 |-------------|---------|-------------|------|------|----------|
-| Narratives | ```get```| JSON |  | 3006 | http://localhost/api/v1/narratives/allEvents/[:title] |
-| Narratives | ```post``` <br> ```put``` <br> ```delete``` <br> ```get```| JSON |  | 3006 | http://localhost/api/v1/narratives/[:title] |
+| Narratives | ```get```| JSON |  | 3006 | http://localhost/api/v1/narratives/allEvents/[:IRN] |
+| Narratives | ```post``` <br> ```put``` <br> ```delete``` <br> ```get```| JSON |  | 3006 | http://localhost/api/v1/narratives/[:IRN] |
 | Mapping | ```get```| JSON |  | 3005 | http://localhost/api/v1/mapping/allEvents/[:IRN] |
 | Mapping | ```post``` <br> ```put``` <br> ```delete``` <br> ```get```| JSON |  | 3005 | http://localhost/api/v1/mapping/[:IRN] |
 | TEI Template | ```get```| XML |  | 3004 | http://localhost/api/v1/tei/template/allEvents/[:IRN] |
