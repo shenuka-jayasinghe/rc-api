@@ -16,11 +16,22 @@ The best way to view this image is to download it and re-open in the browser
 
 ## Steps
 
-1. [Run the Containers](#1-run-the-containers)
+
+1. [Setup your Kubernetes and Kafka Cluster](#1-setup-your-kubernetes-and-kafka-cluster)
+
+	1. [Activate Kubernetes](#1-activate-kubernetes)
+	2. [Run NGINX Ingress Controller](#2-run-nginx-ingress-controller)
+	3. [Run Kubernetes Cluster using ArgoCD](#3-run-the-kubernetes-cluster-using-argocd)
+	4. [Setup KSQL for SQL queries](#4-setup-ksqldb-for-sql-queries)
+	5. [Activate tei2json service](#5-activate-the-tei2json-service)
+
+
 2. [REST API](#2-rest-api)
 3. [Check the Kafka Topic](#3-check-the-kafka-topic)
 
 The images now run on a Kubernetes cluster. If you still prefer to use Docker compose, they are in the ```depracated``` directory.
+
+## 1. Setup your Kubernetes and Kafka Cluster
 
 ### 1. Activate Kubernetes
 
