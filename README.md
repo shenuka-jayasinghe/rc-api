@@ -13,8 +13,8 @@
 
 The best way to view this image is to download it and re-open in the browser
 
+![MDC-architecture drawio (5)](https://github.com/shenuka-jayasinghe/rc-api/assets/137282472/e0f6ae02-2ed2-4f62-bea4-77ab79114ee5)
 
-![MDC-architecture drawio (4)](https://github.com/shenuka-jayasinghe/rc-api/assets/137282472/6d124749-b938-46e9-806d-29cd0dfc8653)
 
 ### Architecture running in Argo
 
