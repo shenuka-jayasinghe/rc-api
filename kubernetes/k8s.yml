@@ -161,7 +161,7 @@ metadata:
 spec:
   selector:
     app: tei2json-api
-  type: LoadBalancer
+  type: ClusterIP
   ports:
     - protocol: TCP
       port: 3001
@@ -201,7 +201,7 @@ metadata:
 spec:
   selector:
     app: tei-api
-  type: LoadBalancer
+  type: ClusterIP
   ports:
     - protocol: TCP
       port: 3000
@@ -244,7 +244,7 @@ metadata:
 spec:
   selector:
     app: json-api
-  type: LoadBalancer
+  type: ClusterIP
   ports:
     - protocol: TCP
       port: 3002
@@ -286,7 +286,7 @@ metadata:
 spec:
   selector:
     app: collections-api
-  type: LoadBalancer
+  type: ClusterIP
   ports:
     - protocol: TCP
       port: 3003
@@ -329,7 +329,7 @@ metadata:
 spec:
   selector:
     app: tei-template-api
-  type: LoadBalancer
+  type: ClusterIP
   ports:
     - protocol: TCP
       port: 3004
@@ -372,7 +372,7 @@ metadata:
 spec:
   selector:
     app: mapping-api
-  type: LoadBalancer
+  type: ClusterIP
   ports:
     - protocol: TCP
       port: 3005
@@ -415,7 +415,7 @@ metadata:
 spec:
   selector:
     app: narratives-api
-  type: LoadBalancer
+  type: ClusterIP
   ports:
     - protocol: TCP
       port: 3006
@@ -457,7 +457,7 @@ metadata:
 spec:
   selector:
     app: mdc-dos
-  type: LoadBalancer
+  type: ClusterIP
   ports:
     - protocol: TCP
       port: 3008
