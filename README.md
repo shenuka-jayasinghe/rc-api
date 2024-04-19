@@ -43,7 +43,8 @@ The images now run on a Kubernetes cluster. If you still prefer to use Docker co
 
 Enable Kubernetes using [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 
------INSERT PICTURE------
+![Screenshot from 2024-04-12 22-37-31](https://github.com/shenuka-jayasinghe/rc-api/assets/137282472/774b45db-6182-4b33-a146-211c39302ad9)
+
 
 ### 2. Run NGINX Ingress Controller
 
@@ -76,7 +77,8 @@ Watch the pods until the ingress-controller is running
 ```bash
 kubectl get pods --namespace ingress-nginx -w
 ```
------INSERT PICTURE------
+![Screenshot from 2024-04-19 15-10-08](https://github.com/shenuka-jayasinghe/rc-api/assets/137282472/a8d126f8-c820-402f-845f-b9296070b6c9)
+
 
 ### 3. Run the Kubernetes Cluster using ArgoCD
 
