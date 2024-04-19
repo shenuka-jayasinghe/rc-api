@@ -154,7 +154,7 @@ Run this in terminal:
 sudo nano /etc/hosts
 ```
 
-and ``kafka`` as one of the names for 127.0.0.1
+add ``kafka`` as one of the names for 127.0.0.1
 
 ```bash
 127.0.0.1       kafka
@@ -163,6 +163,7 @@ and ``kafka`` as one of the names for 127.0.0.1
 ### 4. Check that Kafka topics have been created
 
 Check that the following topics have been created
+
 	1. json-topic
 	2. tei-topic
 	3. narratives-topic
