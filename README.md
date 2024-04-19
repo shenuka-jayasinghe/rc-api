@@ -12,6 +12,8 @@ The best way to view this image is to download it and re-open in the browser
 
 ![MDC-architecture drawio (4)](https://github.com/shenuka-jayasinghe/rc-api/assets/137282472/6d124749-b938-46e9-806d-29cd0dfc8653)
 
+### Architecture running in Argo
+
 
 
 ## Steps
@@ -22,12 +24,13 @@ The best way to view this image is to download it and re-open in the browser
 	1. [Activate Kubernetes](#1-activate-kubernetes)
 	2. [Run NGINX Ingress Controller](#2-run-nginx-ingress-controller)
 	3. [Run Kubernetes Cluster using ArgoCD](#3-run-the-kubernetes-cluster-using-argocd)
-	4. [Setup KSQL for SQL queries](#4-setup-ksqldb-for-sql-queries)
-	5. [Activate tei2json service](#5-activate-the-tei2json-service)
-
+	4. [Chec Kafka Topics have been created](#4-check-that-kafka-topics-have-been-created)
+	5. [Setup KSQL for SQL queries](#5-setup-ksqldb-for-sql-queries)
+	6. [Activate tei2json service](#6-activate-the-tei2json-service)
+	7. [Seed your Kafka Cluster](#7-seed-your-kafka-cluster)
 
 2. [REST API](#2-rest-api)
-3. [Check the Kafka Topic](#3-check-the-kafka-topic)
+3. [Example Data](#3-example-data)
 
 The images now run on a Kubernetes cluster. If you still prefer to use Docker compose, they are in the ```depracated``` directory.
 
@@ -149,7 +152,39 @@ and ``kafka`` as one of the names for 127.0.0.1
 127.0.0.1       kafka
 127.0.0.1       localhost
 ```
-### 4. Setup KSQLDB for SQL queries
+### 4. Check that Kafka topics have been created
+
+Check that the following topics have been created
+	1. json-topic
+	2. tei-topic
+	3. narratives-topic
+	4. collections-topic
+	5. mapping-topic
+	6. tei-template-topic
+
+You can check by
+
+1. Finding the Kafka pod
+```bash
+kubectl get pods
+```
+
+2. List topics
+```bash
+kubectl exec -it [KAFKA-POD-NAME] -- kafka-topics.sh --list --bootstrap-server localhost:9092
+```
+If all topics are present, proceed the next step. If not make sure to create all topics
+
+```bash
+kubectl exec -it [KAFKA-POD-NAME] -- kafka-topics.sh --create --topic [TOPIC-NAME] --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1
+```
+for example
+
+```bash
+kubectl exec -it kafka-7756d6c55d-xdqhc -- kafka-topics.sh --create --topic narratives-topic --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1
+```
+
+### 5. Setup KSQLDB for SQL queries
 
 Find your KSQLDB-CLI pod name
 ```bash
@@ -224,7 +259,7 @@ CREATE STREAM narratives_stream (
 );
 ```
 
-### 5. Activate the TEI2JSON service
+### 6. Activate the TEI2JSON service
 
 Find your ```tei2json-api``` pod name
 ```bash
@@ -238,9 +273,9 @@ kubectl exec -it [tei2json-api-PODNAME] -- docker run shenukacj/cudl-xslt:0.0.5
 kubectl exec -it [tei2json-api-PODNAME] -- node app.js
 ```
 
-### 5. Seed your Kafka cluster
+### 7. Seed your Kafka cluster
 
-Run the seed function that inside the data directory
+Run the seed function that is inside the data directory
 
 ```bash
 rc-api/data$ node seed.js
@@ -257,6 +292,12 @@ Working endpoints:
 
 | Microservice | Request | Body format | Data | Port | Endpoint |
 |-------------|---------|-------------|------|------|----------|
+| Narratives | ```get```| JSON |  | 3006 | http://localhost/api/v1/narratives/allEvents/[:title] |
+| Narratives | ```post``` <br> ```put``` <br> ```delete``` <br> ```get```| JSON |  | 3006 | http://localhost/api/v1/narratives/[:title] |
+| Mapping | ```get```| JSON |  | 3005 | http://localhost/api/v1/mapping/allEvents/[:IRN] |
+| Mapping | ```post``` <br> ```put``` <br> ```delete``` <br> ```get```| JSON |  | 3005 | http://localhost/api/v1/mapping/[:IRN] |
+| TEI Template | ```get```| XML |  | 3004 | http://localhost/api/v1/tei/template/allEvents/[:IRN] |
+| TEI Template | ```post``` <br> ```put``` <br> ```delete``` <br> ```get```| XML |  | 3004 | http://localhost/api/v1/tei/template/[:IRN] |
 | Collections | ```get```| JSON |  | 3003 | http://localhost/api/v1/collections/allEvents/[:title] |
 | Collections | ```post``` <br> ```put``` <br> ```delete``` <br> ```get```| JSON |  | 3003 | http://localhost/api/v1/collections/[:title] |
 | TEI to JSON | ```post```| XML | [TEI Example](#tei-example)| 3001 | http://localhost/api/v1/tei2json/cudl-xslt/[:id]|
@@ -266,7 +307,7 @@ Working endpoints:
 | Item TEI | ```get```| XML | | 3000 | http://localhost/api/v1/tei/allEvents/[:id] |
 
 
-## Example Data
+## 3. Example Data
 
 ### TEI Example
 ```xml
@@ -1007,10 +1048,3 @@ Working endpoints:
 ]
 ```
 
-### 3. Check the Kafka Topic
-
-1. Check that the JSON data has also been posted to the Kafka Topic
-
-``` bash
-sudo docker exec -it kafka /opt/bitnami/kafka/bin/kafka-console-consumer.sh --bootstrap-server kafka:9092 --topic cudl-json-topic --from-beginning
-```
