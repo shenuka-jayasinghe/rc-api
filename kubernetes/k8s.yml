@@ -481,6 +481,6 @@ spec:
     spec:
       containers:
         - name: mdc-dos
-          image: shenukacj/mdc-dos:0.0.3
+          image: shenukacj/mdc-dos:0.0.4
 
 ---
