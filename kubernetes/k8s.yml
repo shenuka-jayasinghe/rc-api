@@ -174,7 +174,7 @@ kind: Deployment
 metadata:
   name: tei2json-api
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: tei2json-api
