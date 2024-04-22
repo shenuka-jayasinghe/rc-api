@@ -63,7 +63,7 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: monitor-api
+            name: monitor-service
             port:
               number: 3007
       
