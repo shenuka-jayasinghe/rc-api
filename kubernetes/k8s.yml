@@ -185,7 +185,7 @@ spec:
     spec:
       containers:
         - name: tei2json-api
-          image: shenukacj/tei2json-api:0.0.12
+          image: shenukacj/tei2json-api:0.0.13
           ports:
             - containerPort: 3001
           securityContext:           
@@ -481,6 +481,6 @@ spec:
     spec:
       containers:
         - name: mdc-dos
-          image: shenukacj/mdc-dos:0.0.7
+          image: shenukacj/mdc-dos:0.0.8
 
 ---
