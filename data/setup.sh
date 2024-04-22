@@ -58,4 +58,15 @@ CREATE STREAM narratives_stream (
     KAFKA_TOPIC='narratives-topic',
     VALUE_FORMAT='JSON'
 );
+
+CREATE STREAM monitor_stream (
+    id VARCHAR,
+    kafka_topic VARCHAR,
+    event VARCHAR,
+    timestamp BIGINT,
+    partition VARCHAR
+) WITH (
+    KAFKA_TOPIC='monitor-topic',
+    VALUE_FORMAT='JSON'
+);
 EOF

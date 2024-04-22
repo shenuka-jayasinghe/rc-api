@@ -12,19 +12,30 @@ const teiTemplateUrl = process.env.TEI_TEMPLATE_URL;
 const teiUrl = process.env.TEI_URL;
 const jsonUrl = process.env.JSON_URL;
 
-async function convertTeiToJson(id, tei) {
+async function sendToTeiQueue(id, tei) {
+  console.log(`TEI URL ==> ${teiUrl}`)
   try {
     const options = {
       method: "post",
-      url: `${tei2jsonUrl}/api/v1/tei2json/cudl-xslt/${id}`,
+      url: `${teiUrl}/api/v1/tei/${id}`,
       data: tei,
     };
     const jsonResponse = await axios(options);
-    console.log("Successfully converted TEI to JSON:", jsonResponse.data);
+    console.log("Successfully sent to TEI Queue:", jsonResponse.data);
     return jsonResponse.data; // Return the converted JSON data
   } catch (error) {
-    console.error("Error converting TEI to JSON:", error);
+    console.error("Error sending to TEI Queue", error);
     throw error; // Rethrow the error for the caller to handle if needed
+  }
+}
+
+async function fetchData(url, errorMessage) {
+  try {
+    const response = await axios.get(url);
+    return response.data;
+  } catch (error) {
+    console.log(errorMessage, error.message);
+    return null;
   }
 }
 
@@ -32,28 +43,37 @@ async function processNarratives(id, narrativeMessageString) {
   try {
     console.log(`
     MAPPING_URL ==> ${mappingUrl}
-    TEI2JSON_URL ==> ${tei2jsonUrl}
     TEI_TEMPLATE_URL => ${teiTemplateUrl}
-    `)
+    `);
     const narrativeMessage = JSON.parse(narrativeMessageString);
     const narrativeJsonString = JSON.stringify(narrativeMessage.json);
 
-    // Fetch TEI template
-    const teiTemplateResponse = await axios.get(
-      `${teiTemplateUrl}/api/v1/tei/template/${id}`
+    const teiTemplateMessage = await fetchData(
+      `${teiTemplateUrl}/api/v1/tei/template/${id}`,
+      `TEI template not available yet for id ${id}`
     );
-    const teiTemplateMessage = teiTemplateResponse.data;
+    if (!teiTemplateMessage) return;
+
     const teiTemplateString = teiTemplateMessage["TEI_TEMPLATE"];
 
-    // Fetch mapping
-    const mappingResponse = await axios.get(
-      `${mappingUrl}/api/v1/mapping/${id}`
+    const mappingMessage = await fetchData(
+      `${mappingUrl}/api/v1/mapping/${id}`,
+      `Mapping not available yet for id ${id}`
     );
+    if (!mappingMessage) return;
+
     console.log("get", `${mappingUrl}/api/v1/mapping/${id}`);
-    const mappingMessage = mappingResponse.data;
     const mappingString = mappingMessage["JSON"];
 
-    // Perform mapping to TEI
+    const narrativesMessage = await fetchData(
+      `${narrativesUrl}/api/v1/narratives/${id}`,
+      `Narratives not available yet for id ${id}`
+    );
+    if (!narrativesMessage) return;
+
+    console.log("get", `${narrativesUrl}/api/v1/narratives/${id}`);
+    const narrativesString = narrativesMessage["JSON"];
+
     const processedTeis = await mapToTei(
       narrativeJsonString,
       teiTemplateString,
@@ -64,29 +84,20 @@ async function processNarratives(id, narrativeMessageString) {
     for (let i = 0; i < processedTeis.length; i++) {
       const idAndTei = processedTeis[i];
       try {
-          await convertTeiToJson(idAndTei.id, idAndTei.tei);
-          console.log(`Processing item ${i + 1} out of ${processedTeis.length}`);
-      } catch (error) {
-          // Handle error if needed
-      }
-  }
-    console.log(`==================================
-    *** Successfully converted all TEI to JSON ***
+        await sendToTeiQueue(idAndTei.id, idAndTei.tei);
+        console.log(`Processing item ${i + 1} out of ${processedTeis.length}`);
+        if (i === processedTeis.length - 1) {
+          console.log(`==================================
+    *** Successfully to TEI Queue ***
     ==================================
-    `)
-  } catch (error) {
-    if (error.response) {
-      // The request was made and the server responded with a status code
-      console.error("Server responded with error:", error.response.status);
-      console.error("Error data:", error.response.data);
-    } else if (error.request) {
-      // The request was made but no response was received
-      console.error("No response received from server:", error.request);
-    } else {
-      // Something happened in setting up the request that triggered an Error
-      console.error("Error setting up request:", error.message);
+    `);
+        }
+      } catch (error) {
+        // Handle error if needed
+      }
     }
-    // Rethrow the error for the caller to handle if needed
+  } catch (error) {
+    console.error("Error processing narratives:", error.message);
     throw error;
   }
 }
@@ -95,28 +106,37 @@ async function processMapping(id, mappingMessageString) {
   try {
     console.log(`
     NARRATIVES_URL ==> ${narrativesUrl}
-    TEI2JSON_URL ==> ${tei2jsonUrl}
     TEI_TEMPLATE_URL => ${teiTemplateUrl}
-    `)
-    const mappingMessage = JSON.parse(mappingMessageString);
-    const mappingJsonString = JSON.stringify(mappingMessage.json);
+    `);
+    const mappingMsg = JSON.parse(mappingMessageString);
+    const mappingJsonString = JSON.stringify(mappingMsg.json);
 
-    // Fetch TEI template
-    const teiTemplateResponse = await axios.get(
-      `${teiTemplateUrl}/api/v1/tei/template/${id}`
+    const teiTemplateMessage = await fetchData(
+      `${teiTemplateUrl}/api/v1/tei/template/${id}`,
+      `TEI template not available yet for id ${id}`
     );
-    const teiTemplateMessage = teiTemplateResponse.data;
+    if (!teiTemplateMessage) return;
+
     const teiTemplateString = teiTemplateMessage["TEI_TEMPLATE"];
 
-    // Fetch Narratives
-    const narrativesResponse = await axios.get(
-      `${narrativesUrl}/api/v1/narratives/${id}`
+    const narrativesMessage = await fetchData(
+      `${narrativesUrl}/api/v1/narratives/${id}`,
+      `Narratives not available yet for id ${id}`
     );
+    if (!narrativesMessage) return;
+
     console.log("get", `${narrativesUrl}/api/v1/narratives/${id}`);
-    const narrativesMessage = narrativesResponse.data;
     const narrativesString = narrativesMessage["JSON"];
 
-    // Perform mapping to TEI
+    const mappingMessage = await fetchData(
+      `${mappingUrl}/api/v1/mapping/${id}`,
+      `Mapping not available yet for id ${id}`
+    );
+    if (!mappingMessage) return;
+
+    console.log("get", `${mappingUrl}/api/v1/mapping/${id}`);
+    const mappingString = mappingMessage["JSON"];
+
     const processedTeis = await mapToTei(
       narrativesString,
       teiTemplateString,
@@ -127,59 +147,49 @@ async function processMapping(id, mappingMessageString) {
     for (let i = 0; i < processedTeis.length; i++) {
       const idAndTei = processedTeis[i];
       try {
-          await convertTeiToJson(idAndTei.id, idAndTei.tei);
-          console.log(`Processing item ${i + 1} out of ${processedTeis.length}`);
+        await sendToTeiQueue(idAndTei.id, idAndTei.tei);
+        console.log(`Processing item ${i + 1} out of ${processedTeis.length}`);
       } catch (error) {
-          // Handle error if needed
+        // Handle error if needed
       }
-  }
-    console.log(`==================================
-    *** Successfully converted all TEI to JSON ***
-    ==================================
-    `)
-  } catch (error) {
-    if (error.response) {
-      // The request was made and the server responded with a status code
-      console.error("Server responded with error:", error.response.status);
-      console.error("Error data:", error.response.data);
-    } else if (error.request) {
-      // The request was made but no response was received
-      console.error("No response received from server:", error.request);
-    } else {
-      // Something happened in setting up the request that triggered an Error
-      console.error("Error setting up request:", error.message);
     }
-    // Rethrow the error for the caller to handle if needed
+    console.log(`==================================
+    *** Successfully to TEI Queue ***
+    ==================================
+    `);
+  } catch (error) {
+    console.error("Error processing mapping:", error.message);
     throw error;
   }
 }
+
 
 async function processTeiTemplate(id, templateMessageString) {
   try {
     console.log(`
     NARRATIVES_URL ==> ${narrativesUrl}
-    TEI2JSON_URL ==> ${tei2jsonUrl}
     MAPPING_URL => ${mappingUrl}
-    `)
+    `);
     const templateMessage = JSON.parse(templateMessageString);
-    const templateString = templateMessage['TEI_TEMPLATE'];
+    const templateString = templateMessage["TEI_TEMPLATE"];
 
-    // Fetch Mapping
-    const mappingResponse = await axios.get(
-      `${mappingUrl}/api/v1/mapping/${id}`
+    const mappingMessage = await fetchData(
+      `${mappingUrl}/api/v1/mapping/${id}`,
+      `Mapping not available yet for id ${id}`
     );
-    const mappingMessage = mappingResponse.data;
-    const mappingString = mappingMessage["JSON"];
+    if (!mappingMessage) return;
 
-    // Fetch Narratives
-    const narrativesResponse = await axios.get(
-      `${narrativesUrl}/api/v1/narratives/${id}`
+    const narrativesMessage = await fetchData(
+      `${narrativesUrl}/api/v1/narratives/${id}`,
+      `Narratives not available yet for id ${id}`
     );
+    if (!narrativesMessage) return;
+
     console.log("get", `${narrativesUrl}/api/v1/narratives/${id}`);
-    const narrativesMessage = narrativesResponse.data;
     const narrativesString = narrativesMessage["JSON"];
 
-    // Perform mapping to TEI
+    const mappingString = mappingMessage["JSON"];
+
     const processedTeis = await mapToTei(
       narrativesString,
       templateString,
@@ -190,29 +200,18 @@ async function processTeiTemplate(id, templateMessageString) {
     for (let i = 0; i < processedTeis.length; i++) {
       const idAndTei = processedTeis[i];
       try {
-          await convertTeiToJson(idAndTei.id, idAndTei.tei);
-          console.log(`Processing item ${i + 1} out of ${processedTeis.length}`);
+        await sendToTeiQueue(idAndTei.id, idAndTei.tei);
+        console.log(`Processing item ${i + 1} out of ${processedTeis.length}`);
       } catch (error) {
-          // Handle error if needed
+        // Handle error if needed
       }
-  }
-    console.log(`==================================
-    *** Successfully converted all TEI to JSON ***
-    ==================================
-    `)
-  } catch (error) {
-    if (error.response) {
-      // The request was made and the server responded with a status code
-      console.error("Server responded with error:", error.response.status);
-      console.error("Error data:", error.response.data);
-    } else if (error.request) {
-      // The request was made but no response was received
-      console.error("No response received from server:", error.request);
-    } else {
-      // Something happened in setting up the request that triggered an Error
-      console.error("Error setting up request:", error.message);
     }
-    // Rethrow the error for the caller to handle if needed
+    console.log(`==================================
+    *** Successfully to TEI Queue ***
+    ==================================
+    `);
+  } catch (error) {
+    console.error("Error processing TEI template:", error.message);
     throw error;
   }
 }

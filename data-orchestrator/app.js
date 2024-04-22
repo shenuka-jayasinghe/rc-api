@@ -1,4 +1,4 @@
-// sudo docker build -t shenukacj/mdc-dos:0.0.7 . && sudo docker push shenukacj/mdc-dos:0.0.7
+// sudo docker build -t shenukacj/mdc-dos:0.0.9 . && sudo docker push shenukacj/mdc-dos:0.0.9
 const express = require('express');
 const cors = require('cors');
 const { runConsumer } = require('./consumer/consumer.js');

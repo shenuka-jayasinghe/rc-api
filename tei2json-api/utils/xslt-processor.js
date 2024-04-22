@@ -3,7 +3,7 @@ const exec = util.promisify(require("child_process").exec);
 const fs = require("fs/promises");
 const path = require("path");
 const pathToEnvFile = `${__dirname}/.env.local`
-require("dotenv").config({ path : pathToEnvFile })
+require("dotenv").config({ path: pathToEnvFile })
 
 const SUDO_PASSWORD = process.env.SUDO_PASSWORD;
 
@@ -15,15 +15,21 @@ exports.processDataWithDocker = async (
   const sudoDockerString = isSudoDocker ? "echo $SUDO_PASSWORD | sudo -S docker" : "docker";
 
   try {
+    // Check if the /data directory exists
+    const dataDirExists = await directoryExists(path.join(__dirname, "data"));
+    if (!dataDirExists) {
+      // If the /data directory doesn't exist, create it
+      await fs.mkdir(path.join(__dirname, "data"));
+    }
+
     // Write the XML data to a temporary file
-    await exec(`mkdir ${__dirname}/data`)
-    const xmlFilePath = path.join(`${__dirname}/data`, "data.xml");
+    const xmlFilePath = path.join(__dirname, "data", "data.xml");
     await fs.writeFile(xmlFilePath, xmlData, "utf8");
     console.log("XML data written to:", xmlFilePath);
     await exec(`export SUDO_PASSWORD=${SUDO_PASSWORD}`);
 
     if (xsltDirectory === "") {
-      //No XSLT directory specified
+      // No XSLT directory specified
       // Run the ant build command inside the Docker container with local volume mount
       const command = `${sudoDockerString} run --rm -v ${__dirname}/data:/opt/data -v ${__dirname}/json:/opt/json shenukacj/cudl-xslt:0.0.5 ant -buildfile ./bin/build.xml "json"`
       const { stdout: antOutput } = await exec(command);
@@ -36,7 +42,8 @@ exports.processDataWithDocker = async (
       console.log("Ant command executed:", antOutput.trim());
     }
 
-    await exec(`rm -r ${__dirname}/data`)
+    // Delete the /data directory and its contents
+    await fs.rm(path.join(__dirname, "data"), { recursive: true });
 
     // Read and parse JSON files
     const jsonDir = path.join(__dirname, "json");
@@ -67,7 +74,7 @@ exports.processDataWithDocker = async (
     return jsonData.filter((data) => data);
   } catch (err) {
     console.error("Error:", err);
-    await exec(`rm -r ${__dirname}/data`)
+    await fs.rm(path.join(__dirname, "data"), { recursive: true });
     return ['XSLT transformation failed'];
   }
 }
@@ -82,3 +89,15 @@ async function readJsonFiles(filePath) {
   }
 }
 
+async function directoryExists(dirPath) {
+  try {
+    await fs.access(dirPath);
+    return true;
+  } catch (err) {
+    if (err.code === "ENOENT") {
+      return false;
+    } else {
+      throw err;
+    }
+  }
+}

@@ -9,6 +9,7 @@ const pathToEnvFile = `${__dirname}/../.env.${ENV}`
 require("dotenv").config({ path: pathToEnvFile })
 
 const KAFKA_CLIENT = process.env.KAFKA_CLIENT;
+const CONSUMER_GROUP = process.env.CONSUMER_GROUP;
 
 const kafka = new Kafka({
   clientId: "data-orchestrator-service",
@@ -16,13 +17,13 @@ const kafka = new Kafka({
 });
 
 // Create a consumer instance
-const consumer = kafka.consumer({ groupId: 'dos-group' });
+const consumer = kafka.consumer({ groupId: CONSUMER_GROUP });
 
 
 // Connect to Kafka broker and subscribe to the json-topic
 exports.runConsumer = async () => {
     await consumer.connect();
-    await consumer.subscribe({ topics: ['narratives-topic','mapping-topic','tei-template-topic','tei-topic','json-topic'] });
+    await consumer.subscribe({ topics: ['narratives-topic','mapping-topic','tei-template-topic'] });
   
     // Run the consumer
     await consumer.run({
