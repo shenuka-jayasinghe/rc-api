@@ -266,6 +266,17 @@ CREATE STREAM narratives_stream (
     KAFKA_TOPIC='narratives-topic',
     VALUE_FORMAT='JSON'
 );
+
+CREATE STREAM monitor_stream (
+    id VARCHAR,
+    kafka_topic VARCHAR,
+    event VARCHAR,
+    timestamp BIGINT,
+    partition VARCHAR
+) WITH (
+    KAFKA_TOPIC='monitor-topic',
+    VALUE_FORMAT='JSON'
+);
 ```
 
 ### 6. Activate the TEI2JSON service
@@ -301,6 +312,7 @@ Working endpoints:
 
 | Microservice | Request | Body format | Data | Port | Endpoint |
 |-------------|---------|-------------|------|------|----------|
+| Monitor | ```get``` <br> ```get``` | |  | 3007 | http://localhost/api/v1/monitor/[:id]  <br> http://localhost/api/v1/monitor/last/[:id] |
 | Narratives | ```get```| JSON |  | 3006 | http://localhost/api/v1/narratives/allEvents/[:IRN] |
 | Narratives | ```post``` <br> ```put``` <br> ```delete``` <br> ```get```| JSON |  | 3006 | http://localhost/api/v1/narratives/[:IRN] |
 | Mapping | ```get```| JSON |  | 3005 | http://localhost/api/v1/mapping/allEvents/[:IRN] |
