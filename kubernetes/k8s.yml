@@ -451,6 +451,49 @@ spec:
 
 ---
 
+apiVersion: v1
+kind: Service
+metadata:
+  name: monitor-service
+spec:
+  selector:
+    app: monitor-service
+  type: ClusterIP
+  ports:
+    - protocol: TCP
+      port: 3007
+      targetPort: 3007
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: monitor-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: monitor-service
+  template:
+    metadata:
+      labels:
+        app: monitor-service
+    spec:
+      containers:
+        - name: monitor-service
+          image: shenukacj/monitor-service:0.0.1
+          ports:
+            - containerPort: 3007
+          livenessProbe:
+            httpGet:
+              path: /api/v1/monitor/healthcheck
+              port: 3007
+            initialDelaySeconds: 15
+            periodSeconds: 10
+
+---
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:

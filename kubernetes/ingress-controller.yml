@@ -59,5 +59,12 @@ spec:
             name: narratives-api
             port:
               number: 3006
+      - path: /api/v1/monitor
+        pathType: Prefix
+        backend:
+          service:
+            name: monitor-api
+            port:
+              number: 3007
       
   ingressClassName: nginx
