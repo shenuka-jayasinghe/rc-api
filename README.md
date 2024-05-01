@@ -1111,3 +1111,8 @@ You can change the XSL process inside
 
 Here the ```msTeiPreFilter.xsl``` and ```jsonDocFormatter.xsl``` file can be changed
 
+You can test the output by sending a ```post``` request to:
+
+http://localhost:3009/api/v1/xslt/[:id]
+
+for example, you ```post``` [this TEI](#3-example-data) to http://localhost:3009/api/v1/xslt/PR-CHCR-00023 
