@@ -3,6 +3,7 @@
 1. [Dependencies](#dependencies)
 2. [Architecture](#architecture)
 3. [Setup](#setup)
+4. [Local Isolated Testing](#4-local-isolated-testing)
 
 ## Dependencies
 
