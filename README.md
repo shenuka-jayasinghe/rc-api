@@ -4,6 +4,7 @@
 2. [Architecture](#architecture)
 3. [Setup](#setup)
 4. [Local Isolated Testing](#4-local-isolated-testing)
+	1. [XSLT testing](#1-xslt-testing)
 
 ## Dependencies
 
@@ -1089,6 +1090,24 @@ add ``kafka`` as one of the names for 127.0.0.1
 2. Run temporary Kafka Instance
 
 Go to the ```kafka-dev``` directory and run ```docker compose up```
-```
+```bash
 rc-api/kafka-dev$ docker compose up
 ```
+Leave this terminal running and open another terminal for other work
+
+3. Run the local service in NodeJS
+
+For example, the XSLT service:
+
+```bash
+rc-api/xslt-service$ node app.js
+```
+
+### 1. XSLT Testing
+
+You can change the XSL process inside
+
+```xslt-service/utils/xslt``` directory
+
+Here the ```msTeiPreFilter.xsl``` and ```jsonDocFormatter.xsl``` file can be changed
+
