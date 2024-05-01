@@ -1113,10 +1113,6 @@ After setting up for [local isolated testing](#4-local-isolated-testing), run th
 ```bash
 rc-api/xslt-service$ node app.js
 ```
-or running a Docker container:
-```bash
-docker run shenukacj/mdc-xslt:0.0.1 -p 3009:3009
-```
 
 You can test the output by sending a ```post``` request to:
 
