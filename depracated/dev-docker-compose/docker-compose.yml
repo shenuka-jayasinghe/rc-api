@@ -37,4 +37,4 @@ services:
 # kubectl exec -it kafka-7756d6c55d-qfr7z -- kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic narratives-topic --from-beginning
 
 
-# kubectl exec -it tei2json-api-787b86748b-g5jwm -- docker run shenukacj/cudl-xslt:0.0.5 && kubectl exec -it tei2json-api-787b86748b-g5jwm -- node app.js
+# kubectl exec -it tei2json-api-787b86748b-s9spf -- docker run shenukacj/cudl-xslt:0.0.5 && kubectl exec -it tei2json-api-787b86748b-s9spf -- node app.js

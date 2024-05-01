@@ -1069,3 +1069,25 @@ Working endpoints:
 ]
 ```
 
+## 4. Local Isolated Testing
+
+1. Reconfigure Localhost
+
+Run this in terminal:
+```bash
+sudo nano /etc/hosts
+```
+
+add ``kafka`` as one of the names for 127.0.0.1
+
+```bash
+127.0.0.1       kafka
+127.0.0.1       localhost
+```
+
+2. Run temporary Kafka Instance
+
+Go to the ```kafka-dev``` directory and run ```docker compose up```
+```
+rc-api/kafka-dev$ docker compose up
+```
