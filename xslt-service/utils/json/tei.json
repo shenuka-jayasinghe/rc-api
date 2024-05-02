@@ -1,0 +1,251 @@
+
+         {
+            "descriptiveMetadata": 
+               [
+                
+         {
+            "displayImageRights": "Zooming image © University of Manchester Library, All rights reserved.",
+            "downloadImageRights": "Images made available for download are licensed under a Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0). © Manchester Museum, The University of Manchester, All rights reserved.",
+            "imageReproPageURL": "https://imagingservices.lib.cam.ac.uk/",
+            "metadataRights": "Metadata made available for download is licensed under Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0).",
+            "docAuthority": "Manchester Museum",
+            "fundings": 
+               {
+               "display": true, 
+               "seq": 262, 
+                  "label": "Funding", 
+               "value": [
+                
+               {
+               "display": true, 
+                  "displayForm": "", 
+               "seq": 263
+               }
+               ]
+               },
+            "subjects": 
+               {
+               "display": true, 
+               "seq": 24, 
+                  "listDisplay": "inline", 
+                  "label": "Subject(s)", 
+               "value": [
+                
+         {
+               "display": true, 
+                  "displayForm": "Museums--England", 
+               "seq": 25, 
+                  "linktype": "keyword search", 
+            "fullForm": "Museums--England",
+            "authority": "Library of Congress Subject Headings",
+            "authorityURI": "http://id.loc.gov/authorities/about.html#lcsh",
+            "valueURI": "subject_sh2011004655"
+         },
+         {
+               "display": true, 
+                  "displayForm": "Museum objects", 
+               "seq": 25, 
+                  "linktype": "keyword search", 
+            "fullForm": "Museum objects",
+            "authority": "Library of Congress Subject Headings",
+            "authorityURI": "http://id.loc.gov/authorities/about.html#lcsh",
+            "valueURI": "subject_sh2022006209"
+         },
+         {
+               "display": true, 
+                  "displayForm": "Antiquities", 
+               "seq": 25, 
+                  "linktype": "keyword search", 
+            "fullForm": "Antiquities",
+            "authority": "Library of Congress Subject Headings",
+            "authorityURI": "http://id.loc.gov/authorities/about.html#lcsh",
+            "valueURI": "subject_sh85005757"
+         },
+         {
+               "display": true, 
+                  "displayForm": "Classical antiquities", 
+               "seq": 25, 
+                  "linktype": "keyword search", 
+            "fullForm": "Classical antiquities",
+            "authority": "Library of Congress Subject Headings",
+            "authorityURI": "http://id.loc.gov/authorities/about.html#lcsh",
+            "valueURI": "subject_sh85026692"
+         },
+         {
+               "display": true, 
+                  "displayForm": "Egypt--Antiquities, Roman", 
+               "seq": 25, 
+                  "linktype": "keyword search", 
+            "fullForm": "Egypt--Antiquities, Roman",
+            "authority": "Library of Congress Subject Headings",
+            "authorityURI": "http://id.loc.gov/authorities/about.html#lcsh",
+            "valueURI": "subject_sh85041264"
+         },
+         {
+               "display": true, 
+                  "displayForm": "Egypt--Antiquities", 
+               "seq": 25, 
+                  "linktype": "keyword search", 
+            "fullForm": "Egypt--Antiquities",
+            "authority": "Library of Congress Subject Headings",
+            "authorityURI": "http://id.loc.gov/authorities/about.html#lcsh",
+            "valueURI": "subject_sh85041263"
+         },
+         {
+               "display": true, 
+                  "displayForm": "Egyptology", 
+               "seq": 25, 
+                  "linktype": "keyword search", 
+            "fullForm": "Egyptology",
+            "authority": "Library of Congress Subject Headings",
+            "authorityURI": "http://id.loc.gov/authorities/about.html#lcsh",
+            "valueURI": "subject_sh85041367"
+         },
+         {
+               "display": true, 
+                  "displayForm": "Art, Greco-Roman", 
+               "seq": 25, 
+                  "linktype": "keyword search", 
+            "fullForm": "Art, Greco-Roman",
+            "authority": "Library of Congress Subject Headings",
+            "authorityURI": "http://id.loc.gov/authorities/about.html#lcsh",
+            "valueURI": "subject_sh85007688"
+         },
+         {
+               "display": true, 
+                  "displayForm": "Art, Egyptian--Exhibitions", 
+               "seq": 25, 
+                  "linktype": "keyword search", 
+            "fullForm": "Art, Egyptian--Exhibitions",
+            "authority": "Library of Congress Subject Headings",
+            "authorityURI": "http://id.loc.gov/authorities/about.html#lcsh",
+            "valueURI": "subject_sh2007101420"
+         }
+               ]
+               },
+            "ID": "DOCUMENT",
+            "creations": 
+               {
+               "display": true, 
+               "seq": 103, 
+               "value": [
+                
+         {
+            "type": "creation",
+            "places": 
+               {
+               "display": true, 
+               "seq": 108, 
+                  "label": "Origin Place", 
+               "value": [
+                
+         {
+               "display": true, 
+                  "displayForm": "", 
+               "seq": 109, 
+                  "linktype": "keyword search", 
+            "shortForm": "",
+            "fullForm": ""
+         }
+               ]
+               },
+            "dateDisplay": 
+               {
+               "display": true, 
+                  "displayForm": "", 
+                  "linktype": "keyword search", 
+                  "label": "Date of Creation", 
+               "seq": 117
+               }
+         }
+               ]
+               },
+            "acquisitions": 
+               {
+               "display": true, 
+               "seq": 256, 
+               "value": [
+                
+         {
+            "type": "acquisition"
+         }
+               ]
+               },
+            "physicalLocation": 
+               {
+               "display": true, 
+                  "displayForm": "Manchester Museum", 
+                  "label": "Physical Location", 
+               "seq": 4
+               },
+            "provenances": 
+               {
+               "display": true, 
+               "seq": 250, 
+                  "label": "Provenance", 
+               "value": [
+                
+               {
+               "display": true, 
+                  "displayForm": "", 
+               "seq": 251
+               }
+               ]
+               },
+            "bibliographies": 
+               {
+               "display": true, 
+               "seq": 270, 
+                  "label": "Bibliography", 
+               "value": [
+                
+               {
+               "display": true, 
+                  "displayForm": "<div style='list-style-type: disc;'><div style='display: list-item; margin-left: 20px;'><a target='_blank' class='externalLink' href='https://search.worldcat.org/title/1356890313'>Manchester Museum (University of Manchester). Golden Mummies of Egypt: Interpreting Identities from the Graeco-Roman Period. Manchester University Press 2023</a></div></div><br />", 
+               "seq": 271
+               }
+               ]
+               },
+            "title": 
+               {
+               "display": true, 
+                  "displayForm": "Untitled Item", 
+                  "label": "Title", 
+               "seq": 11
+               },
+            "technique": 
+               {
+               "display": true, 
+                  "displayForm": "", 
+                  "label": "Technique(s)", 
+               "seq": 215
+               }
+         }
+               ],
+            "numberOfPages": 1,
+            "embeddable": false,
+            "textDirection": "L",
+            "sourceData": "/v1/metadata/tei/tei/",
+            "pages": 
+               [
+                
+         {
+            "label": "cover",
+            "physID": "PHYS-1",
+            "sequence": 1
+         }
+               ],
+            "logicalStructures": 
+               [
+                
+         {
+            "descriptiveMetadataID": "DOCUMENT",
+            "label": "",
+            "startPageLabel": "cover",
+            "startPagePosition": 1,
+            "startPageID": "PHYS-1",
+            "endPageLabel": "cover",
+            "endPagePosition": 1
+         }
+               ]
+         }
